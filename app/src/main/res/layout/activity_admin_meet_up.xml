@@ -39,5 +39,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+    <Button
+        android:id="@+id/btn_Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Select Time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Time" />
+
+    <TextView
+        android:id="@+id/txt_Time"
+        android:layout_width="251dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="44dp"
+        android:hint="Time Chosen"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Date" />
+
 
 </android.support.constraint.ConstraintLayout>

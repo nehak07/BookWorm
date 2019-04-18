@@ -1,19 +1,23 @@
 package com.example.bookworm;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.nfc.Tag;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.util.Calendar;
 
-public class AdminMeetUpActivity extends AppCompatActivity {
+public class AdminMeetUpActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -23,6 +27,15 @@ public class AdminMeetUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_meet_up);
         mDisplayDate = (TextView) findViewById(R.id.txt_Date);
+
+        Button button = (Button) findViewById(R.id.btn_Time);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "time picker");
+            }
+        });
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,5 +69,11 @@ public class AdminMeetUpActivity extends AppCompatActivity {
             }
         };
 
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        TextView textView = (TextView) findViewById(R.id.txt_Time);
+        textView.setText("Hour: " + hourOfDay + "Minute" + minute);
     }
 }
