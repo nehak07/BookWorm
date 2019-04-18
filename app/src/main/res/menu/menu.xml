@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/logoutMenu"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Logout"
+        />
+
+    <item
+        android:id="@+id/SearchMenu"
+        android:icon="@drawable/search"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+        android:title="Book Search"
+        />
+
+    <item
+        android:id="@+id/FriendsMenu"
+        android:orderInCategory="300"
+        app:showAsAction="never"
+        android:title="Friends"
+        />
+
+
+
+</menu>

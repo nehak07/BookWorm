@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginEnd="8dp"
+    app:cardBackgroundColor="#FFFFE8"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+
+        <TextView
+            android:id="@+id/txt_view_Name"
+            android:layout_width="284dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:ellipsize="end"
+            android:fontFamily="Verdana"
+            android:maxLines="1"
+            android:text="Bookname"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/txt_view_Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:fontFamily="Verdana"
+            android:text="Price"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="31dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/txt_view_Name"
+            android:layout_toRightOf="@+id/txt_view_Name"
+            android:fontFamily="Verdana"
+            android:text="£"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/txt_view_Brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_view_Name"
+            android:fontFamily="Verdana"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/img_Outfit"
+            android:layout_width="168dp"
+            android:layout_height="136dp"
+            android:layout_below="@id/txt_view_Name"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="109dp"
+            android:layout_marginRight="109dp"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal_background" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="72dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="151dp"
+            android:layout_marginLeft="151dp"
+            android:layout_marginEnd="180dp"
+            android:layout_marginRight="180dp" />
+
+        <TextView
+            android:id="@+id/txt_view_Website_URL"
+            android:layout_width="266dp"
+            android:layout_height="73dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:fontFamily="Verdana"
+            android:text="WebsiteURL"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/txt_view_Author"
+            android:layout_width="266dp"
+            android:layout_height="73dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:fontFamily="Verdana"
+            android:text="Author"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

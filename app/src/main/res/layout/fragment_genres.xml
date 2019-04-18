@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GenresFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="419dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:background="#ffe6ff"
+        android:fontFamily="Verdana"
+        android:text="WHAT DO YOU SUFFER FROM?"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/txtlogo"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="516dp">
+
+        <Button
+            android:id="@+id/btnDepression"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="160dp"
+            android:background="#dedcdb"
+            android:text="Depression"
+            app:layout_constraintStart_toEndOf="@+id/btnAnxiety"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAnxiety"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="160dp"
+            android:background="#dedcdb"
+            android:text="Anxitey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/BtnBipolar"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="32dp"
+            android:background="#dedcdb"
+            android:text="Bipolar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAnxiety" />
+
+        <Button
+            android:id="@+id/btnFinancial"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:background="#dedcdb"
+            android:text="Financial Strain"
+            app:layout_constraintStart_toEndOf="@+id/btnPTSD"
+            app:layout_constraintTop_toBottomOf="@+id/btnOCD" />
+
+        <Button
+            android:id="@+id/btnPTSD"
+            android:layout_width="123dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="32dp"
+            android:background="#dedcdb"
+            android:text="PTSD"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BtnBipolar" />
+
+        <Button
+            android:id="@+id/btnOCD"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:background="#dedcdb"
+            android:text="OCD"
+            app:layout_constraintStart_toEndOf="@+id/BtnBipolar"
+            app:layout_constraintTop_toBottomOf="@+id/btnDepression" />
+
+        <Button
+            android:id="@+id/btnNextPrice"
+            android:layout_width="115dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:layout_marginBottom="8dp"
+            android:text="Next"
+            android:background="#D2D2D2"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCrime" />
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "828089380338",
+    "firebase_url": "https://bookworm-40224.firebaseio.com",
+    "project_id": "bookworm-40224",
+    "storage_bucket": "bookworm-40224.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828089380338:android:31f0d2186276fe5a",
+        "android_client_info": {
+          "package_name": "com.example.bookworm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828089380338-ovl7aup84ajmdvrtprpk7irrkvgjq60c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bookworm",
+            "certificate_hash": "ecd80d43258539ef123e526de819bf41d04ebcd0"
+          }
+        },
+        {
+          "client_id": "828089380338-c38h7qblg72eqggt6p90116pqm9orr06.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbtGGUtwTpgxnOOTZtM_f-IkAtWUiX4yc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828089380338-c38h7qblg72eqggt6p90116pqm9orr06.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

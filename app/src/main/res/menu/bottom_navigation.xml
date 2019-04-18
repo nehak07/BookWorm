@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_Club"
+        android:icon="@drawable/group"
+        android:title="Clubs" />
+
+    <item
+        android:id="@+id/nav_books"
+        android:icon="@drawable/book"
+        android:title="My Books" />
+
+    <item
+        android:id="@+id/nav_Myclub"
+        android:icon="@drawable/profile"
+        android:title="My Club" />
+
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/settings"
+        android:title="Setting" />
+</menu>
