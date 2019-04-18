@@ -71,9 +71,11 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
 
     }
 
+//https://www.youtube.com/watch?v=QMwaNN_aM3U Accessed on 18th April 2019
+
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         TextView textView = (TextView) findViewById(R.id.txt_Time);
-        textView.setText("Hour: " + hourOfDay + "Minute" + minute);
+        textView.setText( hourOfDay + ":" + minute );
     }
 }
