@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/txt_Date"
-        android:layout_width="213dp"
+        android:layout_width="251dp"
         android:layout_height="55dp"
         android:layout_marginTop="92dp"
         android:hint="Select Date"
