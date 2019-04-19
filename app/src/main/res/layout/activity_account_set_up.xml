@@ -28,8 +28,8 @@
 
         <ImageView
             android:id="@+id/ProfilePic"
-            android:layout_width="165dp"
-            android:layout_height="155dp"
+            android:layout_width="131dp"
+            android:layout_height="130dp"
             android:layout_gravity="center"
             android:layout_marginTop="88dp"
             android:scaleType="fitCenter"
@@ -38,38 +38,40 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/profile" />
 
+
+
         <EditText
-            android:id="@+id/etAccount_UserName"
+            android:id="@+id/etAccount_FullName"
             android:layout_width="285dp"
             android:layout_height="45dp"
-            android:layout_marginTop="60dp"
             android:layout_gravity="center"
+            android:layout_marginTop="60dp"
             android:ems="10"
-            android:hint="Enter Username"
+            android:hint="Enter Fullname"
             android:inputType="textPersonName"
             app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
             tools:layout_editor_absoluteX="54dp" />
 
         <EditText
-            android:id="@+id/etAccount_FullName"
-            android:layout_gravity="center"
+            android:id="@+id/etAccount_Book"
             android:layout_width="285dp"
             android:layout_height="45dp"
+            android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Enter Full Name"
+            android:hint="Enter Favourite Book Name"
             android:inputType="textPersonName"
             app:layout_constraintTop_toBottomOf="@+id/etAccount_FullName"
             tools:layout_editor_absoluteX="54dp" />
 
         <EditText
-            android:id="@+id/etAccount_Gender"
+            android:id="@+id/etAccount_Genre"
             android:layout_width="285dp"
-            android:layout_gravity="center"
             android:layout_height="45dp"
+            android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Enter Gender"
+            android:hint="Enter Favourite Genre"
             android:inputType="textPersonName"
             app:layout_constraintTop_toBottomOf="@+id/etAccount_FullName"
             tools:layout_editor_absoluteX="54dp" />
@@ -78,10 +80,10 @@
             android:id="@+id/btn_SaveAccountDetails"
             android:layout_width="151dp"
             android:layout_height="50dp"
-            android:layout_marginTop="8dp"
             android:layout_gravity="center"
-            android:text="Button"
-            app:layout_constraintTop_toBottomOf="@+id/etAccount_Gender"
+            android:layout_marginTop="12dp"
+            android:text="Save Details"
+            app:layout_constraintTop_toBottomOf="@+id/etAccount_Genre"
             tools:layout_editor_absoluteX="123dp" />
     </LinearLayout>
 
