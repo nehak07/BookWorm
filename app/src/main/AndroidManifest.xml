@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminMeetUpActivity"></activity>
+        <activity android:name=".AccountSetUpActivity"></activity>
+        <activity android:name=".AdminMeetUpActivity" />
         <activity android:name=".AdminSettingsActivity" />
         <activity android:name=".BookClubAdminActivity" />
         <activity android:name=".BookClubMemberActivity" />
