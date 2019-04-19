@@ -6,11 +6,7 @@
     android:layout_margin="10dp"
     android:background="#FFEBCD">
 
-    <android.support.design.circularreveal.cardview.CircularRevealCardView
-        android:id="@+id/all_users_details_info"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginLeft="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,10 +25,10 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/user_status"
+            android:id="@+id/user_FavBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Random"
+            android:text="Favourite Book"
             android:textAlignment="textStart"
             android:gravity="start"
             android:textColor="#000000"

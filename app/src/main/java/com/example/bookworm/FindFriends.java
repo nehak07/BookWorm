@@ -2,30 +2,34 @@ package com.example.bookworm;
 
 public class FindFriends {
     public String fullname;
-    public String gender;
+    public String book;
 
     public FindFriends(){
         //empty constructor needed
     }
 
-    public FindFriends(String fullname, String gender) {
+    public FindFriends(String fullname, String book) {
         this.fullname = fullname;
-        this.gender = gender;
+        this.book = book;
+
     }
 
-    public String getFullname() {
+    public String getFullname()
+    {
         return fullname;
     }
 
-    public String getGender() {
-        return gender;
+    public String getBook()
+
+    {
+        return book;
     }
 
-    public void setFullname(String fullname) {
+    public void setFullname (String fullname) {
         this.fullname = fullname;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    public void setBook(String book) {this.book = book;}
+
+
 }
