@@ -16,17 +16,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/txt_Profile_Fullname"
+        android:layout_width="285dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/ProfilePic"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="Fullname"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     <Button
         android:id="@+id/btn_create_club"
         android:layout_width="175dp"
         android:layout_height="54dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="117dp"
         android:text="Create Club"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname" />
 
 </android.support.constraint.ConstraintLayout>
