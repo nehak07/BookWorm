@@ -1,5 +1,6 @@
 //package com.example.bookworm;
 //
+//import android.content.Intent;
 //import android.support.annotation.NonNull;
 //import android.support.v7.app.AppCompatActivity;
 //import android.os.Bundle;
@@ -92,9 +93,20 @@
 //            }
 //
 //            @Override
-//            protected void onBindViewHolder(@NonNull FindFriendsViewHolder holder, int position, @NonNull FindFriends model) {
+//            protected void onBindViewHolder(@NonNull FindFriendsViewHolder holder, final int position, @NonNull FindFriends model) {
 //                holder.setFullname(model.getFullname());
 //                holder.setBook(model.getBook());
+//
+//                holder.mView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        String Memeber_ID = getRef(position).getKey();
+//
+//                        Intent profile = new Intent(FindFriendsActivity.this, ProfileActivity.class);
+//                        profile.putExtra("Member_ID", Memeber_ID);
+//                        startActivity(profile);
+//                    }
+//                });
 //
 //            }
 //

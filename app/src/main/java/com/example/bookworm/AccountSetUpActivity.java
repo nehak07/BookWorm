@@ -30,7 +30,7 @@ public class AccountSetUpActivity extends AppCompatActivity {
     private DatabaseReference UserRef;
     private ProgressBar progressBar;
 
-    String currentUserID;
+    private String currentUserID;
 
 
     @Override
@@ -42,8 +42,8 @@ public class AccountSetUpActivity extends AppCompatActivity {
         currentUserID = mAuth.getCurrentUser().getUid();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
 
-        Genre = (EditText) findViewById(R.id.etAccount_Genre);
-        FullName = (EditText) findViewById(R.id.etAccount_FullName);
+        Genre = (EditText) findViewById(R.id.txt_Profile_Genre);
+        FullName = (EditText) findViewById(R.id.txt_Profile_Fullname);
         Book = (EditText) findViewById(R.id.etAccount_Book);
         SaveUserDetails = (Button) findViewById(R.id.btn_SaveAccountDetails);
         ProfilePicture = (ImageView) findViewById(R.id.ProfilePic);

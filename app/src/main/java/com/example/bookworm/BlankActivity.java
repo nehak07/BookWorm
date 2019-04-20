@@ -51,7 +51,7 @@ public class BlankActivity extends AppCompatActivity {
                 startActivity(new Intent(BlankActivity.this, Main2Activity.class));
             }
             case R.id.Friend_search:{
-                startActivity(new Intent(BlankActivity.this, FindFriendsActivity.class));
+                //startActivity(new Intent(BlankActivity.this, FindFriendsActivity.class));
             }
         }
         return super.onOptionsItemSelected(item);
