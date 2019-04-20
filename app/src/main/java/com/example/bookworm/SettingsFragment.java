@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 public class SettingsFragment extends Fragment implements View.OnClickListener{
-    private TextView Recommendations, FindFriend;
+    private TextView Recommendations, FindFriend, ProfileSetting;
     private View view;
 
 
@@ -34,6 +34,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         FindFriend = view.findViewById(R.id.txt_Find_Friend);
         FindFriend.setOnClickListener(this);
 
+        ProfileSetting = view.findViewById(R.id.txt_ProfileSetting);
+        ProfileSetting.setOnClickListener(this);
+
+
 
         Recommendations.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +53,19 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         FindFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Intent intent = new Intent(getActivity(), FindFriendsActivity.class);
+                //startActivity(intent);
+            }
+
+        });
+
+        ProfileSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ViewUsersDetailsFragment fragment = new ViewUsersDetailsFragment(); //CREATE A NEW FRAGMENT
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+
                 //Intent intent = new Intent(getActivity(), FindFriendsActivity.class);
                 //startActivity(intent);
             }
