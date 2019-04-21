@@ -73,7 +73,7 @@ public class FindFriendsActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull FindFriendsActivity.FindFriendViewHolder holder, int position,
                                                     FindFriends model)
             {
-                final String PostKey = getRef(position).getKey();
+                final String Member_ID = getRef(position).getKey();
 
                 holder.username.setText(model.getFullname());
                 holder.book.setText(model.getBook());
@@ -84,9 +84,9 @@ public class FindFriendsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
-                        Intent findOthersIntent = new Intent(FindFriendsActivity.this,
-                                FindFriendsActivity.class);
-                        findOthersIntent.putExtra("PostKey", PostKey);
+
+                        Intent findOthersIntent = new Intent(FindFriendsActivity.this, ProfileActivity.class);
+                        findOthersIntent.putExtra("Member_ID", Member_ID);
                         startActivity(findOthersIntent);
                     }
                 });
@@ -97,6 +97,7 @@ public class FindFriendsActivity extends AppCompatActivity {
             onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
             {
                 View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.all_user_layout,viewGroup,false);
+
                 FindFriendsActivity.FindFriendViewHolder viewHolder=new FindFriendsActivity.FindFriendViewHolder(view);
                 return viewHolder;
             }

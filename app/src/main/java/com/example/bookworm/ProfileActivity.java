@@ -46,18 +46,18 @@ public class ProfileActivity extends AppCompatActivity {
         FriendRequestRef = FirebaseDatabase.getInstance().getReference().child("FriendRequest");
         FriendsRef = FirebaseDatabase.getInstance().getReference().child("Friends");
 
-        passUserID = getIntent().getExtras().get("Memeber_ID").toString(); //Gets the ID of the member the current user is looking that
+        passUserID = getIntent().getExtras().get("Member_ID").toString();//Gets the ID of the member the current user is looking that
+
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
 //Declaring variables
         Genre = (TextView) findViewById(R.id.txt_Profile_Genre);
         FullName = (TextView) findViewById(R.id.txt_Profile_Fullname);
-        Book = (TextView) findViewById(R.id.etAccount_Book);
+        Book = (TextView) findViewById(R.id.txt_Profile_Book);
 
         Send = (Button)  findViewById(R.id.btnSend_Request);
         Decline = (Button) findViewById(R.id.btnCancel_Request);
-
 
 
         CURRENTSTATE= "Not_Friends";
