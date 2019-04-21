@@ -24,6 +24,9 @@ import javax.annotation.meta.When;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    // https://www.youtube.com/watch?v=sbOdwk4C_9s&index=37&list=PLxefhmF0pcPnTQ2oyMffo6QbWtztXu1W_&fbclid=IwAR1IaRl6bepOHsRHz6wr5G1vQXyfEv1WQfIkhTfpr6Eiqm4bOmyb9K6wwSw
+    //Videos 37- 55
+
     private TextView Genre, FullName, Book;
     private Button Send, Decline;
 

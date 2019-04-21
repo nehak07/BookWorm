@@ -2,6 +2,7 @@ package com.example.bookworm;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.tv.TvContract;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,10 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class SettingsFragment extends Fragment implements View.OnClickListener{
-    private TextView Recommendations, FindFriend, ProfileSetting;
+    private TextView Recommendations, FindFriend, ProfileSetting, Logout, Friends;
     private View view;
+
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -27,6 +32,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_settings, container, false);
 
+        firebaseAuth = FirebaseAuth.getInstance();
 
         Recommendations = view.findViewById(R.id.txt_Recom);
         Recommendations.setOnClickListener(this);
@@ -37,7 +43,26 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         ProfileSetting = view.findViewById(R.id.txt_ProfileSetting);
         ProfileSetting.setOnClickListener(this);
 
+        Friends = view.findViewById(R.id.txt_MembersList);
+        Friends.setOnClickListener(this);
 
+        Logout = view.findViewById(R.id.txt_ProfileLogout);
+        Logout.setOnClickListener(this);
+
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(getContext(), MainActivity.class));
+            }
+        });
+
+        Friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), FriendsActivity.class));
+            }
+        });
 
         Recommendations.setOnClickListener(new View.OnClickListener() {
             @Override

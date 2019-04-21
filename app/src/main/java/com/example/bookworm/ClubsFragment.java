@@ -102,8 +102,10 @@ public class ClubsFragment extends Fragment implements View.OnClickListener {
                     String path = documentSnapshot.getReference().getPath();
                     note3.getClubname();
                     Toast.makeText(getContext(),"POSITITON: " + position + "ID: " + user,Toast.LENGTH_SHORT).show();
-                    Intent detailsIntent = new Intent (getActivity(), Blank2Activity.class);
-                    startActivity(detailsIntent);
+                    Intent detailsIntent = new Intent (getActivity(), BlankActivity.class);
+
+                    //CHANGE OR DELETE
+                   startActivity(detailsIntent);
 
                 }
             });

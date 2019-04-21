@@ -105,6 +105,7 @@ public class FindFriendsActivity extends AppCompatActivity {
         searchResultsList.setAdapter(adapter);
         adapter.startListening();
     }
+
     public class FindFriendViewHolder extends RecyclerView.ViewHolder
     {
         TextView username, book;
