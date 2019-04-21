@@ -1,7 +1,9 @@
 package com.example.bookworm;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -67,7 +69,6 @@ public class FriendsActivity extends AppCompatActivity {
 
                 holder.date.setText(model.getDate());
 
-
                 final String UserMember_ID = getRef(position).getKey();
 
                 UsersRef.child(UserMember_ID).addValueEventListener(new ValueEventListener() {
@@ -77,13 +78,10 @@ public class FriendsActivity extends AppCompatActivity {
                         if(dataSnapshot.exists())
 
                         {
-
                             String Username = dataSnapshot.child("fullname").getValue().toString();
                             //retrieving the users fullname from (child node) the Users Database
 
                             holder.username.setText(Username);
-
-
 
                         }
                     }
@@ -95,14 +93,44 @@ public class FriendsActivity extends AppCompatActivity {
                 });
 
                 holder.itemView.setOnClickListener(new View.OnClickListener()
+
                 {
+
+
                     @Override
                     public void onClick(View v)
                     {
+                        CharSequence options [] = new CharSequence[]
+                                {
+                                     "View Members Profile",
+                                        "Send Message"
+                                };
+                        AlertDialog.Builder builder = new AlertDialog.Builder(FriendsActivity.this);
+                        builder.setTitle("Select a option");
 
-                        Intent findOthersIntent = new Intent(FriendsActivity.this, ProfileActivity.class);
-                        findOthersIntent.putExtra("Member_ID", UserMember_ID);
-                        startActivity(findOthersIntent);
+                        builder.setItems(options, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                if (which == 0)
+                                {
+                                   Intent profile = new Intent(FriendsActivity.this, ProfileActivity.class);
+                                   profile.putExtra("Member_ID",UserMember_ID);
+                                   startActivity(profile);
+                                }
+                                if (which == 1)
+                                {
+                                    Intent message = new Intent(FriendsActivity.this, MessageActivity.class);
+                                    message.putExtra("Member_ID",UserMember_ID);
+                                    startActivity(message);
+                                }
+                            }
+                        });
+                        builder.show();
+
+//                        Intent findOthersIntent = new Intent(FriendsActivity.this, ProfileActivity.class);
+//                        findOthersIntent.putExtra("Member_ID", UserMember_ID);
+//                        startActivity(findOthersIntent);
                     }
                 });
             }
