@@ -16,6 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Currency;
+
 import javax.annotation.meta.When;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -23,8 +27,9 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView Genre, FullName, Book;
     private Button Send, Decline;
 
-    private DatabaseReference FriendRequestRef, UserRef ;
+    private DatabaseReference FriendRequestRef, UserRef, FriendsRef;
     private FirebaseAuth mAuth;
+    private String saveCurrentDate;
 
     private String SendUserID, passUserID;
 
@@ -39,6 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
         SendUserID = mAuth.getCurrentUser().getUid(); //Gets the current users ID
 
         FriendRequestRef = FirebaseDatabase.getInstance().getReference().child("FriendRequest");
+        FriendsRef = FirebaseDatabase.getInstance().getReference().child("Friends");
 
         passUserID = getIntent().getExtras().get("Memeber_ID").toString(); //Gets the ID of the member the current user is looking that
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -93,6 +99,18 @@ public class ProfileActivity extends AppCompatActivity {
                     {
                         SendFriendRequest();
                     }
+                    if (CURRENTSTATE.equals("request_sent"))
+                    {
+                        CancelFriendRequest();
+                    }
+                    if(CURRENTSTATE.equals("request_received"))
+                    {
+                        AcceptFriendRequest();
+                    }
+                    if (CURRENTSTATE.equals("friends"))
+                    {
+                        UnfriendRequest();
+                    }
                 }
             });
 
@@ -105,12 +123,138 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    private void ButtonText() {
+    private void UnfriendRequest()
+    {
+        FriendsRef.child(SendUserID).child(passUserID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        if(task.isSuccessful())
+
+                        //When a friend request is send the database request two different child (node) Stores the sender ID and the member ID for who the request is sent too
+                        {
+                            FriendsRef.child(passUserID).child(SendUserID)
+                                    .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Send.setEnabled(true);
+                                        CURRENTSTATE = "not_friends";
+                                        Send.setText("Send Friend Request");
+
+                                        Decline.setVisibility(View.INVISIBLE);
+                                        Decline.setEnabled(false);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+    }
+
+    private void AcceptFriendRequest()
+    {
+        Calendar calForDate = Calendar.getInstance(); //Gets the current date, this will be used to save into the database so the memebers know when they became friends
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
+        saveCurrentDate = currentDate.format(calForDate.getTime());
+
+        FriendsRef.child(SendUserID).child(passUserID)
+                .child("date").setValue(saveCurrentDate)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                      if(task.isSuccessful())
+                      {
+                          FriendsRef.child(passUserID).child(SendUserID)
+                                  .child("date").setValue(saveCurrentDate)
+                                  .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                      @Override
+                                      public void onComplete(@NonNull Task<Void> task)
+                                      {
+                                          if(task.isSuccessful())
+                                          {
+                                              FriendRequestRef.child(SendUserID).child(passUserID)
+                                                      .removeValue()
+                                                      .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                          @Override
+                                                          public void onComplete(@NonNull Task<Void> task)
+                                                          {
+                                                              if(task.isSuccessful())
+
+                                                              //Removes both users IDs
+                                                              {
+                                                                  FriendRequestRef.child(passUserID).child(SendUserID)
+                                                                          .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                      @Override
+                                                                      public void onComplete(@NonNull Task<Void> task) {
+                                                                          if (task.isSuccessful()){
+                                                                              Send.setEnabled(true);
+                                                                              CURRENTSTATE = "friends";
+                                                                              Send.setText("Unfriend this member?");
+
+                                                                              Decline.setVisibility(View.INVISIBLE);
+                                                                              Decline.setEnabled(false);
+                                                                          }
+                                                                      }
+                                                                  });
+                                                              }
+                                                          }
+                                                      });
+
+                                          }
+                                      }
+                                  });
+                      }
+                    }
+                });
+
+    }
+
+
+    private void CancelFriendRequest()
+    {
+        FriendRequestRef.child(SendUserID).child(passUserID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        if(task.isSuccessful())
+
+                        //When a friend request is send the database request two different child (node) Stores the sender ID and the member ID for who the request is sent too
+                        {
+                            FriendRequestRef.child(passUserID).child(SendUserID)
+                                    .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Send.setEnabled(true);
+                                        CURRENTSTATE = "not_friends";
+                                        Send.setText("Send Friend Request");
+
+                                        Decline.setVisibility(View.INVISIBLE);
+                                        Decline.setEnabled(false);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
+
+    }
+
+    private void ButtonText()
+    {
         FriendRequestRef.child(SendUserID)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild(passUserID)){
+
                             String request_type = dataSnapshot.child(passUserID).child("request_type")
                                     .getValue().toString();
 
@@ -118,6 +262,47 @@ public class ProfileActivity extends AppCompatActivity {
 
                                 CURRENTSTATE = "request_type";
                                 Send.setText("Cancel Friend Request");
+
+                                Decline.setVisibility(View.INVISIBLE);
+                                Decline.setEnabled(false);
+                            }
+                            else if (request_type.equals("received"))
+                                {
+                                    CURRENTSTATE = "request_received";
+                                    Send.setText("Accept Friend Request");
+
+                                    Decline.setVisibility(View.VISIBLE);
+                                    Decline.setEnabled(true);
+
+                                    Decline.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v)
+                                        {
+                                          CancelFriendRequest();
+                                        }
+                                    });
+                                }
+                            else
+                            {
+                                FriendsRef.child(SendUserID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.hasChild(passUserID))
+                                        {
+                                            CURRENTSTATE = "friends";
+                                            Send.setText("Unfriend this member?");
+
+                                            Decline.setVisibility(View.INVISIBLE);
+                                            Decline.setEnabled(false);
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
                         }
                     }
