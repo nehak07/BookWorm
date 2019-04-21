@@ -53,8 +53,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         FindFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(getActivity(), FindFriendsActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(getActivity(), FindFriendsActivity.class);
+                startActivity(intent);
             }
 
         });
