@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,6 +29,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
+    private boolean emailAddressCheck;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,9 +89,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()){
-                    finish();
-                    startActivity(new Intent(SignUpActivity.this, AccountSetUpActivity.class));
-                    Toast.makeText(getApplicationContext(),"User Registered Successfull", Toast.LENGTH_SHORT).show();
+
+                    SendVerificationEmail();
+                    //finish();
+                    //startActivity(new Intent(SignUpActivity.this, AccountSetUpActivity.class));
+                   // Toast.makeText(getApplicationContext(),"User Registered Successfull", Toast.LENGTH_SHORT).show();
                 }else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
                         Toast.makeText(getApplicationContext(),"Email address already used!", Toast.LENGTH_SHORT).show();
@@ -98,6 +105,36 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
             }
         });
+
+    }
+
+    private void SendVerificationEmail()
+    {
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if(user != null)
+        {
+            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task)
+                {
+                    if (task.isSuccessful())
+                    {
+                        Toast.makeText(getApplicationContext(),"Registration Successfull! We're send you an email, please check and veify your account", Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                        mAuth.signOut();
+                    }else
+                        {
+                            String error = task.getException().getMessage();
+                            Toast.makeText(getApplicationContext(),"Error:" + error , Toast.LENGTH_SHORT).show();
+                            mAuth.signOut();
+                        }
+                }
+            });
+        }
+
+
 
     }
 

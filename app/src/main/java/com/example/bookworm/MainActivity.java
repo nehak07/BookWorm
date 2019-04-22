@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText Email, Password;
     ProgressBar progressBar;
     private TextView ResetPassword;
+    private boolean emailAddressCheck;
 
 
     private View view;
@@ -94,10 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
-                    finish();
-                    Intent intent = new Intent(MainActivity.this, BlankActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    VerifyEmailAddress();
 
                 }else{
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -109,8 +109,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //Code to check if the user has is already signed in or not
     @Override
-    protected void onStart() {
+    protected void onStart() { //If the user has already logged into the application they will be taken straight to the Home Fragment
         super.onStart();
         if(mAuth.getCurrentUser() !=null){
             finish();
@@ -118,7 +119,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void VerifyEmailAddress()
+    {
+        FirebaseUser user = mAuth.getCurrentUser();
+        emailAddressCheck = user.isEmailVerified();
 
+        if (emailAddressCheck)
+        {
+            finish();
+            Intent intent = new Intent(MainActivity.this, AccountSetUpActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }else
+        {
+            Toast.makeText(getApplicationContext(),"Please verify your account first!", Toast.LENGTH_SHORT).show();
+            mAuth.signOut(); //If user has not verified thier email address they will be logged out to the application even though they have created an account
+        }
+
+    }
 
 
     @Override
