@@ -1,8 +1,10 @@
 package com.example.bookworm;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,13 +24,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MessageActivity extends AppCompatActivity {
 
     private RecyclerView MessageRecycler;
+    private final List<messages> messagesList = new ArrayList<>();
+    private LinearLayoutManager linearLayoutManager;
+    private messagesAdapter messagesAdapter;
+
     private EditText WriteMessage;
     private ImageButton Send;
     private TextView MemberName;
@@ -52,6 +61,22 @@ public class MessageActivity extends AppCompatActivity {
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         RootRef = FirebaseDatabase.getInstance().getReference();
 
+        MessageRecID = getIntent().getExtras().get("Member_ID").toString();
+
+        MemberName = (TextView) findViewById(R.id.txtMessageUsername);
+        MessageRecycler = (RecyclerView) findViewById(R.id.messageRecyclerView);
+        WriteMessage = (EditText) findViewById(R.id.Input_Message);
+        Send = (ImageButton) findViewById(R.id.btnSendMessage);
+
+        messagesAdapter = new messagesAdapter(messagesList);
+        MessageRecycler = (RecyclerView) findViewById(R.id.messageRecyclerView);
+        linearLayoutManager = new LinearLayoutManager(this);
+        MessageRecycler.setHasFixedSize(true);
+        MessageRecycler.setLayoutManager(linearLayoutManager);
+        MessageRecycler.setAdapter(messagesAdapter);
+
+
+
 
         UserRef.child(passUserID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -71,13 +96,6 @@ public class MessageActivity extends AppCompatActivity {
 
 
 
-        MessageRecID = getIntent().getExtras().get("Member_ID").toString();
-
-        MemberName = (TextView) findViewById(R.id.txtMessageUsername);
-        MessageRecycler = (RecyclerView) findViewById(R.id.messageRecyclerView);
-        WriteMessage = (EditText) findViewById(R.id.Input_Message);
-        Send = (ImageButton) findViewById(R.id.btnSendMessage);
-
         Send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -86,7 +104,47 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+        GrabMessages();
 
+
+    }
+
+    private void GrabMessages()
+    {
+        RootRef.child("Messages").child(MessageSenderID).child(MessageRecID)
+                .addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s)
+                    {
+                        if (dataSnapshot.exists())
+                        {
+                            messages messages = dataSnapshot.getValue(messages.class);
+                            messagesList.add(messages);
+                            messagesAdapter.notifyDataSetChanged();
+                        }
+
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 
     private void SendMessage()
@@ -133,12 +191,14 @@ public class MessageActivity extends AppCompatActivity {
                                 if (task.isSuccessful())
                                 {
                                     Toast.makeText(MessageActivity.this, "Message sent ",Toast.LENGTH_SHORT).show();
+                                    WriteMessage.setText("");
                                 }else
                                     {
                                         String message = task.getException().getMessage();
                                         Toast.makeText(MessageActivity.this, "Error: "+ message,Toast.LENGTH_SHORT).show();
+                                        WriteMessage.setText("");
                                     }
-                                    WriteMessage.setText("");
+
                             }
                         }) ;
             }
