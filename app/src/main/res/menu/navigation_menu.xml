@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_Club"
+        android:icon="@drawable/group"
+        android:title="Clubs" />
+
+    <item
+        android:id="@+id/nav_books"
+        android:icon="@drawable/book"
+        android:title="My Books" />
+
+    <item
+        android:id="@+id/nav_Myclub"
+        android:icon="@drawable/profile"
+        android:title="My Club" />
+
+    <item
+        android:id="@+id/nav_MyFriends"
+        android:icon="@drawable/settings"
+        android:title="My Friends" />
+
+    <item
+        android:id="@+id/nav_FindFriends"
+        android:icon="@drawable/settings"
+        android:title="Find Friends" />
+    <item
+        android:id="@+id/nav_messages"
+        android:icon="@drawable/settings"
+        android:title="Messages" />
+    <item
+        android:id="@+id/nav_Rec"
+        android:icon="@drawable/settings"
+        android:title="Find Self-Help Books" />
+
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/settings"
+        android:title="Setting" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/settings"
+        android:title="Logout" />
+
+</menu>

@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (emailAddressCheck)
         {
             finish();
-            Intent intent = new Intent(MainActivity.this, AccountSetUpActivity.class);
+            Intent intent = new Intent(MainActivity.this, BlankActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }else
