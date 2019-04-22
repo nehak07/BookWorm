@@ -122,6 +122,7 @@ public class FriendsActivity extends AppCompatActivity {
                                 {
                                     Intent message = new Intent(FriendsActivity.this, MessageActivity.class);
                                     message.putExtra("Member_ID",UserMember_ID);
+                                  //  message.putExtra("UserName",username);
                                     startActivity(message);
                                 }
                             }
@@ -152,11 +153,11 @@ public class FriendsActivity extends AppCompatActivity {
 
     public static class FriendsViewHolder extends RecyclerView.ViewHolder
     {
-        TextView username, date;
+        final TextView username, date;
 
         public FriendsViewHolder(@NonNull View itemView) {
             super(itemView);
-            username = itemView.findViewById(R.id.user_full_name);
+          username = itemView.findViewById(R.id.user_full_name);
             date = itemView.findViewById(R.id.user_FavBook);
         }
     }
