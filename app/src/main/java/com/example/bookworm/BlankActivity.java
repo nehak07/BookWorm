@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +14,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class BlankActivity extends AppCompatActivity {
 
@@ -27,10 +35,26 @@ public class BlankActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private FirebaseAuth mAuth;
 
+    private Button CreateClub;
+    private View view;
+    private DatabaseReference UserRef ;
+    private TextView FullName;
+    private String currentUserID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blank);
+
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                //new CreateClubFragment()).commit();
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUserID = mAuth.getCurrentUser().getUid();
+        UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
+
+        FullName = (TextView) findViewById(R.id.txt_Profile_Fullname);
+
 
         mAuth  = FirebaseAuth.getInstance();
 
@@ -46,11 +70,14 @@ public class BlankActivity extends AppCompatActivity {
         navigationView = (NavigationView)findViewById(R.id.NavID);
         View navView = navigationView.inflateHeaderView(R.layout.navigation_header);
 
+        CreateClub = findViewById(R.id.btn_create_club);
 
-
-//         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//          new HomeFragment()).commit();
-
+        CreateClub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BlankActivity.this, CreateBookClubActivity.class));
+            }
+        });
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -59,16 +86,13 @@ public class BlankActivity extends AppCompatActivity {
                 //Fragment selectedFragment =null;
                 switch (menuItem.getItemId()){
                     case R.id.nav_home:
-//                            selectedFragment = new HomeFragment();
-//                            HomeFragment fragment = new HomeFragment();
-//                            getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-
+                        startActivity(new Intent(BlankActivity.this, BlankActivity.class));
 
                             Toast.makeText(getApplicationContext(), "Home Selected", Toast.LENGTH_SHORT).show();
                             break;
 
                     case R.id.nav_Club:
-                           // selectedFragment = new AllClubs2Fragment(); //Changes fragment to all clubs
+                            startActivity(new Intent(BlankActivity.this, AllClubsActivity.class));
                             Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
                             break;
 
@@ -106,41 +130,39 @@ public class BlankActivity extends AppCompatActivity {
 
                     case R.id.nav_setting:
                         //selectedFragment = new SettingsFragment(); //Change fragment to settings
+                        startActivity(new Intent(BlankActivity.this, SettingActivity.class));
                         Toast.makeText(getApplicationContext(), "Settings Selected", Toast.LENGTH_SHORT).show();
                         break;
-
 
                     case R.id.nav_logout:
                         Toast.makeText(getApplicationContext(), "Logout Selected", Toast.LENGTH_SHORT).show();
                         mAuth.signOut();
                         startActivity(new Intent(BlankActivity.this, MainActivity.class));
                         break;
-
-
-
-
             }
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                           selectedFragment).commit();
+
                 return false;
             }
         });
 
+        UserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
 
-//
-//
-//
+                    String Username = dataSnapshot.child("fullname").getValue().toString();
+
+                    FullName.setText("Welcome: "+ Username);
+
+                }
+            }
 
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-//        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-//        bottomNav.setOnNavigationItemSelectedListener(navListener);
-//
-     // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-            //  new HomeFragment()).commit();
-
-        //firebaseAuth = FirebaseAuth.getInstance();
-
+            }
+        });
 
     }
 //When the toggle is clicked the Nav drawer opens
@@ -153,74 +175,5 @@ public class BlankActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu, menu);
-//        return true;
-//
-//    }
-//    //Simplified Coding, 2017. [ONLINE] Available at: https:www.youtube.com/watch?v=FmZLWe_gaSY&list=PLk7v1Z2rk4hi_LdvJ2V5-VvZfyfSdY5hy&index=6 [Accessed on the 6th March 2019 ]
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        switch (item.getItemId()){
-//            case R.id.logoutMenu:{
-//
-//                firebaseAuth.signOut();
-//                finish();
-//                startActivity(new Intent(BlankActivity.this, MainActivity.class));
-//            }
-//            case R.id.SearchMenu:{
-//                startActivity(new Intent(BlankActivity.this, Main2Activity.class));
-//            }
-//            case R.id.Friend_search:{
-//                //startActivity(new Intent(BlankActivity.this, FindFriendsActivity.class));
-//            }
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//
-//    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-//            new BottomNavigationView.OnNavigationItemSelectedListener(){
-//                @Override
-//                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                    Fragment selectedFragment =null;
-//
-//                    switch (item.getItemId()){
-//                        case R.id.nav_home:
-//                            selectedFragment = new HomeFragment();
-//                            Toast.makeText(getApplicationContext(), "Home Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//                        case R.id.nav_Club:
-//                            selectedFragment = new AllClubs2Fragment(); //Changes fragment to my books
-//                            Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//                        case R.id.nav_books:
-//                            selectedFragment = new MyBooks2Fragment(); //Changes fragment to my books
-//                            Toast.makeText(getApplicationContext(), "Books Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//                        case R.id.nav_Myclub:
-//                            selectedFragment = new ClubsFragment();
-//                            Toast.makeText(getApplicationContext(), "My Club Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//
-//                        case R.id.nav_setting:
-//                            selectedFragment = new SettingsFragment(); //Change fragment to settings
-//                            Toast.makeText(getApplicationContext(), "Settings Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//
-//                    }
-//
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                            selectedFragment).commit();
-//
-//                    return true;
-//                }
-//            };
-
-
-
 
 }

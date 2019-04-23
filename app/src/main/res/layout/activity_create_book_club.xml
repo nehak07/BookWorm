@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateBookClubActivity">
+
+    <include
+        android:id="@+id/CreateBookClub_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
+
+    <EditText
+        android:id="@+id/etClubName"
+        android:layout_width="297dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="29dp"
+        android:ems="10"
+        android:hint=" Enter Your Club Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="297dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="29dp"
+        android:ems="10"
+        android:hint="Enter Your Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddClub"
+        android:layout_width="246dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="56dp"
+        android:background="#000000"
+        android:fontFamily="Verdana"
+        android:text="CREATE CLUB"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClubDesc" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Private Group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddClub" />
+
+    <EditText
+        android:id="@+id/etClubDesc"
+        android:layout_width="297dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="29dp"
+        android:ems="10"
+        android:hint="Enter Club Description"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClubName" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileDetailsActivity">
+
+    <include
+        android:id="@+id/ProfileDetails_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
+
+
+    <ImageView
+        android:id="@+id/ProfilePic"
+        android:layout_width="131dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="74dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+
+    <EditText
+        android:id="@+id/txt_Profile_Fullname"
+        android:layout_width="285dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/ProfilePic"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Fullname"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
+        tools:layout_editor_absoluteX="54dp" />
+
+    <EditText
+        android:id="@+id/txt_Profile_Book"
+        android:layout_width="285dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txt_Profile_Genre"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Favourite Book Name"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname"
+        tools:layout_editor_absoluteX="54dp" />
+
+    <EditText
+        android:id="@+id/txt_Profile_Genre"
+        android:layout_width="285dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txt_Profile_Fullname"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Favourite Genre"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname"
+        tools:layout_editor_absoluteX="54dp" />
+
+    <Button
+        android:id="@+id/btnUpdate_Details"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_Profile_Book"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="100dp"
+        android:text="Update Details" />
+
+    <TextView
+        android:id="@+id/txt_UpdatePassword"
+        android:layout_width="226dp"
+        android:layout_height="27dp"
+        android:layout_below="@+id/btnUpdate_Details"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="265dp"
+        android:text="Click here to update password" />
+
+</RelativeLayout>
