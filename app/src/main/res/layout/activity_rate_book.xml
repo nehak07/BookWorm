@@ -7,16 +7,21 @@
     android:orientation="vertical"
     tools:context=".RateBookActivity">
 
+    <include
+        android:id="@+id/RateBooks_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
 
     <ImageView
 
         android:id="@+id/image_outfit_detail"
         android:layout_width="match_parent"
-        android:layout_height="171dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="48dp"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

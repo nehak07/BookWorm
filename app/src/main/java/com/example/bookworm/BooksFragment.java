@@ -94,11 +94,10 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
 
 
         for (String BrandSelected : queryBundle.getStringArrayList("Genres")) {
-           // for (String ThemeSelected: queryBundle.getStringArrayList("Category")){
+
                 Query query1 = notebookRef.whereEqualTo("Genres", BrandSelected).whereLessThanOrEqualTo("Price",Price);
 
                 ListOfOptions.add(query1);
-           // }
 
         }
 

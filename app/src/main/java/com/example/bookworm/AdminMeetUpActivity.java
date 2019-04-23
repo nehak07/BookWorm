@@ -2,13 +2,16 @@ package com.example.bookworm;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.nfc.Tag;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -21,11 +24,20 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
 
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_meet_up);
+
+        mToolbar = (Toolbar) findViewById(R.id.AdminCreateMeeting_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Create Meeting");
+
+
         mDisplayDate = (TextView) findViewById(R.id.txt_Date);
 
         Button button = (Button) findViewById(R.id.btn_Time);
@@ -70,6 +82,25 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
         };
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void SendUserToHome()
+    {
+        Intent mainintent = new Intent(AdminMeetUpActivity.this, BlankActivity.class);
+        startActivity(mainintent);
+    }
+
 
 //https://www.youtube.com/watch?v=QMwaNN_aM3U Accessed on 18th April 2019
 

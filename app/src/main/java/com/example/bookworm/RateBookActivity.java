@@ -3,7 +3,9 @@ package com.example.bookworm;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,11 +43,20 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
     private StorageReference mStorageRef;
     private FirebaseAuth mAuth;
 
+    private Toolbar mToolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_book);
+
+        mToolbar = (Toolbar) findViewById(R.id.RateBooks_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Book Rating");
+
 
         final RatingBar ratingBar = (RatingBar) findViewById(R.id.rating_Bar);
         //Button SaveRating = (Button) findViewById(R.id.btn_add);
@@ -111,11 +122,23 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
 
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
+        }
+        return super.onOptionsItemSelected(item);
     }
+
+    private void SendUserToHome()
+    {
+        Intent mainintent = new Intent(RateBookActivity.this, BlankActivity.class);
+        startActivity(mainintent);
+    }
+
 
     @Override
     public void onClick(View v) {

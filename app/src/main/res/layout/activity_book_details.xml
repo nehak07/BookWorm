@@ -8,55 +8,60 @@ android:orientation="vertical"
 tools:context=".BookDetailsActivity">
 
 
-<ImageView
+    <include
+        android:id="@+id/BookDetails_Toolbar"
+        layout="@layout/app_bar_layout"
 
-    android:id="@+id/image_outfit_detail"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_marginTop="16dp"
-    android:src="@mipmap/ic_launcher"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        ></include>
+
+
+    <ImageView
+
+        android:id="@+id/image_outfit_detail"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_marginTop="56dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_Book_Genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
         android:text="Genre"
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/image_outfit_detail" />
 
-<TextView
-    android:id="@+id/txt_price_detail"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="104dp"
-    android:layout_marginLeft="104dp"
-    android:layout_marginTop="4dp"
-    android:text="Price: "
-    android:textColor="#000000"
-    android:textSize="15dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/txt_Book_Genre" />
+    <TextView
+        android:id="@+id/txt_price_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="4dp"
+        android:text="Price: "
+        android:textColor="#000000"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Book_Genre" />
 
-<TextView
-    android:id="@+id/txt_BookName_detail"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="104dp"
-    android:layout_marginLeft="104dp"
-    android:layout_marginTop="8dp"
-    android:text="Name:"
-    android:textColor="#000000"
-    android:textSize="15dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/txt_price_detail" />
+    <TextView
+        android:id="@+id/txt_BookName_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="20dp"
+        android:text="Name:"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_price_detail" />
 
     <Button
         android:id="@+id/btn_add"
@@ -71,8 +76,8 @@ tools:context=".BookDetailsActivity">
 
     <TextView
         android:id="@+id/txt_Bookbrand_url"
-        android:layout_width="246dp"
-        android:layout_height="39dp"
+        android:layout_width="244dp"
+        android:layout_height="138dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="112dp"
         android:autoLink="web"
@@ -85,8 +90,8 @@ tools:context=".BookDetailsActivity">
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="Verdana"
         android:text="Genre:"
         android:textColor="#000000"
@@ -115,7 +120,7 @@ tools:context=".BookDetailsActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="Verdana"
         android:text="Book Name:"
@@ -146,7 +151,7 @@ tools:context=".BookDetailsActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="Verdana"
         android:text="Author"
         android:textColor="#000000"
@@ -159,7 +164,7 @@ tools:context=".BookDetailsActivity">
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:text="Author:"
         app:layout_constraintEnd_toStartOf="@+id/txt_view_Author"

@@ -7,10 +7,10 @@
     tools:context=".FriendsActivity">
 
     <include
-        android:id="@+id/Friends_Toolbar"
-        layout="@layout/app_bar_layout"
+    android:id="@+id/Friends_Toolbar"
+    layout="@layout/app_bar_layout"
 
-        ></include>
+    ></include>
 
     <TextView
         android:id="@+id/txt_all_friends"

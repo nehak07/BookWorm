@@ -10,6 +10,11 @@ tools:context=".GenresActivity">
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"></LinearLayout>
+    <include
+        android:id="@+id/Genres_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
 
 <android.support.v7.widget.FitWindowsFrameLayout
     android:id="@+id/fragment_container"
@@ -20,13 +25,15 @@ tools:context=".GenresActivity">
 
 </android.support.v7.widget.FitWindowsFrameLayout>
 
-<android.support.design.widget.BottomNavigationView
-    android:id="@+id/bottom_navigation"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    app:menu="@menu/bottom_navigation"
-    android:background="?android:attr/windowBackground"/>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+
+        android:visibility="invisible"
+        app:menu="@menu/bottom_navigation" />
 
 
 </RelativeLayout>

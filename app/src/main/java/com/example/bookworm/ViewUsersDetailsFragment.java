@@ -131,7 +131,7 @@ public class ViewUsersDetailsFragment extends Fragment implements View.OnClickLi
                 {
                     Toast.makeText(getContext(), "Your account details have been updated", Toast.LENGTH_SHORT).show();
                     SettingsFragment fragment = new SettingsFragment(); //CREATE A NEW FRAGMENT
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                  //  getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
 
                 }else{
                     String message = task.getException().getMessage();

@@ -7,34 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".PriceFragment">
 
-    <ImageView
-        android:id="@+id/txtlogo"
-        android:layout_width="409dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:adjustViewBounds="true"
-        android:background="#ffffff"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="419dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/txtlogo"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="-16dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:background="#ffe6ff"
@@ -44,8 +28,8 @@
         android:textColor="#000000"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/txtlogo"
         tools:layout_editor_absoluteX="0dp" />
+
 
     <TextView
         android:id="@+id/textView3"
@@ -69,7 +53,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="516dp">
+        android:layout_height="553dp">
 
         <Button
             android:id="@+id/btn5"

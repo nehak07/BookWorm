@@ -98,7 +98,7 @@ public class CreateClubFragment extends Fragment implements View.OnClickListener
             public void onSuccess(Void aVoid) {
                 Toast.makeText(getContext(), "ClUB CREATED", Toast.LENGTH_SHORT).show();
                 HomeFragment fragment = new HomeFragment();
-                      getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                      //getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
         });
 

@@ -38,7 +38,7 @@ public class BlankActivity extends AppCompatActivity {
     private Button CreateClub;
     private View view;
     private DatabaseReference UserRef ;
-    private TextView FullName;
+    private TextView FullName, UserName;
     private String currentUserID;
 
     @Override
@@ -46,14 +46,12 @@ public class BlankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blank);
 
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                //new CreateClubFragment()).commit();
-
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
 
         FullName = (TextView) findViewById(R.id.txt_Profile_Fullname);
+
 
 
         mAuth  = FirebaseAuth.getInstance();
@@ -69,6 +67,9 @@ public class BlankActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView = (NavigationView)findViewById(R.id.NavID);
         View navView = navigationView.inflateHeaderView(R.layout.navigation_header);
+
+        UserName = (TextView) navView.findViewById(R.id.UserNameNav) ;
+
 
         CreateClub = findViewById(R.id.btn_create_club);
 
@@ -98,6 +99,7 @@ public class BlankActivity extends AppCompatActivity {
 
                     case R.id.nav_books:
                            // selectedFragment = new MyBooks2Fragment(); //Changes fragment to my books
+                            startActivity(new Intent(BlankActivity.this, MyBooksActivity.class));
                             Toast.makeText(getApplicationContext(), "Books Selected", Toast.LENGTH_SHORT).show();
                             break;
 
@@ -151,8 +153,10 @@ public class BlankActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()){
 
                     String Username = dataSnapshot.child("fullname").getValue().toString();
+                    String Name = dataSnapshot.child("fullname").getValue().toString();
 
                     FullName.setText("Welcome: "+ Username);
+                    UserName.setText(Name);
 
                 }
             }
@@ -165,6 +169,11 @@ public class BlankActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+
+
 //When the toggle is clicked the Nav drawer opens
     @Override
     public boolean onOptionsItemSelected(MenuItem item)

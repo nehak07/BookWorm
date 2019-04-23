@@ -70,7 +70,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
 //                Intent intent = new Intent(getActivity(), GenresActivity.class);
 //                startActivity(intent);
                 GenresFragment fragment = new GenresFragment(); //CREATE A NEW FRAGMENT
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+              //  getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
 
         });
@@ -89,7 +89,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
             public void onClick(View v) {
 
                 ViewUsersDetailsFragment fragment = new ViewUsersDetailsFragment(); //CREATE A NEW FRAGMENT
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                //getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
 
                 //Intent intent = new Intent(getActivity(), FindFriendsActivity.class);
                 //startActivity(intent);

@@ -3,6 +3,8 @@ package com.example.bookworm;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
 
     private TextView ClubName, ClubDesc, ClubAdmin;
     private Button Join;
+    private Toolbar mToolbar;
 
 
     private FirebaseFirestore mFirestore;
@@ -41,6 +44,11 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_club);
 
+        mToolbar = (Toolbar) findViewById(R.id.Join_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Join Book Clubs");
 
         mFirestore = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -104,6 +112,24 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
         textViewClubName.setText(CLUBNAME);
         textViewClubDesc.setText(CLUBDESC);
         textViewClubAdmin.setText(CLUBADMIN);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void SendUserToHome()
+    {
+        Intent mainintent = new Intent(JoinClubActivity.this, BlankActivity.class);
+        startActivity(mainintent);
     }
 
     @Override

@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 //                startActivity(intent);
 
                 CreateClubFragment fragment = new CreateClubFragment();
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+               // getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
 
         });
