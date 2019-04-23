@@ -69,5 +69,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Date" />
 
+    <Button
+        android:id="@+id/btn_SaveAccountDetails"
+        android:layout_width="151dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Save Details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Time" />
+
 
 </android.support.constraint.ConstraintLayout>

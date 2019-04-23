@@ -99,12 +99,6 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
 
         });
 
-//        Intent intent = getIntent();
-//        String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-//        String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
-//        String CLUBADMIN = intent.getStringExtra(EXTRA_USERNAME);
-
-
         TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
         TextView textViewClubDesc = findViewById(R.id.txt_ClubDesc_Details);
         TextView textViewClubAdmin = findViewById(R.id.txt_ClubAdmin);
