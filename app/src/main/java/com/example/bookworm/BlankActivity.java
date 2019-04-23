@@ -103,11 +103,6 @@ public class BlankActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Books Selected", Toast.LENGTH_SHORT).show();
                             break;
 
-                    case R.id.nav_Myclub:
-                           // selectedFragment = new ClubsFragment();
-                            Toast.makeText(getApplicationContext(), "My Club Selected", Toast.LENGTH_SHORT).show();
-                            break;
-
                     case R.id.nav_MyFriends:
                         //selectedFragment = new SettingsFragment(); //Change fragment to settings
                         startActivity(new Intent(BlankActivity.this, FriendsActivity.class));
@@ -127,6 +122,7 @@ public class BlankActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_messages:
+                        startActivity(new Intent(BlankActivity.this, FriendsActivity.class));
                         Toast.makeText(getApplicationContext(), "Message Selected", Toast.LENGTH_SHORT).show();
                         break;
 

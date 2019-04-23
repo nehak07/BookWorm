@@ -9,17 +9,14 @@
     <item
         android:id="@+id/nav_Club"
         android:icon="@drawable/group"
-        android:title="Clubs" />
+        android:title="Book Clubs" />
 
     <item
         android:id="@+id/nav_books"
         android:icon="@drawable/book"
         android:title="My Books" />
 
-    <item
-        android:id="@+id/nav_Myclub"
-        android:icon="@drawable/profile"
-        android:title="My Club" />
+
 
     <item
         android:id="@+id/nav_MyFriends"
@@ -30,14 +27,15 @@
         android:id="@+id/nav_FindFriends"
         android:icon="@drawable/settings"
         android:title="Find Friends" />
-    <item
-        android:id="@+id/nav_messages"
-        android:icon="@drawable/settings"
-        android:title="Messages" />
+
     <item
         android:id="@+id/nav_Rec"
         android:icon="@drawable/settings"
         android:title="Find Self-Help Books" />
+    <item
+        android:id="@+id/nav_messages"
+        android:icon="@drawable/settings"
+        android:title="Message" />
 
     <item
         android:id="@+id/nav_setting"

@@ -1,12 +1,15 @@
 package com.example.bookworm;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -46,6 +49,7 @@ public class MessageActivity extends AppCompatActivity {
     private DatabaseReference UserRef, RootRef ;
 
     private FirebaseAuth mAuth;
+    private Toolbar mToolbar;
 
 
 
@@ -53,6 +57,12 @@ public class MessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+
+        mToolbar = findViewById(R.id.Message_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Messages");
 
         mAuth = FirebaseAuth.getInstance();
         MessageSenderID = mAuth.getCurrentUser().getUid();
@@ -108,6 +118,25 @@ public class MessageActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void SendUserToHome()
+    {
+        Intent mainintent = new Intent(MessageActivity.this, BlankActivity.class);
+        startActivity(mainintent);
+    }
+
 
     private void GrabMessages()
     {

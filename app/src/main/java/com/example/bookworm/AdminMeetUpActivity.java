@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -97,7 +98,7 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(AdminMeetUpActivity.this, BlankActivity.class);
+        Intent mainintent = new Intent(AdminMeetUpActivity.this, AdminSettingsActivity.class);
         startActivity(mainintent);
     }
 

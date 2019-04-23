@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -60,7 +61,7 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(AdminSettingsActivity.this, BlankActivity.class);
+        Intent mainintent = new Intent(AdminSettingsActivity.this, BookClubAdminActivity.class);
         startActivity(mainintent);
     }
 
