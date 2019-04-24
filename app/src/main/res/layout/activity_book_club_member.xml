@@ -53,14 +53,13 @@
         android:layout_width="128dp"
         android:layout_height="98dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
         android:layout_marginEnd="72dp"
         android:scaleType="fitCenter"
         android:src="@drawable/setting2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btn_Info_Member"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Vote_Member" />
+        tools:layout_editor_absoluteY="442dp" />
 
     <ImageButton
         android:id="@+id/btn_Book_Member"
@@ -83,17 +82,6 @@
         android:src="@drawable/coffee"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Book_Member" />
-
-    <ImageButton
-        android:id="@+id/btn_Vote_Member"
-        android:layout_width="117dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/vote"
-        app:layout_constraintStart_toEndOf="@+id/btn_MeetUp_Members"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Member_Members" />
 
     <ImageButton
         android:id="@+id/btn_Info_Member"

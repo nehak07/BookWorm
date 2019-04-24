@@ -40,9 +40,6 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
 
         ClubName = findViewById(R.id.txt_ClubName_detail);
 
-        Vote = findViewById(R.id.btn_Vote_Member);
-        Vote.setOnClickListener(this);
-
         Info = findViewById(R.id.btn_Info_Member);
         Info.setOnClickListener(this);
 

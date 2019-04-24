@@ -46,8 +46,6 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
         MeetUp = findViewById(R.id.btn_MeetUp_Members);
         MeetUp.setOnClickListener(this);
 
-        Vote = findViewById(R.id.btn_Vote_Member);
-        Vote.setOnClickListener(this);
 
         Info = findViewById(R.id.btn_Info_Member);
         Info.setOnClickListener(this);

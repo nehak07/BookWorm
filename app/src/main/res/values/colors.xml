@@ -9,4 +9,5 @@
     <color name="SenderColour">#A0179E</color>
     <color name="album_title">#4c4c4c</color>
     <color name="Main">#ed4c54</color>
+    <color name="Default">#000000</color>
 </resources>
