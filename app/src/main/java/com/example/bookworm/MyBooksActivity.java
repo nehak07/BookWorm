@@ -31,7 +31,6 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     private Toolbar mToolbar;
     private NoteAdapter2 adapter2;
 
-
     public static final String EXTRA_URL = "imageURL";
     public static final String EXTRA_GENRE = "GENRE";
     public static final String EXTRA_NAME = "NAME";
@@ -40,11 +39,8 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     public static final String EXTRA_AUTHOR = "AUTHOR";
     public static final String EXTRA_BOOKURL = "BOOKURL";
 
-
-
     private ArrayList<Note5> ListOfNotes = new ArrayList<>();
     ArrayList<Query> ListOfOptions = new ArrayList<>();
-
 
     private NoteAdapter5 adapter;
 
@@ -53,7 +49,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_books);
 
-        mToolbar = (Toolbar) findViewById(R.id.MyBooks_Toolbar);
+        mToolbar = findViewById(R.id.MyBooks_Toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -126,13 +122,10 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
         detailsIntent.putExtra(EXTRA_AUTHOR, clickedItem.getAuthor());
         //detailsIntent.putExtra(EXTRA_BOOKURL, clickedItem.getWebsiteURL());
 
-
         startActivity(detailsIntent);
 
 
     }
-
-
 
 
     @Override
@@ -149,7 +142,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(MyBooksActivity.this, BlankActivity.class);
-        startActivity(mainintent);
+        Intent intent = new Intent(MyBooksActivity.this, BlankActivity.class);
+        startActivity(intent);
     }
 }

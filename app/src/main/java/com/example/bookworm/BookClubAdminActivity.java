@@ -11,7 +11,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
+import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
+import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
 
 public class BookClubAdminActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,22 +56,69 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
         Setting = findViewById(R.id.btn_Setting_Member);
         //Setting.setOnClickListener(this);
 
+        Intent intent = getIntent();
+       final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+        final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
+        final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
+        final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+
+        TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
+
+        textViewClubName.setText(CLUBNAME);
+
+        MeetUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(BookClubAdminActivity.this, ViewMeetingActivity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                startActivity(i);
+            }
+        });
+
+
         Setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(BookClubAdminActivity.this, AdminSettingsActivity.class));
+                Intent i = new Intent(BookClubAdminActivity.this, AdminSettingsActivity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+
+                startActivity(i);
+            }
+        });
+
+        Info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(BookClubAdminActivity.this, ViewClubInfoActivity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+
+                startActivity(i);
             }
         });
 
 
 
-        Intent intent = getIntent();
-        String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
-        TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
-
-        textViewClubName.setText(CLUBNAME);
     }
 
     @Override
@@ -83,8 +135,24 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(BookClubAdminActivity.this, AllClubsActivity.class);
-        startActivity(mainintent);
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+        final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
+        final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
+        final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+
+        Intent i = new Intent(BookClubAdminActivity.this, AllClubsActivity.class);
+        i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+        i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+        i.putExtra(EXTRA_USERNAME,USERNAME);
+        i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+        i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+        i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+
+        startActivity(i);
     }
 
     @Override

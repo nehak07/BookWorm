@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_Profile_Fullname"
+            android:id="@+id/txt_ClubName"
             android:layout_width="285dp"
             android:layout_height="45dp"
             android:layout_below="@+id/imageView"
@@ -52,7 +52,7 @@
             android:id="@+id/btn_create_club"
             android:layout_width="319dp"
             android:layout_height="56dp"
-            android:layout_below="@+id/txt_Profile_Fullname"
+            android:layout_below="@+id/txt_ClubName"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="57dp"
@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_ClubName" />
 
 
 

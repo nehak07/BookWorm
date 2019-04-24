@@ -1,8 +1,5 @@
 package com.example.bookworm;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -10,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,7 +44,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         currentUserID = mAuth.getCurrentUser().getUid();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
 
-        FullName = (TextView) view.findViewById(R.id.txt_Profile_Fullname);
+        FullName = (TextView) view.findViewById(R.id.txt_ClubName);
 
 
         UserRef.addValueEventListener(new ValueEventListener() {

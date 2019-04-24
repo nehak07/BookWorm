@@ -1,0 +1,106 @@
+package com.example.bookworm;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+
+public class ViewClubInfoActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button CreateClub;
+    private TextView ClubName, UserName, ClubDesc;
+    private FirebaseFirestore mFirestore;
+    private StorageReference mStorageRef;
+    private FirebaseAuth mAuth;
+
+    private Toolbar mToolbar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_club_info);
+
+        mToolbar = (Toolbar) findViewById(R.id.ViewCLubInfo_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Create Book Club");
+
+
+
+
+        mFirestore = FirebaseFirestore.getInstance();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        ClubName = findViewById(R.id.etClubName);
+        UserName = findViewById(R.id.etUserName);
+
+        ClubDesc = findViewById(R.id.etClubDesc);
+
+
+        Intent intent = getIntent();
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+
+        TextView textViewClubDesc = findViewById(R.id.etClubDesc);
+        textViewClubDesc.setText(CLUBDESC);
+
+        TextView textViewClubName = findViewById(R.id.etClubName);
+        textViewClubName.setText(CLUBNAME);
+
+        TextView textViewUserName = findViewById(R.id.etUserName);
+        textViewUserName.setText(USERNAME);
+
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void SendUserToHome()
+    {
+        Intent intent = getIntent();
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+
+
+        Intent i = new Intent(ViewClubInfoActivity.this, BookClubAdminActivity.class);
+        i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+        i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+        i.putExtra(EXTRA_USERNAME,USERNAME);
+
+        startActivity(i);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+}

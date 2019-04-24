@@ -18,9 +18,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Currency;
-
-import javax.annotation.meta.When;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -55,9 +52,9 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 //Declaring variables
-        Genre = (TextView) findViewById(R.id.txt_Profile_Genre);
-        FullName = (TextView) findViewById(R.id.txt_Profile_Fullname);
-        Book = (TextView) findViewById(R.id.txt_Profile_Book);
+        Genre = (TextView) findViewById(R.id.txt_ViewDate);
+        FullName = (TextView) findViewById(R.id.txt_ClubName);
+        Book = (TextView) findViewById(R.id.txt_ViewTime);
 
         Send = (Button)  findViewById(R.id.btnSend_Request);
         Decline = (Button) findViewById(R.id.btnCancel_Request);

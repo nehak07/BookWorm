@@ -53,7 +53,7 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Friends");
+        getSupportActionBar().setTitle("Book Clubs");
 
         mAuth = FirebaseAuth.getInstance();
         setupRecyclerView();
@@ -131,11 +131,8 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
                         Intent detailsIntent = new Intent(AllClubsActivity.this, BookClubAdminActivity.class);
 
                         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
-
                         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
-
                         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
-
                         startActivity(detailsIntent);
                     }
                 }
@@ -152,9 +149,7 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
                         Intent detailsIntent = new Intent(AllClubsActivity.this, BookClubMemberActivity.class);
 
                         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
-
                         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
-
                         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
 
                         startActivity(detailsIntent);
@@ -165,24 +160,16 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         });
 
 
-        // have an if statement so it directs the user to the right activity
+        //System.out.println("onClickNote: Clicked  !!" + position);
 
-        System.out.println("onClickNote: Clicked  !!" + position);
-        //  Intent detailsIntent = new Intent(getActivity(), JoinClubActivity.class);
 
         Intent detailsIntent = new Intent(AllClubsActivity.this, JoinClubActivity.class);
-
-
-        //Log.d("TESTING", String.valueOf(ListOfNotes.size()));
-
 
         //Carry out the outfit details onto the next fragment
 
 
         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
-
         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
-
         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
 
         startActivity(detailsIntent);

@@ -22,7 +22,7 @@
 
 
     <TextView
-        android:id="@+id/txt_Profile_Fullname"
+        android:id="@+id/txt_ClubName"
         android:layout_width="285dp"
         android:layout_height="45dp"
         android:layout_below="@+id/ProfilePic"
@@ -36,38 +36,38 @@
         tools:layout_editor_absoluteX="54dp" />
 
     <TextView
-        android:id="@+id/txt_Profile_Book"
+        android:id="@+id/txt_ViewTime"
         android:layout_width="285dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/txt_Profile_Genre"
+        android:layout_below="@+id/txt_ViewDate"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Favourite Book Name"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
         tools:layout_editor_absoluteX="54dp" />
 
     <TextView
-        android:id="@+id/txt_Profile_Genre"
+        android:id="@+id/txt_ViewDate"
         android:layout_width="285dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/txt_Profile_Fullname"
+        android:layout_below="@+id/txt_ClubName"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Favourite Genre"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
         tools:layout_editor_absoluteX="54dp" />
 
     <Button
         android:id="@+id/btnSend_Request"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_Profile_Book"
+        android:layout_below="@+id/txt_ViewTime"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="109dp"

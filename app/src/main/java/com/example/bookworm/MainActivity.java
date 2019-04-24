@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        onStart();
+
     }
 
     private void userLogin(){
@@ -127,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (emailAddressCheck)
         {
             finish();
-            Intent intent = new Intent(MainActivity.this, BlankActivity.class);
+            Intent intent = new Intent(MainActivity.this, AccountSetUpActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }else

@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -85,13 +86,9 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onSuccess(Void aVoid) {
                         Intent detailsIntent = new Intent(JoinClubActivity.this, BookClubMemberActivity.class);
-
                         detailsIntent.putExtra(EXTRA_CLUBNAME, CLUBNAME);
-
                         detailsIntent.putExtra(EXTRA_USERNAME, CLUBADMIN);
-
                         detailsIntent.putExtra(EXTRA_CLUBDESC, CLUBDESC);
-
                         startActivity(detailsIntent);
                     }
                 });
@@ -122,7 +119,7 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(JoinClubActivity.this, BlankActivity.class);
+        Intent mainintent = new Intent(JoinClubActivity.this, AllClubsActivity.class);
         startActivity(mainintent);
     }
 

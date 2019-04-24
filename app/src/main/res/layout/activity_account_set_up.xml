@@ -41,7 +41,7 @@
 
 
         <EditText
-            android:id="@+id/txt_Profile_Fullname"
+            android:id="@+id/txt_ClubName"
             android:layout_width="285dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -61,11 +61,11 @@
             android:ems="10"
             android:hint="Enter Favourite Book Name"
             android:inputType="textPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
             tools:layout_editor_absoluteX="54dp" />
 
         <EditText
-            android:id="@+id/txt_Profile_Genre"
+            android:id="@+id/txt_ViewDate"
             android:layout_width="285dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -73,7 +73,7 @@
             android:ems="10"
             android:hint="Enter Favourite Genre"
             android:inputType="textPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Fullname"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
             tools:layout_editor_absoluteX="54dp" />
 
         <Button
@@ -83,7 +83,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:text="Save Details"
-            app:layout_constraintTop_toBottomOf="@+id/txt_Profile_Genre"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ViewDate"
             tools:layout_editor_absoluteX="123dp" />
     </LinearLayout>
 

@@ -31,7 +31,6 @@ public class GenresActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Genres");
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-       // bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new GenresFragment()).commit();
@@ -56,45 +55,6 @@ public class GenresActivity extends AppCompatActivity {
         Intent mainintent = new Intent(GenresActivity.this, BlankActivity.class);
         startActivity(mainintent);
     }
-
-//    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-//            new BottomNavigationView.OnNavigationItemSelectedListener(){
-//                @Override
-//                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                    Fragment selectedFragment =null;
-//
-//                    switch (item.getItemId()){
-//                        case R.id.nav_home:
-//                            selectedFragment = new HomeFragment();
-//                            Toast.makeText(getApplicationContext(), "Home Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//                        case R.id.nav_Club:
-//                            selectedFragment = new AllClubsFragment(); //Changes fragment to my books
-//                            Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//                        case R.id.nav_books:
-//                            selectedFragment = new MyBooksFragment(); //Changes fragment to my books
-//                            Toast.makeText(getApplicationContext(), "Books Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//                        case R.id.nav_Myclub:
-//                            selectedFragment = new ClubsFragment();
-//                            Toast.makeText(getApplicationContext(), "My Club Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//
-//                        case R.id.nav_setting:
-//                            selectedFragment = new SettingsFragment(); //Change fragment to settings
-//                            Toast.makeText(getApplicationContext(), "Settings Selected", Toast.LENGTH_SHORT).show();
-//                            break;
-//
-//                    }
-//
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                            selectedFragment).commit();
-//
-//                    return true;
-//                }
-//            };
-
 
 
 

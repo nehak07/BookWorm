@@ -15,13 +15,27 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="410dp"
-        android:layout_height="98dp"
+        android:layout_height="67dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/color_button_clicked" />
+
+    <TextView
+        android:id="@+id/txt_ClubName_detail"
+        android:layout_width="176dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="116dp"
+        android:text="Club Name:"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ClubAdmin" />
 
     <TextView
         android:id="@+id/txt_ClubAdmin"
@@ -41,7 +55,7 @@
         android:id="@+id/txt_Date"
         android:layout_width="251dp"
         android:layout_height="55dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="76dp"
         android:hint="Select Date"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +66,10 @@
         android:id="@+id/btn_Time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Select Time"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Time" />
 
@@ -62,12 +77,24 @@
         android:id="@+id/txt_Time"
         android:layout_width="251dp"
         android:layout_height="55dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="12dp"
         android:hint="Time Chosen"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Date" />
+
+    <EditText
+        android:id="@+id/etClubDesc"
+        android:layout_width="297dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="44dp"
+        android:ems="10"
+        android:hint="Enter Meeting Description"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Time" />
 
     <Button
         android:id="@+id/btn_SaveAccountDetails"
@@ -78,7 +105,7 @@
         android:text="Save Details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Time" />
+        app:layout_constraintTop_toBottomOf="@+id/etClubDesc" />
 
 
 </android.support.constraint.ConstraintLayout>

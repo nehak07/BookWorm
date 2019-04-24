@@ -1,6 +1,5 @@
 package com.example.bookworm;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -46,15 +45,16 @@ public class ProfileDetailsActivity extends AppCompatActivity implements View.On
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Update Profile Details");
 
+
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
 
 
 //Declaring variables
-        Genre = (EditText) findViewById(R.id.txt_Profile_Genre);
-        FullName = (EditText) findViewById(R.id.txt_Profile_Fullname);
-        Book = (EditText) findViewById(R.id.txt_Profile_Book);
+        Genre = (EditText) findViewById(R.id.txt_ViewDate);
+        FullName = (EditText) findViewById(R.id.txt_ClubName);
+        Book = (EditText) findViewById(R.id.txt_ViewTime);
         Update = (Button) findViewById(R.id.btnUpdate_Details);
 
 

@@ -135,7 +135,7 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(RateBookActivity.this, BlankActivity.class);
+        Intent mainintent = new Intent(RateBookActivity.this, MyBooksActivity.class);
         startActivity(mainintent);
     }
 
@@ -175,7 +175,7 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(RateBookActivity.this, "Book Review Saved!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RateBookActivity.this, BlankActivity.class));
+                                startActivity(new Intent(RateBookActivity.this, MyBooksActivity.class));
                             }
                         });
 
