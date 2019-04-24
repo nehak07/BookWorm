@@ -14,6 +14,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
 import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 
 
@@ -47,6 +49,8 @@ public class ViewMeetingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
         final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
@@ -86,7 +90,9 @@ public class ViewMeetingActivity extends AppCompatActivity {
     {
 
         Intent intent = getIntent();
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
         final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
@@ -97,6 +103,8 @@ public class ViewMeetingActivity extends AppCompatActivity {
         mainintent.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
         mainintent.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
         mainintent.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+        mainintent.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+        mainintent.putExtra(EXTRA_USERNAME,USERNAME);
 
 
         startActivity(mainintent);

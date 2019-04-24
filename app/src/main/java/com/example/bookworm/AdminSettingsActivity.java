@@ -21,7 +21,7 @@ import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
 public class AdminSettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private ImageButton Members, MeetUp, Vote, Info;
+    private ImageButton Members, MeetUp, Vote, Info, Book;
     private Toolbar mToolbar;
     private TextView ClubName;
 
@@ -48,6 +48,9 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
 
         Members = findViewById(R.id.btn_Member_Members);
         Members.setOnClickListener(this);
+
+        Book = findViewById(R.id.btn_Book_Member);
+        Book.setOnClickListener(this);
 
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
@@ -89,6 +92,21 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
                 i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
                 i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
 
+                startActivity(i);
+            }
+        });
+
+        Book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(AdminSettingsActivity.this, Genres2Activity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
                 startActivity(i);
             }
         });

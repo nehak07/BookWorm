@@ -33,7 +33,7 @@ import static com.example.bookworm.BooksFragment.EXTRA_NAME;
 import static com.example.bookworm.BooksFragment.EXTRA_PRICE;
 import static com.example.bookworm.BooksFragment.EXTRA_URL;
 
-public class BookDetailsActivity extends AppCompatActivity implements View.OnClickListener{
+public class BookDetails2Activity extends AppCompatActivity implements View.OnClickListener{
 
     private Button AddToReadList;
     private TextView BookName, BookPrice, Category, Genre, Author;
@@ -52,11 +52,11 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
 
-        mToolbar = (Toolbar) findViewById(R.id.BookDetails_Toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Book Details");
+//        mToolbar = (Toolbar) findViewById(R.id.BookDetails_2_Toolbar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setTitle("Book Details");
 
         mFirestore = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -77,9 +77,9 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         NextHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(BookDetailsActivity.this, BlankActivity.class));
-             // MyBooksFragment fragment = new MyBooksFragment();
-              //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyBooksFragment()).commit();
+                startActivity(new Intent(BookDetails2Activity.this, BookClubAdminActivity.class));
+                // MyBooksFragment fragment = new MyBooksFragment();
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyBooksFragment()).commit();
 
             }
         });
@@ -123,7 +123,7 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(BookDetailsActivity.this, BlankActivity.class);
+        Intent mainintent = new Intent(BookDetails2Activity.this, BookClubAdminActivity.class);
         startActivity(mainintent);
     }
 
@@ -156,11 +156,11 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
 
         );
 
-        mFirestore.collection("Reading").add(note2)
+        mFirestore.collection("ClubReading").add(note2)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(BookDetailsActivity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BookDetails2Activity.this, "Added To Book Club Reading List", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

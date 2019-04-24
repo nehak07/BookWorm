@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -102,7 +103,7 @@ public class ProfileDetailsActivity extends AppCompatActivity implements View.On
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(ProfileDetailsActivity.this, BlankActivity.class);
+        Intent mainintent = new Intent(ProfileDetailsActivity.this, SettingActivity.class);
         startActivity(mainintent);
     }
 
