@@ -16,23 +16,25 @@
         android:icon="@drawable/book"
         android:title="My Books" />
 
+
+
     <item
         android:id="@+id/nav_MyFriends"
-        android:icon="@drawable/friendship"
+        android:icon="@drawable/settings"
         android:title="My Friends" />
 
     <item
         android:id="@+id/nav_FindFriends"
-        android:icon="@drawable/findfriend"
+        android:icon="@drawable/settings"
         android:title="Find Friends" />
 
     <item
         android:id="@+id/nav_Rec"
-        android:icon="@drawable/findbook"
+        android:icon="@drawable/settings"
         android:title="Find Self-Help Books" />
     <item
         android:id="@+id/nav_messages"
-        android:icon="@drawable/message"
+        android:icon="@drawable/settings"
         android:title="Message" />
 
     <item
@@ -42,7 +44,7 @@
 
     <item
         android:id="@+id/nav_logout"
-        android:icon="@drawable/logout"
+        android:icon="@drawable/settings"
         android:title="Logout" />
 
 </menu>

@@ -47,8 +47,6 @@ public class BlankActivity extends AppCompatActivity {
 
         FullName = (TextView) findViewById(R.id.txt_ClubName);
 
-
-
         mAuth  = FirebaseAuth.getInstance();
 
         mToolbar = (Toolbar) findViewById(R.id.main_page_toolbar);
