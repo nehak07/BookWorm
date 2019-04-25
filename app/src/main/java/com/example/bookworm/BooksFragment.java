@@ -40,6 +40,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+
 public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListener {
 
     public static final String EXTRA_URL = "imageURL";
@@ -82,6 +84,9 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
 
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);
+
+        Intent intent = getActivity().getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
 
         setupRecyclerView();

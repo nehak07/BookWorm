@@ -23,7 +23,7 @@ import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
 
-public class ViewClubInfoActivity extends AppCompatActivity implements View.OnClickListener{
+public class ViewClubInfo2Activity extends AppCompatActivity implements View.OnClickListener{
 
     private Button CreateClub;
     private TextView ClubName, UserName, ClubDesc;
@@ -36,9 +36,9 @@ public class ViewClubInfoActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_club_info);
+        setContentView(R.layout.activity_view_club_info2);
 
-        mToolbar = (Toolbar) findViewById(R.id.ViewCLubInfo_Toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.ViewCLubInfo2_Toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -98,7 +98,7 @@ public class ViewClubInfoActivity extends AppCompatActivity implements View.OnCl
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
 
 
-        Intent i = new Intent(ViewClubInfoActivity.this, BookClubAdminActivity.class);
+        Intent i = new Intent(ViewClubInfo2Activity.this, BookClubMemberActivity.class);
         i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
         i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
         i.putExtra(EXTRA_USERNAME,USERNAME);

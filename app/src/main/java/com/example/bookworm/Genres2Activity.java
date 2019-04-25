@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+
 public class Genres2Activity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private Toolbar mToolbar;
@@ -29,6 +31,10 @@ public class Genres2Activity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Genres");
+
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 

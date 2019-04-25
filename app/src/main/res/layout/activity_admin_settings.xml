@@ -63,13 +63,14 @@
 
     <ImageButton
         android:id="@+id/btn_MeetUp_Members"
-        android:layout_width="110dp"
+        android:layout_width="107dp"
         android:layout_height="103dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
         android:scaleType="fitCenter"
         android:src="@drawable/coffee"
         app:layout_constraintStart_toEndOf="@+id/btn_Member_Members"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Book_Member" />
 
     <ImageButton
         android:id="@+id/btn_Info_Member"
@@ -86,11 +87,22 @@
         android:id="@+id/btn_Book_Member"
         android:layout_width="116dp"
         android:layout_height="99dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="104dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/books"
+        android:src="@drawable/findbook"
+        app:layout_constraintStart_toEndOf="@+id/btn_Info_Member"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageButton
+        android:id="@+id/btn_Setting_Member"
+        android:layout_width="110dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/setting2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_MeetUp_Members" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Member_Members" />
 
 </android.support.constraint.ConstraintLayout>

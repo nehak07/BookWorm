@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewClubInfo2Activity">
+
+    <include
+        android:id="@+id/ViewCLubInfo2_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
+
+    <TextView
+        android:id="@+id/etClubName"
+        android:layout_width="297dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="29dp"
+        android:ems="10"
+        android:hint=" Edit Your Club Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+
+    <TextView
+        android:id="@+id/etUserName"
+        android:layout_width="297dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="29dp"
+        android:ems="10"
+        android:hint="Edit Your Username"
+        android:inputType="textPersonName|textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/etClubDesc"
+        android:layout_width="297dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="29dp"
+        android:ems="10"
+        android:hint="Edit Club Description"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClubName" />
+
+
+</android.support.constraint.ConstraintLayout>

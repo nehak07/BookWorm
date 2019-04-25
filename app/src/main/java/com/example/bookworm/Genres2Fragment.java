@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 
 
 public class Genres2Fragment extends Fragment implements View.OnClickListener {
@@ -72,6 +75,10 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
 
         Financial = view.findViewById(R.id.btnFinancial);
         Financial.setOnClickListener(this);
+
+
+        Intent intent = getActivity().getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
 
         return view;

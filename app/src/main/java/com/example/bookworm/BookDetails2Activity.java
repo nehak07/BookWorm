@@ -25,6 +25,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.BooksFragment.EXTRA_AUTHOR;
 import static com.example.bookworm.BooksFragment.EXTRA_BOOKURL;
 //import static com.example.bookworm.BooksFragment.EXTRA_CAT;
@@ -44,6 +48,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     private FirebaseFirestore mFirestore;
     private StorageReference mStorageRef;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private Toolbar mToolbar;
 
 
@@ -84,6 +89,8 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
             }
         });
 
+
+
         Intent intent = getIntent();
         imageURL = intent.getStringExtra(EXTRA_URL);
         String GENRE = intent.getStringExtra(EXTRA_GENRE);
@@ -92,6 +99,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
         String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
         ImageView imageView = findViewById(R.id.image_outfit_detail);
         TextView textViewGenre = findViewById(R.id.txt_Book_Genre);
@@ -156,6 +164,10 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
 
         );
 
+//                Intent intent = getIntent();
+//        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+//
+//
         mFirestore.collection("ClubReading").add(note2)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -163,8 +175,19 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
                         Toast.makeText(BookDetails2Activity.this, "Added To Book Club Reading List", Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
 
+
+//        Intent intent = getIntent();
+//        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+//
+//        mFirestore.collection("Club").document(EXTRA_CLUBNAME).collection("ClubReading").document(UserID).set(note2).
+//                addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        Toast.makeText(BookDetails2Activity.this, "Added To Book Club Reading List", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+    }
 
 }
 

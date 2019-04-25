@@ -157,6 +157,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_BookName_detail" />
 
+    <TextView
+        android:id="@+id/txt_ClubName_detail"
+        android:layout_width="176dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="152dp"
+        android:text="Club Name:"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="384dp" />
+
 
     <TextView
         android:id="@+id/textView4"
