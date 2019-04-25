@@ -7,9 +7,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
@@ -59,7 +62,7 @@ public class ViewMeetingActivity extends AppCompatActivity {
 
         textViewClubName.setText("Club Name: " + CLUBNAME);
 
-        TextView ViewDate = findViewById(R.id.txt_ViewDate);
+      final TextView ViewDate = findViewById(R.id.txt_ViewDate);
 
         ViewDate.setText("Meeting Date: " + MEETINGDATE);
 
@@ -71,7 +74,33 @@ public class ViewMeetingActivity extends AppCompatActivity {
 
         ViewDesc.setText("Meeting Description: " + MEETINGDESC);
 
-}
+//        notebookRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//            @Override
+//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                String data = "";
+//
+//                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+//                    Note9 note = documentSnapshot.toObject(Note9.class);
+//
+//                    String time = note.getTime();
+//                    String date = note.getDate();
+//                    String desc = note.getClubdesc();
+//
+//                    date += "Time: " + time + "\nDate: " + data
+//                            +"\nDesc: " + desc + "\n\n";
+//                }
+//
+//                ViewDate.setText(data);
+//            }
+//        });
+
+
+    }
+
+
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)

@@ -124,6 +124,12 @@ public class BlankActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Rating Selected", Toast.LENGTH_SHORT).show();
                         break;
 
+                    case R.id.nav_searchbook:
+                        //selectedFragment = new SettingsFragment(); //Change fragment to settings
+                        startActivity(new Intent(BlankActivity.this, Main2Activity.class));
+                        Toast.makeText(getApplicationContext(), "Search Books Selected", Toast.LENGTH_SHORT).show();
+                        break;
+
                     case R.id.nav_setting:
                         //selectedFragment = new SettingsFragment(); //Change fragment to settings
                         startActivity(new Intent(BlankActivity.this, SettingActivity.class));
