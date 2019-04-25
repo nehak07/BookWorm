@@ -7,7 +7,7 @@
     tools:context=".MyBooksActivity">
 
     <include
-        android:id="@+id/MyBooks_Toolbar"
+        android:id="@+id/MyBooks1_Toolbar"
         layout="@layout/app_bar_layout"
 
         ></include>

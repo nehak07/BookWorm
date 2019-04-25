@@ -29,7 +29,6 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     private CollectionReference notebookRef = db.collection("Reading");
 
     private Toolbar mToolbar;
-    private NoteAdapter2 adapter2;
 
     public static final String EXTRA_URL = "imageURL";
     public static final String EXTRA_GENRE = "GENRE";
@@ -49,7 +48,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_books);
 
-        mToolbar = findViewById(R.id.MyBooks_Toolbar);
+        mToolbar = findViewById(R.id.MyBooks1_Toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

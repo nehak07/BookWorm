@@ -71,6 +71,7 @@ public class Price2Fragment extends Fragment implements View.OnClickListener {
 
         Intent intent = getActivity().getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        Toast.makeText(getContext(),CLUBNAME,Toast.LENGTH_SHORT).show();
 
         queryBundle = this.getArguments();
 

@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -133,7 +134,7 @@ public class MessageActivity extends AppCompatActivity {
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(MessageActivity.this, BlankActivity.class);
+        Intent mainintent = new Intent(MessageActivity.this, FriendsActivity.class);
         startActivity(mainintent);
     }
 

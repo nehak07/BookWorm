@@ -21,15 +21,18 @@ import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
+
 public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5.OnNoteListener  {
 
     private FirebaseAuth mAuth;
     private String UserId;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference notebookRef = db.collection("ClubReading");
+    private CollectionReference notebookRef = db.collection("Club");
 
     private Toolbar mToolbar;
     private NoteAdapter2 adapter2;
+    public String CLUBNAME;
 
     public static final String EXTRA_URL = "imageURL";
     public static final String EXTRA_GENRE = "GENRE";
@@ -48,6 +51,10 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_books);
+
+
+        Intent intent = getIntent();
+        CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
 //        mToolbar = findViewById(R.id.ClubBooks_Toolbar);
 //        setSupportActionBar(mToolbar);
@@ -71,8 +78,7 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
         // if (UserId == null) {
 
 
-        Query query = notebookRef.whereEqualTo("user", UserId);
-
+        Query query = notebookRef.document(CLUBNAME).collection("ClubReading");
         ListOfOptions.add(query);
         // }
 

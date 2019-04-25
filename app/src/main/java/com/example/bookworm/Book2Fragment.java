@@ -69,6 +69,8 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
     private CollectionReference notebookRef = db.collection("Books");
 
     private NoteAdapter adapter;
+    String CLUBNAME;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,7 +89,8 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
 
 
         Intent intent = getActivity().getIntent();
-        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        Toast.makeText(getContext(),CLUBNAME,Toast.LENGTH_SHORT).show();
 
 
         setupRecyclerView();
@@ -143,6 +146,7 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
 
         //Carry out the outfit details onto the next fragment
 
+        detailsIntent.putExtra(EXTRA_CLUBNAME, CLUBNAME);
 
 
         detailsIntent.putExtra(EXTRA_URL,clickedItem.getURL());

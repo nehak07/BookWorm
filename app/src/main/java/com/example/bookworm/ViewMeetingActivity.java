@@ -1,15 +1,22 @@
 package com.example.bookworm;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -52,27 +59,50 @@ public class ViewMeetingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
-        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
-        final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
-        final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
-        final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+//        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+//        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+//        final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
+//        final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
+//        final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
 
-        TextView textViewClubName = findViewById(R.id.txt_ClubName);
+        final TextView textViewClubName = findViewById(R.id.txt_ClubName);
 
-        textViewClubName.setText("Club Name: " + CLUBNAME);
+        //textViewClubName.setText("Club Name: " + CLUBNAME);
 
       final TextView ViewDate = findViewById(R.id.txt_ViewDate);
 
-        ViewDate.setText("Meeting Date: " + MEETINGDATE);
+       // ViewDate.setText("Meeting Date: " + MEETINGDATE);
 
-        TextView ViewTime = findViewById(R.id.txt_ViewTime);
+       final TextView ViewTime = findViewById(R.id.txt_ViewTime);
 
-        ViewTime.setText("Meeting Time: " + MEETINGTIME);
+       // ViewTime.setText("Meeting Time: " + MEETINGTIME);
 
-        TextView ViewDesc = findViewById(R.id.txt_view_MeetingDesc);
+       final TextView ViewDesc = findViewById(R.id.txt_view_MeetingDesc);
 
-        ViewDesc.setText("Meeting Description: " + MEETINGDESC);
+        //ViewDesc.setText("Meeting Description: " + MEETINGDESC);
+
+
+
+        notebookRef.document(CLUBNAME).collection("Events")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    QuerySnapshot query = task.getResult();
+
+                    Note9 note = query.toObjects(Note9.class).get(0);
+                        textViewClubName.setText("Club Name: " + CLUBNAME);
+                        ViewDate.setText("Meeting Date: " + note.getDate());
+                        ViewTime.setText("Meeting Time: " + note.getTime());
+                        ViewDesc.setText("Meeting Description: " + note.getClubdesc());
+
+                    } else {
+                        //Log.d(TAG, "No such document");
+                        Toast.makeText(ViewMeetingActivity.this, "No such document", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+        });
 
 //        notebookRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
 //            @Override

@@ -28,6 +28,7 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.BooksFragment.EXTRA_AUTHOR;
 import static com.example.bookworm.BooksFragment.EXTRA_BOOKURL;
@@ -79,10 +80,20 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         findViewById(R.id.btn_nextHome).setOnClickListener(this);
 
 
+
         NextHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BookDetails2Activity.this, BookClubAdminActivity.class));
+                Intent intent = getIntent();
+                final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+
+                Intent mainintent = new Intent(BookDetails2Activity.this, BookClubAdminActivity.class);
+
+                mainintent.putExtra(AllClubsActivity.EXTRA_CLUBNAME,CLUBNAME);
+
+                startActivity(mainintent);
+
+                //startActivity(new Intent(BookDetails2Activity.this, BookClubAdminActivity.class));
                 // MyBooksFragment fragment = new MyBooksFragment();
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyBooksFragment()).commit();
 
@@ -100,6 +111,8 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+
+        Toast.makeText(BookDetails2Activity.this,CLUBNAME,Toast.LENGTH_SHORT).show();
 
         ImageView imageView = findViewById(R.id.image_outfit_detail);
         TextView textViewGenre = findViewById(R.id.txt_Book_Genre);
@@ -164,11 +177,12 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
 
         );
 
-//                Intent intent = getIntent();
-//        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+              Intent intent = getIntent();
+      final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 //
 //
-        mFirestore.collection("ClubReading").add(note2)
+
+        mFirestore.collection("Club").document(CLUBNAME).collection("ClubReading").add(note2)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
