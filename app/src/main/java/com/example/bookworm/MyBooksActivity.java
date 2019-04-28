@@ -110,7 +110,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     public void onNoteClick(int position) {
 
         System.out.println("onClickNote: Clicked  !!" + position);
-        Intent detailsIntent = new Intent(MyBooksActivity.this, BlankActivity.class);
+        Intent detailsIntent = new Intent(MyBooksActivity.this, RateBookActivity.class);
         Log.d("TESTING", String.valueOf(ListOfNotes.size()));
         Note5 clickedItem = ListOfNotes.get(position);
 

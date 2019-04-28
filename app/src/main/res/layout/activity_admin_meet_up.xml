@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/color_button_clicked" />
+        android:background="@color/Default"/>
 
     <TextView
         android:id="@+id/txt_ClubName_detail"

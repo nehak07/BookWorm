@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,6 +55,8 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     private Toolbar mToolbar;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +82,6 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         Author = findViewById(R.id.txt_view_Author);
 
         findViewById(R.id.btn_nextHome).setOnClickListener(this);
-
 
 
         NextHome.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +115,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
-        Toast.makeText(BookDetails2Activity.this,CLUBNAME,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(BookDetails2Activity.this,CLUBNAME,Toast.LENGTH_SHORT).show();
 
         ImageView imageView = findViewById(R.id.image_outfit_detail);
         TextView textViewGenre = findViewById(R.id.txt_Book_Genre);
@@ -121,12 +124,18 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         TextView textViewAuthor = findViewById(R.id.txt_view_Author);
         TextView textViewBrandURL = findViewById(R.id.txt_Bookbrand_url);
 
+        String itemLink = "<a href='" + BOOKURL + "'> BUY IT HERE! </a>";
+        textViewBrandURL.setText(Html.fromHtml(itemLink));
+        textViewBrandURL.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+
         Picasso.get().load(imageURL).fit().centerInside().into(imageView);
         textViewGenre.setText(GENRE);
         textViewAuthor.setText(AUTHOR);
         textViewName.setText(NAME);
         textViewPrice.setText(""+PRICE);
-        textViewBrandURL.setText(BOOKURL);
+        //textViewBrandURL.setText(BOOKURL);
 
     }
 

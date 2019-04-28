@@ -9,5 +9,12 @@
     <color name="SenderColour">#A0179E</color>
     <color name="album_title">#4c4c4c</color>
     <color name="Main">#ed4c54</color>
-    <color name="Default">#000000</color>
+    <color name="Black">#000000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Default">#CCCCCC</color>
+    <color name="Header">#004877</color>
+    <color name="Card">#E4E4E4</color>
+
+
+
 </resources>
