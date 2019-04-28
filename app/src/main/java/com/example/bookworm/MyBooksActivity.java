@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +12,14 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -42,6 +46,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     ArrayList<Query> ListOfOptions = new ArrayList<>();
 
     private NoteAdapter5 adapter;
+    private Button buttonRemove;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +110,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     public void onNoteClick(int position) {
 
         System.out.println("onClickNote: Clicked  !!" + position);
-        Intent detailsIntent = new Intent(MyBooksActivity.this, RateBookActivity.class);
+        Intent detailsIntent = new Intent(MyBooksActivity.this, BlankActivity.class);
         Log.d("TESTING", String.valueOf(ListOfNotes.size()));
         Note5 clickedItem = ListOfNotes.get(position);
 
@@ -126,6 +131,17 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
 
     }
 
+    public void removeItem(int position){
+        ListOfNotes.remove(position);
+        adapter.notifyItemRemoved(position);
+
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        removeItem(position);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -141,7 +157,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
 
     private void SendUserToHome()
     {
-        Intent intent = new Intent(MyBooksActivity.this, BlankActivity.class);
+        Intent intent = new Intent(MyBooksActivity.this, RateBookActivity.class);
         startActivity(intent);
     }
 }

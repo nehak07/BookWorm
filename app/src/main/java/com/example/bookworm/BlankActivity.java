@@ -36,10 +36,14 @@ public class BlankActivity extends AppCompatActivity {
     private TextView FullName, UserName;
     private String currentUserID;
 
+    public static final String EXTRA_NAME = "MEMBERNAME";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blank);
+
+
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
@@ -86,8 +90,15 @@ public class BlankActivity extends AppCompatActivity {
                             break;
 
                     case R.id.nav_Club:
-                            startActivity(new Intent(BlankActivity.this, AllClubsActivity.class));
-                            Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
+                        Intent detailsIntent = new Intent(BlankActivity.this, AllClubsActivity.class);
+                        Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
+
+                       // detailsIntent.putExtra(EXTRA_NAME, MEMBERNAME);
+                        startActivity(detailsIntent);
+
+
+
+
                             break;
 
                     case R.id.nav_books:

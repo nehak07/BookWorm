@@ -66,6 +66,21 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
 
         textViewClubName.setText(CLUBNAME);
 
+        Members.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(BookClubAdminActivity.this, ViewMembersActivity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                startActivity(i);
+            }
+        });
+
         MeetUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

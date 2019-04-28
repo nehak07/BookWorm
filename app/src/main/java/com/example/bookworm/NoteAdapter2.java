@@ -29,9 +29,6 @@ public class NoteAdapter2 extends FirestoreRecyclerAdapter<Note2, NoteAdapter2.N
 
     }
 
-    public void deleteItem(int position){
-        getSnapshots().getSnapshot(position).getReference().delete();
-    }
 
     @NonNull
     @Override
@@ -39,6 +36,10 @@ public class NoteAdapter2 extends FirestoreRecyclerAdapter<Note2, NoteAdapter2.N
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.note2_item,
                 parent, false);
         return new NoteAdapter2.NoteHolder(v);
+    }
+
+    public void deleteItem(int position){
+        getSnapshots().getSnapshot(position).getReference().delete();
     }
 
     class NoteHolder extends RecyclerView.ViewHolder{

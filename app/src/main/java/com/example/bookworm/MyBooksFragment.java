@@ -76,44 +76,27 @@ public class MyBooksFragment extends Fragment implements View.OnClickListener {
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter2);
 
-
-//Coding in the flow, 2018 [ONLINE] Available at: https://www.youtube.com/watch?v=dTuhMFP-a1g&t=185s [Accessed on the 19th March 2019]
-
             new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                     ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                @Override
+                public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+                    return 0;
+                }
+
                 @Override
                 public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
                     return false;
                 }
 
                 @Override
-                public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
                     adapter2.deleteItem(viewHolder.getAdapterPosition());
 
                 }
             }).attachToRecyclerView(recyclerView);
 
-//            adapter2.setmOnNoteListener(new NoteAdapter2.OnNoteListener() {
-//                @Override
-//                public void onNoteClick(DocumentSnapshot documentSnapshot, int position) {
-//                    Note2 note2 = documentSnapshot.toObject(Note2.class);
-//                    String user = documentSnapshot.getId();
-//                    String path = documentSnapshot.getReference().getPath();
-//                    note2.getAuthor();
-//                    Toast.makeText(getContext(),"POSITITON: " + position + "ID: " + user,Toast.LENGTH_SHORT).show();
-//
-//                    System.out.println("USERS BOOK" + position + user);
-//
-//                    //Opens a new fragment, picking up the current boooks position in the recycler view and ID
-//                    RateReviewBookFragment fragment = new RateReviewBookFragment(); //CREATE A NEW for the books to rate and write review FRAGMENT
-//                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-//
-//
-//
-//
-//                }
-//            });
 
+//Coding in the flow, 2018 [ONLINE] Available at: https://www.youtube.com/watch?v=dTuhMFP-a1g&t=185s [Accessed on the 19th March 2019]
 
 
         }

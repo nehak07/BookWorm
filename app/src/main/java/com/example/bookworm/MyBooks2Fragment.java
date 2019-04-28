@@ -129,4 +129,16 @@ public class MyBooks2Fragment extends Fragment implements NoteAdapter5.OnNoteLis
 
     }
 
+    public void removeItem(int position){
+        ListOfNotes.remove(position);
+        adapter.notifyItemRemoved(position);
+
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        removeItem(position);
+    }
+
+
 }
