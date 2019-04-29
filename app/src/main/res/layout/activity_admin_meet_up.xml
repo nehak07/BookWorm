@@ -55,20 +55,24 @@
         android:id="@+id/txt_Date"
         android:layout_width="251dp"
         android:layout_height="55dp"
-        android:layout_marginTop="76dp"
+        android:fontFamily="Verdana"
         android:hint="Select Date"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="25dp"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="191dp" />
 
     <Button
         android:id="@+id/btn_Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="246dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:text="Select Time"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/Button"
+        android:textColor="@color/White"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Time" />
@@ -79,7 +83,10 @@
         android:layout_height="55dp"
         android:layout_marginTop="12dp"
         android:hint="Time Chosen"
-        android:textSize="30dp"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
+        android:textSize="25dp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Date" />
@@ -91,19 +98,27 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="44dp"
         android:ems="10"
-        android:hint="Enter Meeting Description"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
+        android:hint="Enter Description"
+        android:textAlignment="center"
         android:inputType="text"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Time" />
 
     <Button
         android:id="@+id/btn_SaveAccountDetails"
-        android:layout_width="151dp"
+        android:layout_width="246dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
+        android:textStyle="bold"
         android:text="Save Details"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/Button"
+        android:textColor="@color/White"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etClubDesc" />
 

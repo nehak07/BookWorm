@@ -63,13 +63,16 @@
 
     <Button
         android:id="@+id/btn_add"
-        android:layout_width="166dp"
-        android:layout_height="41dp"
+        android:layout_width="246dp"
+        android:layout_height="50dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="16dp"
         android:fontFamily="Verdana"
-        android:text="ADD TO READLIST"
+        android:text="ADD TO READING LIST"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/Button"
+        android:textColor="@color/White"
         app:layout_constraintTop_toBottomOf="@+id/txt_view_Author" />
 
     <TextView
@@ -132,12 +135,16 @@
 
     <Button
         android:id="@+id/btn_nextHome"
-        android:layout_width="117dp"
+        android:layout_width="246dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="144dp"
         android:text="Next"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:background="@color/Button"
+        android:textColor="@color/White"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"

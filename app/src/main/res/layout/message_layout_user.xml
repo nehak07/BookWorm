@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
     android:layout_marginTop="5dp"
-    android:background="@drawable/receiver_massage_text"
+    android:background="@color/Button"
     android:text="Receiver Message "
     android:textColor="#FFFFFF"
     android:padding="10dp"
@@ -25,13 +25,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="@+id/receiver_message_text"
         android:layout_marginTop="5dp"
-        android:background="@drawable/sender_message_text_background"
+        android:background="@color/Card"
         android:text="Sender Message "
-        android:textColor="#FFFFFF"
+        android:textColor="@color/Black"
         android:padding="10dp"
         android:textSize="14dp"
         android:textStyle="bold"
-        />44
+        />
 
 
 

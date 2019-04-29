@@ -37,6 +37,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
         android:hint="Fullname"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
@@ -52,6 +54,8 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Favourite Book Name"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
         tools:layout_editor_absoluteX="54dp" />
@@ -64,6 +68,8 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
         android:ems="10"
         android:hint="Favourite Genre"
         android:inputType="textPersonName"
@@ -79,7 +85,12 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="98dp"
         android:layout_marginTop="22dp"
+        android:background="@color/Button"
+        android:textColor="@color/White"
+        android:fontFamily="Verdana"
         android:layout_marginEnd="100dp"
+        android:textSize="22dp"
+        android:textStyle="bold"
         android:text="Update Details" />
 
     <TextView

@@ -6,7 +6,7 @@
     <color name="color_button_clicked">#F9B4F9</color>
     <color name="color_button_unclicked">#dedcdb</color>
     <color name="viewBg">#f1f5f8</color>
-    <color name="SenderColour">#A0179E</color>
+    <color name="SenderColour">#E4E4E4</color>
     <color name="album_title">#4c4c4c</color>
     <color name="Main">#ed4c54</color>
     <color name="Black">#000000</color>
@@ -14,6 +14,8 @@
     <color name="Default">#CCCCCC</color>
     <color name="Header">#004877</color>
     <color name="Card">#E4E4E4</color>
+    <color name="Button">#e8005A</color>
+    <color name="ButtonClicked">#E4E4E4</color>
 
 
 

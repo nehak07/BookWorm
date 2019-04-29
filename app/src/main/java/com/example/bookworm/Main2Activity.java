@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -131,7 +132,7 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
         if(networkInfo == null){
             empty_state.setText("NO INTERNET");
             empty_state.setVisibility(View.VISIBLE);
-            ((Button) findViewById(R.id.searchButton)).setEnabled(false);
+            ((ImageButton) findViewById(R.id.searchButton)).setEnabled(false);
         }
 
        // initCollapsingToolbar();

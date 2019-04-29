@@ -21,11 +21,11 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:background="#ffe6ff"
+        android:background="@color/Button"
         android:fontFamily="Verdana"
         android:text="WHAT DO YOU SUFFER FROM?"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/White"
         android:textSize="25dp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="0dp" />
@@ -56,7 +56,7 @@
             android:layout_height="62dp"
             android:layout_marginStart="44dp"
             android:layout_marginTop="160dp"
-            android:background="#dedcdb"
+            android:background="@color/Card"
             android:text="Anxitey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +68,7 @@
             android:layout_height="62dp"
             android:layout_marginStart="44dp"
             android:layout_marginTop="32dp"
-            android:background="#dedcdb"
+            android:background="@color/Card"
             android:text="Bipolar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnAnxiety" />
@@ -79,7 +79,7 @@
             android:layout_height="62dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="32dp"
-            android:background="#dedcdb"
+            android:background="@color/Card"
             android:text="Financial Strain"
             app:layout_constraintStart_toEndOf="@+id/btnPTSD"
             app:layout_constraintTop_toBottomOf="@+id/btnOCD" />
@@ -90,7 +90,7 @@
             android:layout_height="63dp"
             android:layout_marginStart="44dp"
             android:layout_marginTop="32dp"
-            android:background="#dedcdb"
+            android:background="@color/Card"
             android:text="PTSD"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/BtnBipolar" />
@@ -101,7 +101,7 @@
             android:layout_height="62dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="32dp"
-            android:background="#dedcdb"
+            android:background="@color/Card"
             android:text="OCD"
             app:layout_constraintStart_toEndOf="@+id/BtnBipolar"
             app:layout_constraintTop_toBottomOf="@+id/btnDepression" />
@@ -114,14 +114,13 @@
             android:layout_marginEnd="56dp"
             android:layout_marginRight="56dp"
             android:layout_marginBottom="8dp"
-            android:background="#D2D2D2"
+            android:background="@color/Button"
             android:text="Next"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="@color/White"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnCrime" />
+            app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
 

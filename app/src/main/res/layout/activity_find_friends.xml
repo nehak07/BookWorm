@@ -24,9 +24,10 @@
         android:layout_marginTop="54dp"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
-        android:text="Search for other club members below"
+        android:text="SEARCH FOR CLUB MEMBERS"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
         android:textSize="18dp" />
 
     <EditText
@@ -56,6 +57,7 @@
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@id/search_box_input"
         android:layout_toRightOf="@id/search_box_input"
+        android:scaleType="fitCenter"
         android:src="@drawable/search" />
 
     <android.support.v7.widget.RecyclerView

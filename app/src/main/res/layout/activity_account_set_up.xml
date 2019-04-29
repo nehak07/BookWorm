@@ -47,6 +47,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:ems="10"
+            android:textColor="@color/Black"
+            android:fontFamily="Verdana"
             android:hint="Enter Fullname"
             android:inputType="textPersonName"
             app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
@@ -59,6 +61,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:textColor="@color/Black"
+            android:fontFamily="Verdana"
             android:hint="Enter Favourite Book Name"
             android:inputType="textPersonName"
             app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
@@ -73,16 +77,23 @@
             android:ems="10"
             android:hint="Enter Favourite Genre"
             android:inputType="textPersonName"
+            android:textColor="@color/Black"
+            android:fontFamily="Verdana"
             app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
             tools:layout_editor_absoluteX="54dp" />
 
         <Button
             android:id="@+id/btn_SaveAccountDetails"
-            android:layout_width="151dp"
+            android:layout_width="246dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:text="Save Details"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:fontFamily="Verdana"
+            android:background="@color/Button"
+            android:textColor="@color/White"
             app:layout_constraintTop_toBottomOf="@+id/txt_ViewDate"
             tools:layout_editor_absoluteX="123dp" />
     </LinearLayout>

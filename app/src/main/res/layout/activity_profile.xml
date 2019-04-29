@@ -30,6 +30,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
         android:hint="Fullname"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
@@ -43,6 +45,8 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
         android:ems="10"
         android:hint="Favourite Book Name"
         android:inputType="textPersonName"
@@ -58,6 +62,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:textColor="@color/Black"
+        android:fontFamily="Verdana"
         android:hint="Favourite Genre"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
@@ -72,12 +78,17 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="109dp"
         android:layout_marginTop="33dp"
+        android:background="@color/Button"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="15dp"
         android:layout_marginEnd="104dp"
         android:text="Send Friend Request" />
 
     <Button
         android:id="@+id/btnCancel_Request"
         android:layout_width="200dp"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSend_Request"
         android:layout_alignParentStart="true"
@@ -85,6 +96,9 @@
         android:layout_marginStart="109dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="102dp"
+        android:background="#515151"
+        android:textSize="15dp"
+        android:textColor="@color/White"
         android:text="Decline Friend Request" />
 
 

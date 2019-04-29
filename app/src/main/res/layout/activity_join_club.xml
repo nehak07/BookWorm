@@ -22,7 +22,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/color_button_clicked" />
+        app:srcCompat="@color/Card" />
 
     <TextView
         android:id="@+id/txt_ClubName_detail"
@@ -45,7 +45,7 @@
         android:layout_marginTop="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/color_button_clicked" />
+        app:srcCompat="@color/Card" />
 
 
     <TextView
@@ -64,12 +64,14 @@
 
     <Button
         android:id="@+id/btnJoin_Club"
-        android:layout_width="248dp"
-        android:layout_height="54dp"
+        android:layout_width="246dp"
+        android:layout_height="50dp"
         android:layout_marginTop="36dp"
         android:text="join"
-        android:textColor="#000000"
-        android:textSize="15dp"
+        android:background="@color/Button"
+        android:textColor="@color/White"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
