@@ -17,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -131,9 +133,30 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
 
     }
 
-    public void removeItem(int position){
-        ListOfNotes.remove(position);
-        adapter.notifyItemRemoved(position);
+    public void removeItem(final int position){
+        //ListOfNotes.remove(position);
+        //adapter.notifyItemRemoved(position);
+
+        db.collection("Reading").document(ListOfNotes.remove(position).getName())
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
+
+                       // ListOfNotes.clear();
+                        // ListOfNotes.remove(position);
+                        adapter.notifyItemRemoved(position);
+                        //Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                       // Log.w(TAG, "Error deleting document", e);
+                        Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 

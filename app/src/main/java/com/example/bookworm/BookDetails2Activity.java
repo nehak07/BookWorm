@@ -1,6 +1,7 @@
 package com.example.bookworm;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,7 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
+import android.text.style.StyleSpan;
+import android.text.style.URLSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,6 +58,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private Toolbar mToolbar;
+    private Button Link;
 
 
 
@@ -60,7 +66,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_details);
+        setContentView(R.layout.activity_book_details2);
 
 //        mToolbar = (Toolbar) findViewById(R.id.BookDetails_2_Toolbar);
 //        setSupportActionBar(mToolbar);
@@ -80,6 +86,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         Image = findViewById(R.id.image_outfit_detail);
         NextHome = findViewById(R.id.btn_nextHome);
         Author = findViewById(R.id.txt_view_Author);
+        Link = findViewById(R.id.WebURL);
 
         findViewById(R.id.btn_nextHome).setOnClickListener(this);
 
@@ -96,9 +103,6 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
 
                 startActivity(mainintent);
 
-                //startActivity(new Intent(BookDetails2Activity.this, BookClubAdminActivity.class));
-                // MyBooksFragment fragment = new MyBooksFragment();
-                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyBooksFragment()).commit();
 
             }
         });
@@ -111,7 +115,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         String NAME = intent.getStringExtra(EXTRA_NAME);
         //String CAT = intent.getStringExtra(EXTRA_CAT);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
-        String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
+        final String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
@@ -122,20 +126,17 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         TextView textViewName = findViewById(R.id.txt_BookName_detail);
         TextView textViewPrice = findViewById(R.id.txt_price_detail);
         TextView textViewAuthor = findViewById(R.id.txt_view_Author);
-        TextView textViewBrandURL = findViewById(R.id.txt_Bookbrand_url);
 
-        String itemLink = "<a href='" + BOOKURL + "'> BUY IT HERE! </a>";
-        textViewBrandURL.setText(Html.fromHtml(itemLink));
-        textViewBrandURL.setMovementMethod(LinkMovementMethod.getInstance());
-
-
+        String itemLink = "<a href='" + BOOKURL + "'> Click here to BUY! </a>";
+        Link.setText(Html.fromHtml(itemLink));
+        Link.setMovementMethod(LinkMovementMethod.getInstance());
 
         Picasso.get().load(imageURL).fit().centerInside().into(imageView);
         textViewGenre.setText(GENRE);
         textViewAuthor.setText(AUTHOR);
         textViewName.setText(NAME);
         textViewPrice.setText(""+PRICE);
-        //textViewBrandURL.setText(BOOKURL);
+
 
     }
 

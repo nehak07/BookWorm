@@ -52,8 +52,10 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_genres, container, false);
+
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);
+        getResources().getColor(R.color.White);
 
         Next = view.findViewById(R.id.btnNextPrice);
         Next.setOnClickListener(this);
@@ -79,7 +81,7 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
 
         Intent intent = getActivity().getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-        Toast.makeText(getContext(),CLUBNAME,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(),CLUBNAME,Toast.LENGTH_SHORT).show();
 
 
         return view;
@@ -112,14 +114,12 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
                 if (AnxietyClicked == false) {
                     ListOfBrands.add("Anxiety");
                     Anxiety.setBackgroundResource(R.color.color_button_clicked);
-                    //Toast.makeText(getContext(),"Boohoo Selected",Toast.LENGTH_SHORT).show();
                     AnxietyClicked = true;
                     break;
                 }
                 if (AnxietyClicked == true) {
                     ListOfBrands.remove("Anxiety");
                     Anxiety.setBackgroundResource(R.color.color_button_unclicked);
-                    //Toast.makeText(getContext(),"Unselected Boohoo",Toast.LENGTH_SHORT).show();
                     AnxietyClicked = false;
                     break;
                 }
@@ -128,14 +128,12 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
                 if (DepressionClicked == false) {
                     ListOfBrands.add("Depression");
                     Depression.setBackgroundResource(R.color.color_button_clicked);
-                    // Toast.makeText(getContext(),"Pretty Little Things Selected",Toast.LENGTH_SHORT).show();
                     DepressionClicked = true;
                     break;
                 }
                 if (DepressionClicked == true) {
                     ListOfBrands.remove("Depression");
                     Depression.setBackgroundResource(R.color.color_button_unclicked);
-                    //Toast.makeText(getContext(),"Unselected Pretty Little Things",Toast.LENGTH_SHORT).show();
                     DepressionClicked = false;
                     break;
                 }
@@ -144,14 +142,12 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
                 if (BipolarClicked == false) {
                     ListOfBrands.add("Bipolar");
                     Bipolar.setBackgroundResource(R.color.color_button_clicked);
-                    // Toast.makeText(getContext(),"In The Style Selected",Toast.LENGTH_SHORT).show();
                     BipolarClicked = true;
                     break;
                 }
                 if (BipolarClicked == true) {
                     ListOfBrands.remove("Bipolar");
                     Bipolar.setBackgroundResource(R.color.color_button_unclicked);
-                    // Toast.makeText(getContext(),"Unselected In The Style",Toast.LENGTH_SHORT).show();
                     BipolarClicked = false;
                     break;
                 }
@@ -159,14 +155,12 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
                 if (OCDClicked == false) {
                     ListOfBrands.add("OCD");
                     OCD.setBackgroundResource(R.color.color_button_clicked);
-                    //Toast.makeText(getContext()," Missguided Selected",Toast.LENGTH_SHORT).show();
                     OCDClicked = true;
                     break;
                 }
                 if (OCDClicked == true) {
                     ListOfBrands.remove("OCD");
                     OCD.setBackgroundResource(R.color.color_button_unclicked);
-                    // Toast.makeText(getContext(),"Unselected Missguided",Toast.LENGTH_SHORT).show();
                     OCDClicked = false;
                     break;
                 }
@@ -174,14 +168,12 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
                 if (PTSDClicked == false) {
                     ListOfBrands.add("PTSD");
                     PTSD.setBackgroundResource(R.color.color_button_clicked);
-                    //Toast.makeText(getContext()," Missguided Selected",Toast.LENGTH_SHORT).show();
                     PTSDClicked = true;
                     break;
                 }
                 if (PTSDClicked == true) {
                     ListOfBrands.remove("PTSD");
                     PTSD.setBackgroundResource(R.color.color_button_unclicked);
-                    // Toast.makeText(getContext(),"Unselected Missguided",Toast.LENGTH_SHORT).show();
                     PTSDClicked = false;
                     break;
                 }
@@ -189,14 +181,13 @@ public class Genres2Fragment extends Fragment implements View.OnClickListener {
                 if (FinancialClicked == false) {
                     ListOfBrands.add("Financial");
                     Financial.setBackgroundResource(R.color.color_button_clicked);
-                    //Toast.makeText(getContext()," Missguided Selected",Toast.LENGTH_SHORT).show();
+                    Financial.getResources().getColor(R.color.White);
                     FinancialClicked = true;
                     break;
                 }
                 if (FinancialClicked == true) {
                     ListOfBrands.remove("Financial");
                     Financial.setBackgroundResource(R.color.color_button_unclicked);
-                    // Toast.makeText(getContext(),"Unselected Missguided",Toast.LENGTH_SHORT).show();
                     FinancialClicked = false;
                     break;
                 }

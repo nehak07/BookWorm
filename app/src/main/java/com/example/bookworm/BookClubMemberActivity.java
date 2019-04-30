@@ -15,12 +15,14 @@ import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class BookClubMemberActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView ClubName;
     private Toolbar mToolbar;
     ImageButton Book, Members, MeetUp, Info, Setting;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
         final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         Book = findViewById(R.id.btn_Book_Member);
         Book.setOnClickListener(this);

@@ -47,15 +47,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btnLogIN).setOnClickListener(this);
         findViewById(R.id.txtSignUp).setOnClickListener(this);
 
-
-
         ResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // startActivity(new Intent(MainActivity.this, PasswordActivity.class));
+                startActivity(new Intent(MainActivity.this, PasswordActivity.class));
 
             }
         });
+
 
         onStart();
 

@@ -156,13 +156,20 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
 
         );
 
-        mFirestore.collection("Reading").add(note2)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(BookDetailsActivity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        mFirestore.collection("Reading").document(NAME).set(note2).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(BookDetailsActivity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//       mFirestore.collection("Reading").add(note2)
+//               .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Toast.makeText(BookDetailsActivity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.bookworm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ import java.util.Set;
 
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView ProfileSetting;
+    private TextView ProfileSetting, PasswordSetting;
 
 
     private FirebaseAuth firebaseAuth;
@@ -38,11 +39,24 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         ProfileSetting = findViewById(R.id.txt_ProfileSetting);
         ProfileSetting.setOnClickListener(this);
 
+        PasswordSetting = findViewById(R.id.txt_PasswordSetting);
+        PasswordSetting.setOnClickListener(this);
+
         ProfileSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(SettingActivity.this, ProfileDetailsActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+        PasswordSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(SettingActivity.this, UpdatePasswordActivity.class);
                 startActivity(intent);
             }
 

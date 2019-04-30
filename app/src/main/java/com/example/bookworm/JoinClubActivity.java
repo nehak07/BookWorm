@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +25,7 @@ import java.util.Map;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class JoinClubActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -35,6 +37,7 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseFirestore mFirestore;
     private StorageReference mStorageRef;
     private FirebaseAuth mAuth;
+    private String NAME;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -66,7 +69,9 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
         final String CLUBADMIN = intent.getStringExtra(EXTRA_USERNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
+        Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
 
 
 
@@ -80,6 +85,7 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
 
                 Map<String, Object> NewMember = new HashMap<>();
                 NewMember.put("memberID", UserID);
+                NewMember.put("memberName", NAME);
 
                 db.collection("Club").document(CLUBNAME).collection("Members").document(UserID)
                         .set(NewMember).addOnSuccessListener(new OnSuccessListener<Void>() {

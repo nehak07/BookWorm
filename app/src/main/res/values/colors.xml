@@ -3,7 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="color_button_clicked">#F9B4F9</color>
+    <color name="color_button_clicked">#999999</color>
     <color name="color_button_unclicked">#dedcdb</color>
     <color name="viewBg">#f1f5f8</color>
     <color name="SenderColour">#E4E4E4</color>

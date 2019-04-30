@@ -35,6 +35,7 @@ public class BlankActivity extends AppCompatActivity {
     private DatabaseReference UserRef ;
     private TextView FullName, UserName;
     private String currentUserID;
+    private String Name;
 
     public static final String EXTRA_NAME = "MEMBERNAME";
 
@@ -91,13 +92,10 @@ public class BlankActivity extends AppCompatActivity {
 
                     case R.id.nav_Club:
                         Intent detailsIntent = new Intent(BlankActivity.this, AllClubsActivity.class);
-                        Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
-
-                       // detailsIntent.putExtra(EXTRA_NAME, MEMBERNAME);
+                        //Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), Name, Toast.LENGTH_SHORT).show();
+                       detailsIntent.putExtra(EXTRA_NAME, Name);
                         startActivity(detailsIntent);
-
-
-
 
                             break;
 
@@ -164,7 +162,7 @@ public class BlankActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()){
 
                     String Username = dataSnapshot.child("fullname").getValue().toString();
-                    String Name = dataSnapshot.child("fullname").getValue().toString();
+                    Name = dataSnapshot.child("fullname").getValue().toString();
 
                     FullName.setText("Welcome: "+ Username);
                     UserName.setText(Name);

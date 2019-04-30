@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,6 +24,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.OnNoteListener{
 
@@ -43,11 +47,16 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
 
     private NoteAdapter7 adapter;
     private Toolbar mToolbar;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_clubs);
+
+        Intent intent = getIntent();
+        NAME = intent.getStringExtra(EXTRA_NAME);
+        Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
 
         mToolbar = (Toolbar) findViewById(R.id.AllClub_Toolbar);
         setSupportActionBar(mToolbar);
@@ -133,6 +142,7 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
                         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
                         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
                         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
+                        detailsIntent.putExtra(EXTRA_NAME, NAME);
                         startActivity(detailsIntent);
                     }
                 }
@@ -151,6 +161,7 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
                         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
                         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
                         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
+                        detailsIntent.putExtra(EXTRA_NAME, NAME);
 
                         startActivity(detailsIntent);
                     }
@@ -171,6 +182,7 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
+        detailsIntent.putExtra(EXTRA_NAME, NAME);
 
         startActivity(detailsIntent);
 
