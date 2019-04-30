@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -50,21 +52,19 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_books);
 
+        setContentView(R.layout.activity_my_books);
+        mToolbar = findViewById(R.id.ClubBooks_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle(" Club Reading List");
 
         Intent intent = getIntent();
         CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
-//        mToolbar = findViewById(R.id.ClubBooks_Toolbar);
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setTitle(" Club Reading List");
-
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);
-
 
         mAuth = FirebaseAuth.getInstance();
         setupRecyclerView();
@@ -133,13 +133,33 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
 
     }
 
-    @Override
-    public void onDeleteClick(int position) {
+    public void removeItem(final int position){
+        ListOfNotes.remove(position);
+        adapter.notifyItemRemoved(position);
 
+//        db.collection("Reading").document(ListOfNotes.remove(position).getName())
+//                .delete()
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        //Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
+//                        adapter.notifyItemRemoved(position);
+//
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        //Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
 
     }
 
-
+    @Override
+    public void onDeleteClick(int position) {
+        removeItem(position);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -155,7 +175,7 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
 
     private void SendUserToHome()
     {
-        Intent intent = new Intent(ClubBooksActivity.this, BlankActivity.class);
+        Intent intent = new Intent(ClubBooksActivity.this, AdminSettingsActivity.class);
         startActivity(intent);
     }
 }

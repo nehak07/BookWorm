@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +47,7 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
     private StorageReference mStorageRef;
     private FirebaseAuth mAuth;
     private Toolbar mToolbar;
+    private Button Link;
 
 
     @Override
@@ -70,17 +73,14 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         Image = findViewById(R.id.image_outfit_detail);
         NextHome = findViewById(R.id.btn_nextHome);
         Author = findViewById(R.id.txt_view_Author);
+        Link = findViewById(R.id.WebURL);
 
         findViewById(R.id.btn_nextHome).setOnClickListener(this);
-
 
         NextHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                startActivity(new Intent(BookDetailsActivity.this, BlankActivity.class));
-             // MyBooksFragment fragment = new MyBooksFragment();
-              //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyBooksFragment()).commit();
-
             }
         });
 
@@ -88,7 +88,6 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         imageURL = intent.getStringExtra(EXTRA_URL);
         String GENRE = intent.getStringExtra(EXTRA_GENRE);
         String NAME = intent.getStringExtra(EXTRA_NAME);
-        //String CAT = intent.getStringExtra(EXTRA_CAT);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
         String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
@@ -98,14 +97,16 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         TextView textViewName = findViewById(R.id.txt_BookName_detail);
         TextView textViewPrice = findViewById(R.id.txt_price_detail);
         TextView textViewAuthor = findViewById(R.id.txt_view_Author);
-        TextView textViewBrandURL = findViewById(R.id.txt_Bookbrand_url);
+
+        String itemLink = "<a href='" + BOOKURL + "'> Click here to BUY! </a>";
+        Link.setText(Html.fromHtml(itemLink));
+        Link.setMovementMethod(LinkMovementMethod.getInstance());
 
         Picasso.get().load(imageURL).fit().centerInside().into(imageView);
         textViewGenre.setText(GENRE);
         textViewAuthor.setText(AUTHOR);
         textViewName.setText(NAME);
         textViewPrice.setText(""+PRICE);
-        textViewBrandURL.setText(BOOKURL);
 
     }
 
@@ -126,7 +127,6 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         Intent mainintent = new Intent(BookDetailsActivity.this, BlankActivity.class);
         startActivity(mainintent);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -163,13 +163,7 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-//       mFirestore.collection("Reading").add(note2)
-//               .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        Toast.makeText(BookDetailsActivity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+
     }
 
 

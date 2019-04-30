@@ -14,7 +14,6 @@ tools:context=".BookDetailsActivity">
 
         ></include>
 
-
     <ImageView
 
         android:id="@+id/image_outfit_detail"
@@ -34,8 +33,7 @@ tools:context=".BookDetailsActivity">
         android:layout_marginStart="12dp"
         android:layout_marginTop="28dp"
         android:text="Genre"
-        android:textColor="@color/Black"
-        android:fontFamily="Verdana"
+        android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/image_outfit_detail" />
@@ -47,8 +45,7 @@ tools:context=".BookDetailsActivity">
         android:layout_marginStart="104dp"
         android:layout_marginTop="4dp"
         android:text="Price: "
-        android:textColor="@color/Black"
-        android:fontFamily="Verdana"
+        android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Book_Genre" />
@@ -58,38 +55,37 @@ tools:context=".BookDetailsActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:text="Name:"
-        android:textColor="@color/Black"
-        android:fontFamily="Verdana"
+        android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_price_detail" />
 
     <Button
         android:id="@+id/btn_add"
-        android:layout_width="107dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="48dp"
+        android:layout_width="246dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="Verdana"
+        android:text="ADD TO READING LIST"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:background="@color/Button"
         android:textColor="@color/White"
-        android:text="ADD TO READLIST"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_outfit_detail" />
-
-    <TextView
-        android:id="@+id/txt_Bookbrand_url"
-        android:layout_width="244dp"
-        android:layout_height="138dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="112dp"
-        android:autoLink="web"
-        android:fontFamily="Verdana"
-        android:text="Book URL"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_view_Author" />
+
+    <Button
+        android:id="@+id/WebURL"
+        android:layout_width="244dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="Verdana"
+        android:textColor="@color/Black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add" />
 
     <TextView
         android:id="@+id/textView6"
@@ -97,9 +93,9 @@ tools:context=".BookDetailsActivity">
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="28dp"
-        android:text="Genre:"
-        android:textColor="@color/Black"
         android:fontFamily="Verdana"
+        android:text="Genre:"
+        android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_outfit_detail" />
@@ -111,10 +107,10 @@ tools:context=".BookDetailsActivity">
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:text="£"
-        android:textSize="15dp"
-        android:textColor="@color/Black"
         android:fontFamily="Verdana"
+        android:text="£"
+        android:textColor="#000000"
+        android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/txt_price_detail"
         app:layout_constraintHorizontal_bias="0.974"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,12 +121,11 @@ tools:context=".BookDetailsActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:textColor="@color/Black"
         android:fontFamily="Verdana"
         android:text="Book Name:"
-
+        android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/txt_BookName_detail"
         app:layout_constraintHorizontal_bias="0.714"
@@ -142,42 +137,55 @@ tools:context=".BookDetailsActivity">
         android:layout_width="246dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/Button"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="144dp"
         android:text="Next"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:background="@color/Button"
         android:textColor="@color/White"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/txt_Bookbrand_url"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add" />
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Bookbrand_url" />
 
     <TextView
         android:id="@+id/txt_view_Author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
-        android:layout_marginTop="12dp"
-        android:textColor="@color/Black"
+        android:layout_marginTop="4dp"
         android:fontFamily="Verdana"
         android:text="Author"
+        android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_BookName_detail" />
+
+    <TextView
+        android:id="@+id/txt_ClubName_detail"
+        android:layout_width="176dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="152dp"
+        android:text="Club Name:"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="384dp" />
 
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:text="Author:"
-        android:textColor="@color/Black"
-        android:fontFamily="Verdana"
+        android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/txt_view_Author"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
 
 </android.support.constraint.ConstraintLayout>
 

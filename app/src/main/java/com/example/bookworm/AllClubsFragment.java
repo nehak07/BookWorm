@@ -55,9 +55,6 @@ public class AllClubsFragment extends Fragment implements View.OnClickListener  
     private void finish() {
     }
     private void setupRecyclerView(){
-        //UserId = mAuth.getCurrentUser().getUid();
-
-        //if (UserId != null) {
 
             Query query = notebookRef.whereEqualTo("group", false);
 
@@ -76,19 +73,6 @@ public class AllClubsFragment extends Fragment implements View.OnClickListener  
 
 //Coding in the flow, 2018 [ONLINE] Available at: https://www.youtube.com/watch?v=dTuhMFP-a1g&t=185s [Accessed on the 19th March 2019]
 
-//            new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
-//                    ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-//                @Override
-//                public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
-//                    return false;
-//                }
-//
-//                @Override
-//                public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-//                    adapter3.deleteItem(viewHolder.getAdapterPosition());
-//
-//                }
-//            }).attachToRecyclerView(recyclerView);
 
             adapter3.setmOnNoteListener(new NoteAdapter3.OnNoteListener() {
                 @Override
@@ -97,9 +81,6 @@ public class AllClubsFragment extends Fragment implements View.OnClickListener  
                     String user = documentSnapshot.getId();
                     String path = documentSnapshot.getReference().getPath();
                     note3.getClubname();
-                    Toast.makeText(getContext(),"POSITITON: " + position + "ID: " + user,Toast.LENGTH_SHORT).show();
-//                    Intent detailsIntent = new Intent (getActivity(), Blank2Activity.class);
-//                    startActivity(detailsIntent);
 
                     HomeFragment fragment = new HomeFragment(); //CREATE A NEW for the book info and join FRAGMENT
                     getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
@@ -110,7 +91,6 @@ public class AllClubsFragment extends Fragment implements View.OnClickListener  
                 }
             });
         }
-    //}
 
     @Override
     public void onStop() {

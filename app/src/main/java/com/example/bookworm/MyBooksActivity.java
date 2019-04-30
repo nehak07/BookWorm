@@ -142,19 +142,15 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
-
-                       // ListOfNotes.clear();
-                        // ListOfNotes.remove(position);
+                        //Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
                         adapter.notifyItemRemoved(position);
-                        //Log.d(TAG, "DocumentSnapshot successfully deleted!");
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                       // Log.w(TAG, "Error deleting document", e);
-                        Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -180,7 +176,7 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
 
     private void SendUserToHome()
     {
-        Intent intent = new Intent(MyBooksActivity.this, RateBookActivity.class);
+        Intent intent = new Intent(MyBooksActivity.this, BlankActivity.class);
         startActivity(intent);
     }
 }

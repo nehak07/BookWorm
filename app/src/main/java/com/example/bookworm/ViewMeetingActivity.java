@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,8 +36,6 @@ public class ViewMeetingActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private TextView Time, Date, Desc;
-
-    //private DatabaseReference UserRef ;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
@@ -59,28 +59,11 @@ public class ViewMeetingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-//        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
-//        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
-//        final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
-//        final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
-//        final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
 
         final TextView textViewClubName = findViewById(R.id.txt_ClubName);
-
-        //textViewClubName.setText("Club Name: " + CLUBNAME);
-
-      final TextView ViewDate = findViewById(R.id.txt_ViewDate);
-
-       // ViewDate.setText("Meeting Date: " + MEETINGDATE);
-
+        final TextView ViewDate = findViewById(R.id.txt_ViewDate);
        final TextView ViewTime = findViewById(R.id.txt_ViewTime);
-
-       // ViewTime.setText("Meeting Time: " + MEETINGTIME);
-
        final TextView ViewDesc = findViewById(R.id.txt_view_MeetingDesc);
-
-        //ViewDesc.setText("Meeting Description: " + MEETINGDESC);
-
 
 
         notebookRef.document(CLUBNAME).collection("Events")
@@ -88,41 +71,33 @@ public class ViewMeetingActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
-                    QuerySnapshot query = task.getResult();
+                    if(task.getResult().isEmpty()){
+                        textViewClubName.setText("NO MEET UP SCHEDULED FOR " + CLUBNAME);
 
-                    Note9 note = query.toObjects(Note9.class).get(0);
-                        textViewClubName.setText("Club Name: " + CLUBNAME);
-                        ViewDate.setText("Meeting Date: " + note.getDate());
-                        ViewTime.setText("Meeting Time: " + note.getTime());
-                        ViewDesc.setText("Meeting Description: " + note.getClubdesc());
+                        ViewDate.setVisibility(View.INVISIBLE);
+                        ViewTime.setVisibility(View.INVISIBLE);
+                        ViewDesc.setVisibility(View.INVISIBLE);
+                        //There is no meeting set up!
+                    }
+                    else {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            if (document.exists()) {
+                                QuerySnapshot query = task.getResult();
 
-                    } else {
-                        //Log.d(TAG, "No such document");
-                        Toast.makeText(ViewMeetingActivity.this, "No such document", Toast.LENGTH_SHORT).show();
+                                Note9 note = query.toObjects(Note9.class).get(0);
+                                textViewClubName.setText("Club Name: " + CLUBNAME);
+                                ViewDate.setText("Meeting Date: " + note.getDate());
+                                ViewTime.setText("Meeting Time: " + note.getTime());
+                                ViewDesc.setText("Meeting Description: " + note.getClubdesc());
+
+                            }
+                        }
                     }
                 }
 
-        });
+            }
 
-//        notebookRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//            @Override
-//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                String data = "";
-//
-//                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-//                    Note9 note = documentSnapshot.toObject(Note9.class);
-//
-//                    String time = note.getTime();
-//                    String date = note.getDate();
-//                    String desc = note.getClubdesc();
-//
-//                    date += "Time: " + time + "\nDate: " + data
-//                            +"\nDesc: " + desc + "\n\n";
-//                }
-//
-//                ViewDate.setText(data);
-//            }
-//        });
+        });
 
 
     }

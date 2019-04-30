@@ -39,7 +39,6 @@ import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.BooksFragment.EXTRA_AUTHOR;
 import static com.example.bookworm.BooksFragment.EXTRA_BOOKURL;
-//import static com.example.bookworm.BooksFragment.EXTRA_CAT;
 import static com.example.bookworm.BooksFragment.EXTRA_GENRE;
 import static com.example.bookworm.BooksFragment.EXTRA_NAME;
 import static com.example.bookworm.BooksFragment.EXTRA_PRICE;
@@ -60,19 +59,16 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     private Toolbar mToolbar;
     private Button Link;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details2);
 
-//        mToolbar = (Toolbar) findViewById(R.id.BookDetails_2_Toolbar);
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setTitle("Book Details");
+        mToolbar = (Toolbar) findViewById(R.id.BookDetails_two_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Book Details");
 
         mFirestore = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -96,24 +92,17 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
             public void onClick(View v) {
                 Intent intent = getIntent();
                 final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-
-                Intent mainintent = new Intent(BookDetails2Activity.this, BookClubAdminActivity.class);
-
+                Intent mainintent = new Intent(BookDetails2Activity.this, AdminSettingsActivity.class);
                 mainintent.putExtra(AllClubsActivity.EXTRA_CLUBNAME,CLUBNAME);
-
                 startActivity(mainintent);
-
-
             }
         });
-
 
 
         Intent intent = getIntent();
         imageURL = intent.getStringExtra(EXTRA_URL);
         String GENRE = intent.getStringExtra(EXTRA_GENRE);
         String NAME = intent.getStringExtra(EXTRA_NAME);
-        //String CAT = intent.getStringExtra(EXTRA_CAT);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
         final String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
@@ -127,16 +116,11 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         TextView textViewPrice = findViewById(R.id.txt_price_detail);
         TextView textViewAuthor = findViewById(R.id.txt_view_Author);
 
-        String itemLink = "<a href='" + BOOKURL + "'> Click here to BUY! </a>";
-        Link.setText(Html.fromHtml(itemLink));
-        Link.setMovementMethod(LinkMovementMethod.getInstance());
-
         Picasso.get().load(imageURL).fit().centerInside().into(imageView);
         textViewGenre.setText(GENRE);
         textViewAuthor.setText(AUTHOR);
         textViewName.setText(NAME);
         textViewPrice.setText(""+PRICE);
-
 
     }
 
@@ -144,7 +128,6 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
         if(id == android.R.id.home)
         {
             SendUserToHome();
@@ -154,8 +137,13 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
 
     private void SendUserToHome()
     {
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         Intent mainintent = new Intent(BookDetails2Activity.this, BookClubAdminActivity.class);
+        mainintent.putExtra(AllClubsActivity.EXTRA_CLUBNAME,CLUBNAME);
         startActivity(mainintent);
+
+
     }
 
 
@@ -168,9 +156,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         String NAME = BookName.getText().toString();
         String GENRE = Genre.getText().toString();
         String AUTHOR = Author.getText().toString();
-
         String PRICE = BookPrice.getText().toString();
-        //String CAT = Category.getText().toString();
         String Image = com.example.bookworm.BooksFragment.EXTRA_URL;
 
 //Coding With Mitch, 2018. Inserting Data Android Firestore [ONLINE] Available at: https://www.youtube.com/watch?v=xnFnwbiDFuE&t=14s [Accessed on the 28th Feb 2019]
@@ -201,16 +187,6 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
                 });
 
 
-//        Intent intent = getIntent();
-//        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-//
-//        mFirestore.collection("Club").document(EXTRA_CLUBNAME).collection("ClubReading").document(UserID).set(note2).
-//                addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Toast.makeText(BookDetails2Activity.this, "Added To Book Club Reading List", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
     }
 
 }

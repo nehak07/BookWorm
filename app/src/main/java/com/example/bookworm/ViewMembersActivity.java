@@ -50,18 +50,6 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
 
         UserId = mAuth.getCurrentUser().getUid();
 
-        // if (UserId == null) {
-//
-//        for (String BrandSelected : queryBundle.getStringArrayList("Genres")) {
-//
-//            Query query1 = notebookRef.whereEqualTo("Genres", BrandSelected).whereLessThanOrEqualTo("Price",Price);
-//
-//            ListOfOptions.add(query1);
-//
-//        }
-
-
-
         Query query = notebookRef.document(CLUBNAME).collection("Members");
 
         ListOfOptions.add(query);
@@ -95,26 +83,6 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
 
     @Override
     public void onNoteClick(int position) {
-
-//        System.out.println("onClickNote: Clicked  !!" + position);
-        // Intent detailsIntent = new Intent(DisplayReviewActivity.this, BlankActivity.class);
-//        Log.d("TESTING", String.valueOf(ListOfNotes.size()));
-//        Note8 clickedItem = ListOfNotes.get(position);
-//
-//
-//        //Carry out the outfit details onto the next fragment
-//
-//
-//        detailsIntent.putExtra(EXTRA_URL, clickedItem.getURL());
-//        //detailsIntent.putExtra(EXTRA_GENRE, clickedItem.getGenres());
-//        detailsIntent.putExtra(EXTRA_NAME, clickedItem.getName());
-//        // detailsIntent.putExtra(EXTRA_PRICE, clickedItem.getPrice());
-//        // detailsIntent.putExtra(EXTRA_CAT,clickedItem.getCategory());
-//        detailsIntent.putExtra(EXTRA_AUTHOR, clickedItem.getAuthor());
-//        //detailsIntent.putExtra(EXTRA_BOOKURL, clickedItem.getWebsiteURL());
-
-        // startActivity(detailsIntent);
-
 
     }
 

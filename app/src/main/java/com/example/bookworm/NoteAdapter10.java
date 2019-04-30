@@ -85,7 +85,7 @@ public class NoteAdapter10 extends RecyclerView.Adapter<NoteAdapter10.NoteHolder
 
     @Override
     public void onBindViewHolder(@NonNull NoteHolder holder, int position) {
-        holder.txt_view_Name.setText(ListOfNotes.get(position).getMemberID());
+        holder.txt_view_Name.setText(ListOfNotes.get(position).getMemberName());
 
 
     }

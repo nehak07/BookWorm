@@ -82,67 +82,73 @@ public class BlankActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                //Fragment selectedFragment =null;
                 switch (menuItem.getItemId()){
                     case R.id.nav_home:
-                        startActivity(new Intent(BlankActivity.this, BlankActivity.class));
 
-                            Toast.makeText(getApplicationContext(), "Home Selected", Toast.LENGTH_SHORT).show();
+                        Intent detailsIntent = new Intent(BlankActivity.this, BlankActivity.class);
+                        detailsIntent.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent);
                             break;
 
                     case R.id.nav_Club:
-                        Intent detailsIntent = new Intent(BlankActivity.this, AllClubsActivity.class);
-                        //Toast.makeText(getApplicationContext(), "Clubs Selected", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getApplicationContext(), Name, Toast.LENGTH_SHORT).show();
-                       detailsIntent.putExtra(EXTRA_NAME, Name);
-                        startActivity(detailsIntent);
-
+                        Intent detailsIntent2 = new Intent(BlankActivity.this, AllClubsActivity.class);
+                       detailsIntent2.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent2);
                             break;
 
                     case R.id.nav_books:
-                           // selectedFragment = new MyBooks2Fragment(); //Changes fragment to my books
-                            startActivity(new Intent(BlankActivity.this, MyBooksActivity.class));
-                            Toast.makeText(getApplicationContext(), "Books Selected", Toast.LENGTH_SHORT).show();
+
+                        Intent detailsIntent3 = new Intent(BlankActivity.this, MyBooksActivity.class);
+                        detailsIntent3.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent3);
                             break;
 
                     case R.id.nav_MyFriends:
-                        //selectedFragment = new SettingsFragment(); //Change fragment to settings
-                        startActivity(new Intent(BlankActivity.this, FriendsActivity.class));
-                        Toast.makeText(getApplicationContext(), "My Friends Selected", Toast.LENGTH_SHORT).show();
+
+                        Intent detailsIntent4 = new Intent(BlankActivity.this, FriendsActivity.class);
+                        detailsIntent4.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent4);
                         break;
 
                     case R.id.nav_FindFriends:
-                        Intent intent = new Intent(BlankActivity.this, FindFriendsActivity.class);
-                        startActivity(intent);
-                        Toast.makeText(getApplicationContext(), "Find Friends Selected", Toast.LENGTH_SHORT).show();
+
+                        Intent detailsIntent5 = new Intent(BlankActivity.this, FindFriendsActivity.class);
+                        detailsIntent5.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent5);
                         break;
 
                     case R.id.nav_Rec:
-                        Intent intent2 = new Intent(BlankActivity.this, GenresActivity.class);
-                        startActivity(intent2);
-                        Toast.makeText(getApplicationContext(), "Self-Help Selected", Toast.LENGTH_SHORT).show();
+
+                        Intent detailsIntent6 = new Intent(BlankActivity.this, GenresActivity.class);
+                        detailsIntent6.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent6);
                         break;
 
                     case R.id.nav_messages:
-                        startActivity(new Intent(BlankActivity.this, FriendsActivity.class));
-                        Toast.makeText(getApplicationContext(), "Message Selected", Toast.LENGTH_SHORT).show();
+
+                        Intent detailsIntent7 = new Intent(BlankActivity.this, FriendsActivity.class);
+                        detailsIntent7.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent7);
                         break;
 
                     case R.id.nav_rating:
-                        startActivity(new Intent(BlankActivity.this, DisplayReviewActivity.class));
-                        Toast.makeText(getApplicationContext(), "Rating Selected", Toast.LENGTH_SHORT).show();
+
+                        Intent detailsIntent8 = new Intent(BlankActivity.this, DisplayReviewActivity.class);
+                        detailsIntent8.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent8);
                         break;
 
                     case R.id.nav_searchbook:
-                        //selectedFragment = new SettingsFragment(); //Change fragment to settings
-                        startActivity(new Intent(BlankActivity.this, Main2Activity.class));
-                        Toast.makeText(getApplicationContext(), "Search Books Selected", Toast.LENGTH_SHORT).show();
+                        Intent detailsIntent9 = new Intent(BlankActivity.this, Main2Activity.class);
+                        detailsIntent9.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent9);
                         break;
 
                     case R.id.nav_setting:
-                        //selectedFragment = new SettingsFragment(); //Change fragment to settings
-                        startActivity(new Intent(BlankActivity.this, SettingActivity.class));
-                        Toast.makeText(getApplicationContext(), "Settings Selected", Toast.LENGTH_SHORT).show();
+
+                        Intent detailsIntent10 = new Intent(BlankActivity.this, SettingActivity.class);
+                        detailsIntent10.putExtra(EXTRA_NAME, Name);
+                        startActivity(detailsIntent10);
                         break;
 
                     case R.id.nav_logout:
@@ -169,8 +175,7 @@ public class BlankActivity extends AppCompatActivity {
 
                 }
             }
-
-
+            
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 

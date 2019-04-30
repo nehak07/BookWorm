@@ -88,14 +88,8 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
     private void setupRecyclerView() {
 
         UserId = mAuth.getCurrentUser().getUid();
-
-        // if (UserId == null) {
-
-
         Query query = notebookRef.whereEqualTo("group", false);
-
         ListOfOptions.add(query);
-        // }
 
 
         adapter = new NoteAdapter7(ListOfOptions);
@@ -107,20 +101,17 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         recyclerView.setLayoutManager(new LinearLayoutManager(AllClubsActivity.this));
         recyclerView.setAdapter(adapter);
 
-        //}
 
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        //adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //adapter.startListening();
     }
 
 
@@ -171,12 +162,9 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         });
 
 
-        //System.out.println("onClickNote: Clicked  !!" + position);
-
-
         Intent detailsIntent = new Intent(AllClubsActivity.this, JoinClubActivity.class);
 
-        //Carry out the outfit details onto the next fragment
+        //Carry over book details onto the next activity
 
 
         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());

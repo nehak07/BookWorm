@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.lang.reflect.Member;
+
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
@@ -67,6 +69,21 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
 
         textViewClubName.setText(CLUBNAME);
 
+        MeetUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(BookClubMemberActivity.this, ViewMeetingActivity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                startActivity(i);
+            }
+        });
+
 
         Info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +107,22 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
             public void onClick(View v) {
 
                 Intent i = new Intent(BookClubMemberActivity.this, MemberSettingActivity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+
+                startActivity(i);
+            }
+        });
+
+        Members.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(BookClubMemberActivity.this, ViewMembersActivity.class);
                 i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
                 i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
                 i.putExtra(EXTRA_USERNAME,USERNAME);

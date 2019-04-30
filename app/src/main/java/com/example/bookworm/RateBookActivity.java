@@ -97,28 +97,14 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
         String NAME = intent.getStringExtra(EXTRA_NAME);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
 
-
-        // String GENRE = intent.getStringExtra(EXTRA_GENRE);
-        //String CAT = intent.getStringExtra(EXTRA_CAT);
-        //String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
-        // int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
-
         ImageView imageView = findViewById(R.id.image_outfit_detail);
         TextView textViewName = findViewById(R.id.txt_BookName_detail);
         TextView textViewAuthor = findViewById(R.id.txt_view_Author);
-
-
-        // TextView textViewGenre = findViewById(R.id.txt_Book_Genre);
-        //TextView textViewPrice = findViewById(R.id.txt_price_detail);
-        //TextView textViewBrandURL = findViewById(R.id.txt_Bookbrand_url);
 
         Picasso.get().load(imageURL).fit().centerInside().into(imageView);
         textViewAuthor.setText(AUTHOR);
         textViewName.setText(NAME);
 
-        // textViewPrice.setText(""+PRICE);
-        // textViewBrandURL.setText(BOOKURL);
-        // textViewGenre.setText(GENRE);
     }
 
     @Override
@@ -152,10 +138,6 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
                 String Image = com.example.bookworm.BooksFragment.EXTRA_URL;
                 String RATE = Rating.getText().toString();
                 String WRITE = WrittenReview.getText().toString();
-
-                // String GENRE = Genre.getText().toString();
-                // String PRICE = BookPrice.getText().toString();
-                //String CAT = Category.getText().toString();
 
 
 //Coding With Mitch, 2018. Inserting Data Android Firestore [ONLINE] Available at: https://www.youtube.com/watch?v=xnFnwbiDFuE&t=14s [Accessed on the 28th Feb 2019]

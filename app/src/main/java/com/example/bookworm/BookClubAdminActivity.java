@@ -17,12 +17,14 @@ import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class BookClubAdminActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView ClubName;
     ImageButton Book, Members, MeetUp, Vote, Info, Setting;
     private Toolbar mToolbar;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
         final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
 

@@ -15,15 +15,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class FriendsActivity extends AppCompatActivity {
 
@@ -57,6 +62,7 @@ public class FriendsActivity extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         myMemberList.setLayoutManager(linearLayoutManager);
 
+
         DisplayAllMembers();
     }
 
@@ -77,21 +83,18 @@ public class FriendsActivity extends AppCompatActivity {
             {
 
                 holder.date.setText(model.getDate());
-
                 final String UserMember_ID = getRef(position).getKey();
 
                 UsersRef.child(UserMember_ID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                         if(dataSnapshot.exists())
-
                         {
                             String Username = dataSnapshot.child("fullname").getValue().toString();
                             //retrieving the users fullname from (child node) the Users Database
-
                             holder.username.setText(Username);
-
+                        }else {
+                            //Toast.makeText(FriendsActivity.this, "NO FRIENDS!", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -131,16 +134,12 @@ public class FriendsActivity extends AppCompatActivity {
                                 {
                                     Intent message = new Intent(FriendsActivity.this, MessageActivity.class);
                                     message.putExtra("Member_ID",UserMember_ID);
-                                  //  message.putExtra("UserName",username);
                                     startActivity(message);
                                 }
                             }
                         });
                         builder.show();
 
-//                        Intent findOthersIntent = new Intent(FriendsActivity.this, ProfileActivity.class);
-//                        findOthersIntent.putExtra("Member_ID", UserMember_ID);
-//                        startActivity(findOthersIntent);
                     }
                 });
             }
