@@ -26,12 +26,14 @@ import java.util.Map;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class MemberSettingActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView ClubName, ClubDesc, ClubAdmin;
     private Button Join;
     private Toolbar mToolbar;
+    private String NAME;
 
 
     private FirebaseFirestore mFirestore;
@@ -45,12 +47,14 @@ public class MemberSettingActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_setting);
 
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
+
         mFirestore = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        Intent intent = getIntent();
-        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
         Join = findViewById(R.id.btnJoin_Club);
         Join.setOnClickListener(this);

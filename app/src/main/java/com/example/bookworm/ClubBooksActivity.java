@@ -54,11 +54,12 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_my_books);
-        mToolbar = findViewById(R.id.ClubBooks_Toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle(" Club Reading List");
+
+//        mToolbar = findViewById(R.id.clubBooks_Toolbar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setTitle(" Club Reading List");
 
         Intent intent = getIntent();
         CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
@@ -74,14 +75,8 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
     private void setupRecyclerView() {
 
         UserId = mAuth.getCurrentUser().getUid();
-
-        // if (UserId == null) {
-
-
         Query query = notebookRef.document(CLUBNAME).collection("ClubReading");
         ListOfOptions.add(query);
-        // }
-
 
         adapter = new NoteAdapter5(ListOfOptions);
         adapter.setOnNoteListener(this);
@@ -91,7 +86,6 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-
 
     }
 
@@ -107,53 +101,28 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
         //adapter.startListening();
     }
 
-
     @Override
     public void onNoteClick(int position) {
-
-//        System.out.println("onClickNote: Clicked  !!" + position);
-//        Intent detailsIntent = new Intent(ClubBooksActivity.this, RateBookActivity.class);
-//        Log.d("TESTING", String.valueOf(ListOfNotes.size()));
-//        Note5 clickedItem = ListOfNotes.get(position);
-//
-//
-//        //Carry out the outfit details onto the next fragment
-//
-//
-//        detailsIntent.putExtra(EXTRA_URL, clickedItem.getURL());
-//        //detailsIntent.putExtra(EXTRA_GENRE, clickedItem.getGenres());
-//        detailsIntent.putExtra(EXTRA_NAME, clickedItem.getName());
-//        // detailsIntent.putExtra(EXTRA_PRICE, clickedItem.getPrice());
-//        // detailsIntent.putExtra(EXTRA_CAT,clickedItem.getCategory());
-//        detailsIntent.putExtra(EXTRA_AUTHOR, clickedItem.getAuthor());
-//        //detailsIntent.putExtra(EXTRA_BOOKURL, clickedItem.getWebsiteURL());
-//
-//        startActivity(detailsIntent);
-
-
     }
 
     public void removeItem(final int position){
-        ListOfNotes.remove(position);
-        adapter.notifyItemRemoved(position);
 
-//        db.collection("Reading").document(ListOfNotes.remove(position).getName())
-//                .delete()
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        //Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
-//                        adapter.notifyItemRemoved(position);
-//
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        //Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+        db.collection("Club").document(CLUBNAME).collection("ClubReading").document(ListOfNotes.remove(position).getName())
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
+                        adapter.notifyItemRemoved(position);
 
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     @Override

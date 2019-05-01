@@ -43,6 +43,7 @@ import java.util.Map;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class AdminMeetUpActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
@@ -64,6 +65,7 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
     private String currentUserID;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String UserId;
+    private String NAME;
 
     private CollectionReference notebookRef = db.collection("Club");
 
@@ -74,6 +76,8 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
 
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
+        Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
 
         TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
 

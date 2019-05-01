@@ -1,12 +1,15 @@
 package com.example.bookworm;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -17,6 +20,7 @@ import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class AdminSettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +28,7 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
     private ImageButton Members, MeetUp,  Setting, Info, Book;
     private Toolbar mToolbar;
     private TextView ClubName;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,46 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Admin Setting Area");
+
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Do you need help using the Admin Area?");
+       // alert.setMessage("Message");
+
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                Intent intent = getIntent();
+                final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+                final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+                final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+                final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
+                final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
+                final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+                NAME = intent.getStringExtra(EXTRA_NAME);
+
+                Intent i = new Intent(AdminSettingsActivity.this, EditClubDescActivity.class);
+                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                i.putExtra(EXTRA_USERNAME,USERNAME);
+                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+
+                startActivity(i);
+
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Canceled.
+            }
+        });
+
+        alert.show();
+
 
         MeetUp = findViewById(R.id.btn_MeetUp_Members);
 
@@ -58,6 +103,7 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
         final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
 

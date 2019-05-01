@@ -80,6 +80,7 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
                 i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
                 i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
                 i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                i.putExtra(EXTRA_NAME, NAME);
                 startActivity(i);
             }
         });
@@ -95,6 +96,7 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
                 i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
                 i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
                 i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                i.putExtra(EXTRA_NAME, NAME);
                 startActivity(i);
             }
         });
@@ -110,6 +112,7 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
                 i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
                 i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
                 i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                i.putExtra(EXTRA_NAME, NAME);
                 startActivity(i);
             }
         });
@@ -127,6 +130,7 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
                 i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
                 i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
                 i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                i.putExtra(EXTRA_NAME, NAME);
 
                 startActivity(i);
             }
@@ -143,6 +147,7 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
                 i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
                 i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
                 i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                i.putExtra(EXTRA_NAME, NAME);
 
                 startActivity(i);
             }
@@ -183,6 +188,7 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
         i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
         i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
         i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+        i.putExtra(EXTRA_NAME, NAME);
 
         startActivity(i);
     }

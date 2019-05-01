@@ -14,6 +14,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Set;
 
+import static com.example.bookworm.BooksFragment.EXTRA_AUTHOR;
+import static com.example.bookworm.BooksFragment.EXTRA_URL;
+
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView ProfileSetting, PasswordSetting;
@@ -21,11 +24,15 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private FirebaseAuth firebaseAuth;
     private Toolbar mToolbar;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        Intent intent = getIntent();
+        NAME = intent.getStringExtra(BlankActivity.EXTRA_NAME);
 
         mToolbar = (Toolbar) findViewById(R.id.Setting_Toolbar);
         setSupportActionBar(mToolbar);

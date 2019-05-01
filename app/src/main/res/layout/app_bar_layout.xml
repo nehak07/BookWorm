@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#004877"
+    android:background="#326c92"
     app:titleTextColor="#FFFFFF"
     android:id="@+id/main_app_bar">
 

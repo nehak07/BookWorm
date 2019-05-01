@@ -2,6 +2,7 @@ package com.example.bookworm;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -56,7 +57,7 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
 
         Intent intent = getIntent();
         NAME = intent.getStringExtra(EXTRA_NAME);
-        Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
 
         mToolbar = (Toolbar) findViewById(R.id.AllClub_Toolbar);
         setSupportActionBar(mToolbar);

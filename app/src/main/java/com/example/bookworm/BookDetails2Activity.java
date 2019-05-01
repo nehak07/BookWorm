@@ -58,6 +58,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private Toolbar mToolbar;
     private Button Link;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +108,7 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         final String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(BlankActivity.EXTRA_NAME);
 
         //Toast.makeText(BookDetails2Activity.this,CLUBNAME,Toast.LENGTH_SHORT).show();
 
@@ -141,8 +143,8 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         Intent mainintent = new Intent(BookDetails2Activity.this, BookClubAdminActivity.class);
         mainintent.putExtra(AllClubsActivity.EXTRA_CLUBNAME,CLUBNAME);
+        mainintent.putExtra(EXTRA_NAME,NAME);
         startActivity(mainintent);
-
 
     }
 
@@ -175,16 +177,15 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
 
               Intent intent = getIntent();
       final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-//
-//
 
-        mFirestore.collection("Club").document(CLUBNAME).collection("ClubReading").add(note2)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(BookDetails2Activity.this, "Added To Book Club Reading List", Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+        mFirestore.collection("Club").document(CLUBNAME).collection("ClubReading").document(NAME)
+                .set(note2).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(BookDetails2Activity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }

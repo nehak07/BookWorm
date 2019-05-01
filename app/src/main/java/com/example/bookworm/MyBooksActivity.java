@@ -27,6 +27,9 @@ import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
+
 public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.OnNoteListener  {
 
     private FirebaseAuth mAuth;
@@ -49,11 +52,17 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
 
     private NoteAdapter5 adapter;
     private Button buttonRemove;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_books);
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
+
 
         mToolbar = findViewById(R.id.MyBooks1_Toolbar);
         setSupportActionBar(mToolbar);

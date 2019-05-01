@@ -21,6 +21,9 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
+
 public class CreateBookClubActivity extends AppCompatActivity implements View.OnClickListener  {
 
 
@@ -33,11 +36,16 @@ public class CreateBookClubActivity extends AppCompatActivity implements View.On
     private FirebaseAuth mAuth;
 
     private Toolbar mToolbar;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_book_club);
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         mToolbar = (Toolbar) findViewById(R.id.CreateBookClub_Toolbar);
         setSupportActionBar(mToolbar);

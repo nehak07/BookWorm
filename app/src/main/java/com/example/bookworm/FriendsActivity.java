@@ -30,6 +30,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
+
 public class FriendsActivity extends AppCompatActivity {
 
     private RecyclerView myMemberList;
@@ -37,11 +40,16 @@ public class FriendsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String CurrentUserID;
     private Toolbar mToolbar;
+    private String NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         mToolbar = (Toolbar) findViewById(R.id.Friends_Toolbar);
         setSupportActionBar(mToolbar);

@@ -44,6 +44,7 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
     private FirebaseAuth mAuth;
 
     private Toolbar mToolbar;
+    private String NAME;
 
 
     @Override
@@ -94,8 +95,8 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
 
         Intent intent = getIntent();
         imageURL = intent.getStringExtra(EXTRA_URL);
-        String NAME = intent.getStringExtra(EXTRA_NAME);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
+        NAME = intent.getStringExtra(BlankActivity.EXTRA_NAME);
 
         ImageView imageView = findViewById(R.id.image_outfit_detail);
         TextView textViewName = findViewById(R.id.txt_BookName_detail);

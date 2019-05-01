@@ -43,6 +43,7 @@ public class BlankActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blank);
+        getResources().getColor(R.color.White);
 
 
 
@@ -64,6 +65,7 @@ public class BlankActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView = (NavigationView)findViewById(R.id.NavID);
+
         View navView = navigationView.inflateHeaderView(R.layout.navigation_header);
 
         UserName = (TextView) navView.findViewById(R.id.UserNameNav) ;

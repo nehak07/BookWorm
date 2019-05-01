@@ -22,6 +22,7 @@ import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class ViewClubInfo2Activity extends AppCompatActivity implements View.OnClickListener{
 
@@ -30,6 +31,7 @@ public class ViewClubInfo2Activity extends AppCompatActivity implements View.OnC
     private FirebaseFirestore mFirestore;
     private StorageReference mStorageRef;
     private FirebaseAuth mAuth;
+    private String NAME;
 
     private Toolbar mToolbar;
 
@@ -43,9 +45,6 @@ public class ViewClubInfo2Activity extends AppCompatActivity implements View.OnC
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Book Club Info");
-
-
-
 
         mFirestore = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -64,6 +63,7 @@ public class ViewClubInfo2Activity extends AppCompatActivity implements View.OnC
         final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         TextView textViewClubDesc = findViewById(R.id.etClubDesc);
         textViewClubDesc.setText(CLUBDESC);

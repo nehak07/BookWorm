@@ -1,6 +1,7 @@
 package com.example.bookworm;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
-public class ViewMembersActivity extends AppCompatActivity implements NoteAdapter10.OnNoteListener {
+public class MemberViewClubBooksActivity extends AppCompatActivity implements NoteAdapter11.OnNoteListener {
 
     private FirebaseAuth mAuth;
     private String UserId;
@@ -29,37 +32,42 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
     public String CLUBNAME;
     private String NAME;
 
-
-    private ArrayList<Note10> ListOfNotes = new ArrayList<>();
+    private ArrayList<Note11> ListOfNotes = new ArrayList<>();
     ArrayList<Query> ListOfOptions = new ArrayList<>();
 
-    private NoteAdapter10 adapter;
+    private NoteAdapter11 adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_members);
+        setContentView(R.layout.activity_member_view_club_books);
 
         Intent intent = getIntent();
-        CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String CLUBNAME = intent.getStringExtra(AllClubs2Fragment.EXTRA_CLUBNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
+
+
+
+//        mToolbar = findViewById(R.id.clubBooks_Toolbar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setTitle(" Club Reading List");
+
+        getResources().getColor(R.color.color_button_clicked);
+        getResources().getColor(R.color.color_button_unclicked);
 
         mAuth = FirebaseAuth.getInstance();
         setupRecyclerView();
-
     }
 
     private void setupRecyclerView() {
 
         UserId = mAuth.getCurrentUser().getUid();
-
-        Query query = notebookRef.document(CLUBNAME).collection("Members");
-
+        Query query = notebookRef.document(CLUBNAME).collection("ClubReading");
         ListOfOptions.add(query);
-        // }
 
-
-        adapter = new NoteAdapter10(ListOfOptions);
+        adapter = new NoteAdapter11(ListOfOptions);
         adapter.setOnNoteListener(this);
         ListOfNotes = adapter.NoteView(ListOfOptions);
 
@@ -67,7 +75,6 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-
 
     }
 
@@ -83,10 +90,8 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
         //adapter.startListening();
     }
 
-
     @Override
     public void onNoteClick(int position) {
-
     }
 
 
@@ -104,7 +109,7 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
 
     private void SendUserToHome()
     {
-        Intent intent = new Intent(ViewMembersActivity.this, BlankActivity.class);
+        Intent intent = new Intent(MemberViewClubBooksActivity.this, BookClubMemberActivity.class);
         startActivity(intent);
     }
 }

@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
+
 public class FindFriendsActivity extends AppCompatActivity {
 
     private ImageButton SearchButton;
@@ -30,6 +33,7 @@ public class FindFriendsActivity extends AppCompatActivity {
 
     private DatabaseReference allUserDB;
     private Toolbar mToolbar;
+    private String NAME;
 
 
     // private FirebaseRecyclerAdapter<FindFriends, FindFriendsViewHolder> firebaseRecyclerAdapter;
@@ -40,6 +44,10 @@ public class FindFriendsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_friends);
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         mToolbar = findViewById(R.id.FindFriends_Toolbar);
         setSupportActionBar(mToolbar);

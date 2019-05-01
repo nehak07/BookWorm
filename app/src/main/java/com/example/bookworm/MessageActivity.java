@@ -34,6 +34,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
+import static com.example.bookworm.BlankActivity.EXTRA_NAME;
+
 public class MessageActivity extends AppCompatActivity {
 
     private RecyclerView MessageRecycler;
@@ -51,6 +54,7 @@ public class MessageActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Toolbar mToolbar;
+    private String NAME;
 
 
 
@@ -58,6 +62,10 @@ public class MessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(AllClubs2Fragment.EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         mToolbar = findViewById(R.id.Message_Toolbar);
         setSupportActionBar(mToolbar);

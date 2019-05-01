@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClubBooksActivity">
+    tools:context=".MemberViewClubBooksActivity">
 
 
     <include
-        android:id="@+id/clubBooks_Toolbar"
+        android:id="@+id/memberBooks_Toolbar"
         layout="@layout/app_bar_layout"></include>
 
 
@@ -21,6 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clubBooks_Toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/memberBooks_Toolbar" />
+
 
 </android.support.constraint.ConstraintLayout>

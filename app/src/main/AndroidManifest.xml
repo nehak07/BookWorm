@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdatePasswordActivity"></activity>
+        <activity android:name=".MemberViewClubBooksActivity"></activity>
+        <activity android:name=".UpdatePasswordActivity" />
         <activity android:name=".PasswordActivity" />
         <activity android:name=".ViewMembersActivity" />
         <activity android:name=".DisplayReviewActivity" />
