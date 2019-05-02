@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class FindFriendsActivity extends AppCompatActivity {

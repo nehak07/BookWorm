@@ -18,7 +18,6 @@
         <activity android:name=".PasswordActivity" />
         <activity android:name=".ViewMembersActivity" />
         <activity android:name=".DisplayReviewActivity" />
-        <activity android:name=".MemberSettingActivity" />
         <activity android:name=".ViewClubInfo2Activity" />
         <activity android:name=".ClubBooksActivity" />
         <activity android:name=".BookDetails2Activity" />

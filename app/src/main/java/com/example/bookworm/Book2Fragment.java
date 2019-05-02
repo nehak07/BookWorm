@@ -40,7 +40,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 
 public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListener {
 

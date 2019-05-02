@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 
 
 public class Price2Fragment extends Fragment implements View.OnClickListener {

@@ -22,9 +22,9 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBDESC;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class JoinClubActivity extends AppCompatActivity implements View.OnClickListener{

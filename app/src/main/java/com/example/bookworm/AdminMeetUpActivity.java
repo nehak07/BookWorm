@@ -40,9 +40,9 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBDESC;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class AdminMeetUpActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {

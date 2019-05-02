@@ -25,9 +25,9 @@ import java.util.Map;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBDESC;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 
 public class EditClubDescActivity extends AppCompatActivity implements View.OnClickListener {
 

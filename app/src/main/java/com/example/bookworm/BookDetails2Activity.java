@@ -36,8 +36,8 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBDESC;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 import static com.example.bookworm.BooksFragment.EXTRA_AUTHOR;
 import static com.example.bookworm.BooksFragment.EXTRA_BOOKURL;
 import static com.example.bookworm.BooksFragment.EXTRA_GENRE;

@@ -26,8 +26,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBDESC;
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_USERNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBDESC;
+import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 
 

@@ -21,7 +21,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class CreateBookClubActivity extends AppCompatActivity implements View.OnClickListener  {

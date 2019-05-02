@@ -27,7 +27,7 @@ import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 
-import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.OnNoteListener  {

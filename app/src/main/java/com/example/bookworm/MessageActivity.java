@@ -72,7 +72,7 @@ public class MessageActivity extends AppCompatActivity {
         MessageSenderID = mAuth.getCurrentUser().getUid();
 
         Intent intent = getIntent();
-        final String CLUBNAME = intent.getStringExtra(AllClubs2Fragment.EXTRA_CLUBNAME);
+        final String CLUBNAME = intent.getStringExtra(AllClubsActivity.EXTRA_CLUBNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
 
         passUserID = getIntent().getExtras().get("Member_ID").toString();//Gets the ID of the member the current user is looking that
