@@ -95,7 +95,6 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
 
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                // Canceled.
             }
         });
 
@@ -184,7 +183,6 @@ public class AdminSettingsActivity extends AppCompatActivity implements View.OnC
                 AlertDialog.Builder alert = new AlertDialog.Builder(AdminSettingsActivity.this);
 
                 alert.setTitle("Are you sure you want to delete this club??");
-                // alert.setMessage("Message");
 
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {

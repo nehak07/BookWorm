@@ -74,17 +74,6 @@ public class CreateClubFragment extends Fragment implements View.OnClickListener
         String USERNAME = UserName.getText().toString();
         String CLUBDESC = ClubDesc.getText().toString();
 
-//Coding With Mitch, 2018. Inserting Data Android Firestore [ONLINE] Available at: https://www.youtube.com/watch?v=xnFnwbiDFuE&t=14s [Accessed on the 28th Feb 2019]
-//Simplified Coding, 2018 [ONLINE] Available at: https://www.youtube.com/watch?v=fGiIUi3FqfQ [Accessed on the 13th March 2019]
-//        Note3 note3 = new Note3(
-//                CLUBNAME,
-//                USERNAME,
-//                CLUBDESC,
-//                UserID,
-//                group
-//
-//        );
-
         //Create a hash map
         Map<String, Object> docData = new HashMap<>();
         docData.put("admin", UserID);
@@ -97,27 +86,10 @@ public class CreateClubFragment extends Fragment implements View.OnClickListener
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(getContext(), "ClUB CREATED", Toast.LENGTH_SHORT).show();
-                HomeFragment fragment = new HomeFragment();
-                      //getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
         });
 
 
-
-
-
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        Toast.makeText(getContext(), "ClUB CREATED", Toast.LENGTH_SHORT).show();
-//
-//                        HomeFragment fragment = new HomeFragment();
-//                        getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-//
-//
-//                        //startActivity(new Intent(CreateClubActivity.this, BlankActivity.class));
-//                    }
-//                });
     }
 
     }

@@ -58,8 +58,6 @@ public class AccountSetUpActivity extends AppCompatActivity {
         });
     }
 
-
-    //Add fav book? or genre instead
     private void SaveAccountInfo() {
         String genre = Genre.getText().toString();
         String fullname = FullName.getText().toString();

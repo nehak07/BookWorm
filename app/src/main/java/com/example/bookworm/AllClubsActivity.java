@@ -103,7 +103,6 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         Query query = notebookRef.whereEqualTo("group", false);
         ListOfOptions.add(query);
 
-
         adapter = new NoteAdapter7(ListOfOptions);
         adapter.setOnNoteListener(this);
         ListOfNotes = adapter.NoteView(ListOfOptions);
@@ -112,7 +111,6 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(AllClubsActivity.this));
         recyclerView.setAdapter(adapter);
-
 
     }
 
@@ -175,9 +173,6 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
 
 
         Intent detailsIntent = new Intent(AllClubsActivity.this, JoinClubActivity.class);
-
-        //Carry over book details onto the next activity
-
 
         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());

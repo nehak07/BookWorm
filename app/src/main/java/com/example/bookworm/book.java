@@ -2,12 +2,6 @@ package com.example.bookworm;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-/**
- * Created by Bhavya Arora on 1/10/2018.
- */
-
-//Implemented Parcelable to serialize the book Object so that it can pass over.
 public class book implements Parcelable{
     private String title;
     private String author;

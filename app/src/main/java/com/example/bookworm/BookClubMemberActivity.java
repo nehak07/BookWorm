@@ -153,7 +153,6 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
                 AlertDialog.Builder alert = new AlertDialog.Builder(BookClubMemberActivity.this);
 
                 alert.setTitle("Are you sure you want to leave this club??");
-                // alert.setMessage("Message");
 
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -195,7 +194,6 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
 
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        // Canceled.
                     }
                 });
 

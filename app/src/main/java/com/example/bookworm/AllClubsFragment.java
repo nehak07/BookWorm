@@ -82,11 +82,6 @@ public class AllClubsFragment extends Fragment implements View.OnClickListener  
                     String path = documentSnapshot.getReference().getPath();
                     note3.getClubname();
 
-                    HomeFragment fragment = new HomeFragment(); //CREATE A NEW for the book info and join FRAGMENT
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-
-
-
 
                 }
             });

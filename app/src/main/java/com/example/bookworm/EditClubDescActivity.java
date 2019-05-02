@@ -40,9 +40,6 @@ public class EditClubDescActivity extends AppCompatActivity implements View.OnCl
 
     private Toolbar mToolbar;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

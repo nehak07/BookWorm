@@ -5,10 +5,6 @@ import android.content.Context;
 
 import java.util.List;
 
-/**
- * Created by Bhavya Arora on 1/10/2018.
- */
-
 public class booksLoader extends AsyncTaskLoader<List<book>> {
     String url;
     public static List<book> arrayList = null;

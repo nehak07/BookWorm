@@ -39,7 +39,6 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
     public static final String EXTRA_GENRE = "GENRE";
     public static final String EXTRA_NAME = "NAME";
     public static final String EXTRA_PRICE = "PRICE";
-    // public static final String EXTRA_CAT = "CAT";
     public static final String EXTRA_AUTHOR = "AUTHOR";
     public static final String EXTRA_BOOKURL = "BOOKURL";
 
@@ -53,13 +52,6 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_my_books);
-
-//        mToolbar = findViewById(R.id.clubBooks_Toolbar);
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setTitle(" Club Reading List");
-
         Intent intent = getIntent();
         CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 

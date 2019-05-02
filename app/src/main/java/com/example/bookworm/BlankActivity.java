@@ -201,9 +201,6 @@ public class BlankActivity extends AppCompatActivity {
     }
 
 
-
-
-
 //When the toggle is clicked the Nav drawer opens
     @Override
     public boolean onOptionsItemSelected(MenuItem item)

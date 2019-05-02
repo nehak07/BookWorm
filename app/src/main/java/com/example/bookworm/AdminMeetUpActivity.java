@@ -77,7 +77,7 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
-        Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
 
         TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
 
@@ -136,7 +136,6 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
 
 //https://www.youtube.com/watch?v=hwe1abDO2Ag Accessed on: 18th April 2019
 
-
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
@@ -150,7 +149,6 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
 
     }
 
-    //Add fav book? or genre instead
     private void SaveAccountInfo() {
         final String MEETINGTIME = DisplayTime.getText().toString();
         final String MEETINGDATE = mDisplayDate.getText().toString();
@@ -165,9 +163,6 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
             Toast.makeText(this, "Please enter your full name", Toast.LENGTH_SHORT).show();
         }
 
-        //if(TextUtils.isEmpty(MEETINGDESC)){
-           // Toast.makeText(this, "Please enter your favourite genre", Toast.LENGTH_SHORT).show();
-      //  }
         else{
 
 

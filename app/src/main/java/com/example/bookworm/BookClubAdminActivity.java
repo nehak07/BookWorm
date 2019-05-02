@@ -48,13 +48,10 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
         MeetUp = findViewById(R.id.btn_MeetUp_Members);
         MeetUp.setOnClickListener(this);
 
-
         Info = findViewById(R.id.btn_Info_Member);
         Info.setOnClickListener(this);
 
-
         Setting = findViewById(R.id.btn_Setting_Member);
-        //Setting.setOnClickListener(this);
 
         Intent intent = getIntent();
        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
@@ -152,9 +149,6 @@ public class BookClubAdminActivity extends AppCompatActivity implements View.OnC
                 startActivity(i);
             }
         });
-
-
-
 
     }
 

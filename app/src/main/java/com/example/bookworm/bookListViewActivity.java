@@ -26,8 +26,6 @@ public class bookListViewActivity extends AppCompatActivity {
 
         webVw.loadUrl(infoUrl);
 
-
-
     }
 
     public class webViewCLient extends WebViewClient {

@@ -50,9 +50,14 @@
 
             <TextView
                 android:id="@+id/textView32"
+                android:background="@color/Card"
+                android:textAlignment="center"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ADMIN SETTINGS SCREEN" />
+                android:text="Admin Setting Screen" />
 
             <Space
                 android:layout_width="match_parent"
@@ -60,15 +65,72 @@
 
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="112dp"
-                android:layout_height="101dp"
-                app:srcCompat="@drawable/meetuplogo" />
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/adminsetting" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
             <TextView
                 android:id="@+id/textView34"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/Card"
+                android:textAlignment="center"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold"
                 android:text="Create a meeting" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/adminmeeting"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="812dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/Card"
+                android:textAlignment="center"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Edit Club Description" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/adminclubinfo"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="812dp"
+               />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
         </LinearLayout>
     </ScrollView>
 

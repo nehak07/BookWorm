@@ -55,8 +55,6 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder
                 Intent intent = new Intent(mContext, bookListViewActivity.class);
                 intent.putExtra("infoUrl", infoUrl);
 
-                //browser chooser
-                //Intent.createChooser(intent, "Choose Broser");
                 mContext.startActivity(intent);
             }
         });

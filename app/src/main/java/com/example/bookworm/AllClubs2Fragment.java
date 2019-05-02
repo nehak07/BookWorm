@@ -72,15 +72,8 @@ public class AllClubs2Fragment extends Fragment implements NoteAdapter7.OnNoteLi
     private void setupRecyclerView() {
 
         UserId = mAuth.getCurrentUser().getUid();
-
-        // if (UserId == null) {
-
-
         Query query = notebookRef.whereEqualTo("group", false);
-
         ListOfOptions.add(query);
-        // }
-
 
         adapter = new NoteAdapter7(ListOfOptions);
         adapter.setOnNoteListener(this);
@@ -91,20 +84,17 @@ public class AllClubs2Fragment extends Fragment implements NoteAdapter7.OnNoteLi
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
-        //}
 
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        //adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //adapter.startListening();
     }
 
 
@@ -157,34 +147,11 @@ public class AllClubs2Fragment extends Fragment implements NoteAdapter7.OnNoteLi
             }
         });
 
-
-        // have an if statement so it directs the user to the right activity
-
-        System.out.println("onClickNote: Clicked  !!" + position);
-     //  Intent detailsIntent = new Intent(getActivity(), JoinClubActivity.class);
-
         Intent detailsIntent = new Intent(getActivity(), JoinClubActivity.class);
-
-
-        Log.d("TESTING", String.valueOf(ListOfNotes.size()));
-
-
-
-        //Carry out the outfit details onto the next fragment
-
-
         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
-
         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
-
         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
-
-
         startActivity(detailsIntent);
-
-
     }
-
-
 
 }

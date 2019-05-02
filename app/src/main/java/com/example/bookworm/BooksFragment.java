@@ -51,10 +51,6 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
    // public static final String EXTRA_CAT = "CAT";
     public static final String EXTRA_AUTHOR = "AUTHOR";
     public static final String EXTRA_BOOKURL = "BOOKURL";
-
-
-
-
     private View view;
 
     private Bundle queryBundle;
@@ -88,7 +84,6 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
         Intent intent = getActivity().getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
-
         setupRecyclerView();
 
         return view;
@@ -97,13 +92,9 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
 
     private void setupRecyclerView(){
 
-
         for (String BrandSelected : queryBundle.getStringArrayList("Genres")) {
-
                 Query query1 = notebookRef.whereEqualTo("Genres", BrandSelected).whereLessThanOrEqualTo("Price",Price);
-
                 ListOfOptions.add(query1);
-
         }
 
 
@@ -121,13 +112,11 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
     @Override
     public void onStart() {
         super.onStart();
-        //adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //adapter.startListening();
     }
 
 
@@ -142,22 +131,14 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
 
         //Carry out the outfit details onto the next fragment
 
-
-
         detailsIntent.putExtra(EXTRA_URL,clickedItem.getURL());
         detailsIntent.putExtra(EXTRA_GENRE,clickedItem.getGenres());
         detailsIntent.putExtra(EXTRA_NAME,clickedItem.getName());
         detailsIntent.putExtra(EXTRA_PRICE,clickedItem.getPrice());
-       // detailsIntent.putExtra(EXTRA_CAT,clickedItem.getCategory());
         detailsIntent.putExtra(EXTRA_AUTHOR,clickedItem.getAuthor());
         detailsIntent.putExtra(EXTRA_BOOKURL,clickedItem.getWebsiteURL());
 
-
         startActivity(detailsIntent);
-
-
-
-
 
     }
 

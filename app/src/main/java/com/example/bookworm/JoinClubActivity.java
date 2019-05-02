@@ -71,7 +71,7 @@ public class JoinClubActivity extends AppCompatActivity implements View.OnClickL
         final String CLUBADMIN = intent.getStringExtra(EXTRA_USERNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
 
-        Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
 
 
 

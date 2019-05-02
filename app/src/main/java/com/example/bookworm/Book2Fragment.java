@@ -52,9 +52,6 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
     public static final String EXTRA_AUTHOR = "AUTHOR";
     public static final String EXTRA_BOOKURL = "BOOKURL";
 
-
-
-
     private View view;
 
     private Bundle queryBundle;
@@ -87,7 +84,6 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);
 
-
         Intent intent = getActivity().getIntent();
         CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         Toast.makeText(getContext(),CLUBNAME,Toast.LENGTH_SHORT).show();
@@ -110,7 +106,6 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
 
         }
 
-
         adapter = new NoteAdapter(ListOfOptions);
         adapter.setOnNoteListener(this);
         ListOfNotes = adapter.NoteView(ListOfOptions);
@@ -125,16 +120,12 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
     @Override
     public void onStart() {
         super.onStart();
-        //adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //adapter.startListening();
     }
-
-
 
     @Override
     public void onNoteClick(int position) {
@@ -143,20 +134,14 @@ public class Book2Fragment extends Fragment implements NoteAdapter.OnNoteListene
         Log.d("TESTING",String.valueOf(ListOfNotes.size()));
         Note clickedItem = ListOfNotes.get(position);
 
-
-        //Carry out the outfit details onto the next fragment
-
         detailsIntent.putExtra(EXTRA_CLUBNAME, CLUBNAME);
-
 
         detailsIntent.putExtra(EXTRA_URL,clickedItem.getURL());
         detailsIntent.putExtra(EXTRA_GENRE,clickedItem.getGenres());
         detailsIntent.putExtra(EXTRA_NAME,clickedItem.getName());
         detailsIntent.putExtra(EXTRA_PRICE,clickedItem.getPrice());
-        // detailsIntent.putExtra(EXTRA_CAT,clickedItem.getCategory());
         detailsIntent.putExtra(EXTRA_AUTHOR,clickedItem.getAuthor());
         detailsIntent.putExtra(EXTRA_BOOKURL,clickedItem.getWebsiteURL());
-
 
         startActivity(detailsIntent);
 

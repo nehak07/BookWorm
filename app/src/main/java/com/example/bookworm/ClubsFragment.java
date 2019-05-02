@@ -62,9 +62,6 @@ public class ClubsFragment extends Fragment implements View.OnClickListener {
         if (UserId != null) {
 
             Query query = notebookRef.whereEqualTo("admin", UserId);
-
-           // System.out.println("BOOK ADDED TO THE USERS READING LIST!" + query);
-
             FirestoreRecyclerOptions<Note3> options = new FirestoreRecyclerOptions.Builder<Note3>()
                     .setQuery(query, Note3.class)
                     .build();
@@ -103,8 +100,6 @@ public class ClubsFragment extends Fragment implements View.OnClickListener {
                     note3.getClubname();
                     Toast.makeText(getContext(),"POSITITON: " + position + "ID: " + user,Toast.LENGTH_SHORT).show();
                     Intent detailsIntent = new Intent (getActivity(), BlankActivity.class);
-
-                    //CHANGE OR DELETE
                    startActivity(detailsIntent);
 
                 }
