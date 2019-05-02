@@ -80,7 +80,7 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         NextHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(BookDetailsActivity.this, BlankActivity.class));
+               startActivity(new Intent(BookDetailsActivity.this, MyBooksActivity.class));
             }
         });
 

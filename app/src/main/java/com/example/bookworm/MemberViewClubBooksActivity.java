@@ -46,12 +46,12 @@ public class MemberViewClubBooksActivity extends AppCompatActivity implements No
         NAME = intent.getStringExtra(EXTRA_NAME);
         CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
-//
-//        mToolbar = findViewById(R.id.clubBooks_Toolbar);
-//        setSupportActionBar(mToolbar);
-//       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//      getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setTitle(" Currently Reading");
+
+        mToolbar = findViewById(R.id.memberBooks_Toolbar);
+        setSupportActionBar(mToolbar);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       getSupportActionBar().setDisplayShowHomeEnabled(true);
+       getSupportActionBar().setTitle("Book Club Books");
 
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);

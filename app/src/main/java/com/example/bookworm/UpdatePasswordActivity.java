@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,10 +19,18 @@ public class UpdatePasswordActivity extends AppCompatActivity {
     private EditText EmailPassword;
     private Button Reset;
     private FirebaseAuth firebaseAuth;
+    private Toolbar mToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
+
+        mToolbar = (Toolbar) findViewById(R.id.password_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Update Password");
 
 
         EmailPassword = (EditText)findViewById(R.id.etPasswordEmail);
@@ -55,5 +65,25 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void SendUserToHome()
+    {
+        Intent mainintent = new Intent(UpdatePasswordActivity.this, SettingActivity.class);
+        startActivity(mainintent);
     }
 }

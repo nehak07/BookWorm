@@ -84,7 +84,7 @@
                 android:paddingRight="10dp"
                 android:text="With a total of 2.3 million students at university, they are now a form for a significant group within the young adult population! \nHowever thier mental welfare still remains largely unrecongised."
                 android:textColor="@color/Black"
-                android:textStyle="bold" />
+                />
 
             <Space
                 android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                 android:paddingRight="10dp"
                 android:text=" For many they are the first in thier family to attend university, increasing the chances of financial pressures as they might need to take up paid work whilst studying. \nThis is one of the many risk factors identified for poor mental health among student."
                 android:textColor="@color/Black"
-                android:textStyle="bold" />
+                />
 
             <Space
                 android:layout_width="match_parent"
@@ -139,7 +139,7 @@
                 android:paddingRight="10dp"
                 android:text="Are you feeling anxious, depressed, stressed or having issues with your body image or eating?"
                 android:textColor="@color/Black"
-                android:textStyle="bold" />
+                />
 
             <Space
                 android:layout_width="match_parent"
@@ -177,7 +177,7 @@
                 android:paddingRight="10dp"
                 android:text="For more information, please contact our Mental Health Support Co-ordinator:"
                 android:textColor="@color/Black"
-                android:textStyle="bold" />
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -186,7 +186,7 @@
                 android:paddingRight="10dp"
                 android:text="Student Services Centre (City Site) \n0115 848 2085 \nmental.health@ntu.ac.uk"
                 android:textColor="@color/Black"
-                android:textStyle="bold" />
+                 />
 
             <Space
                 android:layout_width="match_parent"

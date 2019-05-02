@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".AdminHelpActivity">
 
+    <include
+        android:id="@+id/help_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
+
     <TextView
         android:id="@+id/textView14"
         android:layout_width="397dp"

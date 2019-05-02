@@ -29,10 +29,7 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
     private String UserId;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("Rating");
-
     private Toolbar mToolbar;
-
-
     private ArrayList<Note8> ListOfNotes = new ArrayList<>();
     ArrayList<Query> ListOfOptions = new ArrayList<>();
 
@@ -43,15 +40,14 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_review);
 
-//        mToolbar = findViewById(R.id.RateBooks_Toolbar);
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setTitle("My Book Reviews");
+        mToolbar = findViewById(R.id.DisplayReview_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("My Book Reviews");
 
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);
-
 
         mAuth = FirebaseAuth.getInstance();
         setupRecyclerView();
@@ -61,15 +57,8 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
     private void setupRecyclerView() {
 
         UserId = mAuth.getCurrentUser().getUid();
-
-        // if (UserId == null) {
-
-
         Query query = notebookRef.whereEqualTo("user", UserId);
-
         ListOfOptions.add(query);
-        // }
-
 
         adapter = new NoteAdapter8(ListOfOptions);
         adapter.setOnNoteListener(this);
@@ -80,19 +69,16 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        //adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //adapter.startListening();
     }
 
 
@@ -101,15 +87,12 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
     }
 
     public void removeItem(final int position){
-        //ListOfNotes.remove(position);
-        //adapter.notifyItemRemoved(position);
 
         db.collection("Rating").document(ListOfNotes.remove(position).getName())
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
                         adapter.notifyItemRemoved(position);
 
                     }
@@ -117,7 +100,6 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -127,7 +109,6 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
     public void onDeleteClick(int position) {
         removeItem(position);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)

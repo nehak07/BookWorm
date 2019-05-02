@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MemberSettingActivity">
 
+    <TextView
+        android:id="@+id/txt_ClubName_detail"
+        android:layout_width="397dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/Card"
+        android:fontFamily="Verdana"
+        android:paddingTop="7dp"
+        android:text="SETTINGS"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/btnJoin_Club"

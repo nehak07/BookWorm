@@ -44,6 +44,7 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
     private static final String bookFetchUrl = "https://www.googleapis.com/books/v1/volumes";
     private RecyclerView recyclerView;
     public BooksAdapter adapter;
+    private Toolbar mToolbar;
 
     private FirebaseAuth firebaseAuth;
 
@@ -114,10 +115,11 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-
-
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.ContentBooks_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Book Details");
 
 
         books_progressBar = (ProgressBar) findViewById(R.id.books_progressBar);
@@ -172,31 +174,25 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
         }
     }
 
-
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
 
-    }
-    //Simplified Coding, 2017. [ONLINE] Available at: https:www.youtube.com/watch?v=FmZLWe_gaSY&list=PLk7v1Z2rk4hi_LdvJ2V5-VvZfyfSdY5hy&index=6 [Accessed on the 6th March 2019 ]
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()){
-            case R.id.logoutMenu:{
-
-                firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(Main2Activity.this, MainActivity.class));
-            }
-            case R.id.SearchMenu:{
-                startActivity(new Intent(Main2Activity.this, Main2Activity.class));
-            }
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void SendUserToHome()
+    {
+        Intent mainintent = new Intent(Main2Activity.this, BlankActivity.class);
+        startActivity(mainintent);
+    }
+
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

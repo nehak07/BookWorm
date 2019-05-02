@@ -54,7 +54,7 @@
             android:layout_marginTop="52dp"
             android:background="@drawable/common_google_signin_btn_text_light_normal_background"
             android:ems="10"
-            android:hint="Search Any book"
+            android:hint="Search For Any Book"
             android:inputType="textMultiLine"
             android:padding="10dp"
             android:textAlignment="center"

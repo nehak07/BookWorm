@@ -1,6 +1,9 @@
 package com.example.bookworm;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,8 +11,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.lang.reflect.Member;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
@@ -26,6 +43,11 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
     ImageButton Book, Members, MeetUp, Info, Setting;
     private String NAME;
 
+    private FirebaseFirestore mFirestore;
+    private StorageReference mStorageRef;
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +59,10 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Member Area");
 
+        mFirestore = FirebaseFirestore.getInstance();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
@@ -45,6 +71,7 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
         NAME = intent.getStringExtra(EXTRA_NAME);
+        //Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
 
         Book = findViewById(R.id.btn_Book_Member);
         Book.setOnClickListener(this);
@@ -119,21 +146,61 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
             }
         });
 
-
         Setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(BookClubMemberActivity.this, MemberSettingActivity.class);
-                i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
-                i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
-                i.putExtra(EXTRA_USERNAME,USERNAME);
-                i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
-                i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
-                i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
-                i.putExtra(EXTRA_NAME, NAME);
+                AlertDialog.Builder alert = new AlertDialog.Builder(BookClubMemberActivity.this);
 
-                startActivity(i);
+                alert.setTitle("Are you sure you want to leave this club??");
+                // alert.setMessage("Message");
+
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        String UserID = user.getUid();
+
+                        Map<String,Object> updates = new HashMap<>();
+                        updates.put("memberID", FieldValue.delete());
+
+
+                        db.collection("Club").document(CLUBNAME).collection("Members").document(UserID)
+                                .update(updates)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(BookClubMemberActivity.this, "You have left the club successfully!", Toast.LENGTH_SHORT).show();
+                                        Intent i = new Intent(BookClubMemberActivity.this, AllClubsActivity.class);
+                                        i.putExtra(EXTRA_NAME, NAME);
+                                        i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+                                        i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                                        i.putExtra(EXTRA_USERNAME,USERNAME);
+                                        i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+                                        i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+                                        i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+                                        startActivity(i);
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                        Toast.makeText(BookClubMemberActivity.this, "Error deleting document "+ e, Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+
+                alert.show();
+
             }
         });
 

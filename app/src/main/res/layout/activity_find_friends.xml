@@ -14,32 +14,35 @@
 
 
     <TextView
-        android:id="@+id/simpleTextID"
-        android:layout_width="387dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
+        android:id="@+id/textView14"
+        android:layout_width="397dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/Card"
+        android:fontFamily="Verdana"
+        android:paddingTop="7dp"
         android:text="SEARCH FOR CLUB MEMBERS"
         android:textAlignment="center"
         android:textColor="@color/Black"
-        android:fontFamily="Verdana"
-        android:textSize="18dp" />
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/search_box_input"
         android:layout_width="280dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/simpleTextID"
+        android:layout_below="@+id/textView14"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="9dp"
         android:background="@drawable/common_google_signin_btn_text_light_normal_background"
         android:ems="10"
         android:hint="Search for other members here"
@@ -51,10 +54,10 @@
         android:id="@+id/Friend_search"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_below="@id/simpleTextID"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textView14"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="9dp"
         android:layout_toEndOf="@id/search_box_input"
         android:layout_toRightOf="@id/search_box_input"
         android:scaleType="fitCenter"
@@ -64,11 +67,11 @@
         android:id="@+id/friend_results"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/search_box_input"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/Friend_search"
         android:layout_margin="10dp"
 
-        ></android.support.v7.widget.RecyclerView>
+        android:layout_marginTop="-101dp"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

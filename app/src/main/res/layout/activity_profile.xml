@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
+    <include
+        android:id="@+id/Friendrequest_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="397dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/Card"
+        android:fontFamily="Verdana"
+        android:paddingTop="7dp"
+        android:text="MANAGE FRIEND"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ProfilePic"
         android:layout_width="131dp"
@@ -13,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="119dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +55,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:textAlignment="center"
         android:textColor="@color/Black"
         android:fontFamily="Verdana"
         android:hint="Fullname"
@@ -44,7 +70,8 @@
         android:layout_below="@+id/txt_ViewDate"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
         android:textColor="@color/Black"
         android:fontFamily="Verdana"
         android:ems="10"
@@ -60,7 +87,8 @@
         android:layout_below="@+id/txt_ClubName"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:textColor="@color/Black"
         android:fontFamily="Verdana"

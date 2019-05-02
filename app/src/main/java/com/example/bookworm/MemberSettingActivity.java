@@ -66,8 +66,6 @@ public class MemberSettingActivity extends AppCompatActivity implements View.OnC
                 FirebaseUser user = mAuth.getCurrentUser();
                 String UserID = user.getUid();
 
-
-
                 Map<String,Object> updates = new HashMap<>();
                 updates.put("memberID", FieldValue.delete());
 
@@ -83,23 +81,9 @@ public class MemberSettingActivity extends AppCompatActivity implements View.OnC
                             }
                         });
 
-
-//
-//                db.collection("Club").document(CLUBNAME).collection("Members").document(UserID)
-//                        .set(NewMember).addOnSuccessListener(new OnSuccessListener<Void>()
-//                {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Intent detailsIntent = new Intent(MemberSettingActivity.this, BookClubMemberActivity.class);
-//                        detailsIntent.putExtra(EXTRA_CLUBNAME, CLUBNAME);
-//                        startActivity(detailsIntent);
-//                    }
-//                });
             }
 
         });
-
-
 
 
     }

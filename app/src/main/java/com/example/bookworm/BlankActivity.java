@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static com.example.bookworm.AllClubs2Fragment.EXTRA_CLUBNAME;
+
 public class BlankActivity extends AppCompatActivity {
 
 
@@ -35,7 +37,7 @@ public class BlankActivity extends AppCompatActivity {
     private DatabaseReference UserRef ;
     private TextView FullName, UserName;
     private String currentUserID;
-    private String Name;
+    private String Name, NAME;
 
     public static final String EXTRA_NAME = "MEMBERNAME";
 
@@ -45,6 +47,9 @@ public class BlankActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blank);
         getResources().getColor(R.color.White);
 
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -84,7 +89,9 @@ public class BlankActivity extends AppCompatActivity {
         MentalHealth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BlankActivity.this, MentalHealthActivity.class));
+                Intent detailsIntent3 = new Intent(BlankActivity.this, MentalHealthActivity.class);
+                detailsIntent3.putExtra(EXTRA_NAME, Name);
+                startActivity(detailsIntent3);
             }
         });
 

@@ -1,8 +1,11 @@
 package com.example.bookworm;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,15 +33,21 @@ public class ProfileActivity extends AppCompatActivity {
     private DatabaseReference FriendRequestRef, UserRef, FriendsRef;
     private FirebaseAuth mAuth;
     private String saveCurrentDate;
-
     private String SendUserID, passUserID;
-
     private String CURRENTSTATE;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        mToolbar = findViewById(R.id.Friendrequest_Toolbar);
+        setSupportActionBar(mToolbar);
+      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Messages");
+
 
         mAuth = FirebaseAuth.getInstance();
         SendUserID = mAuth.getCurrentUser().getUid(); //Gets the current users ID
@@ -47,7 +56,6 @@ public class ProfileActivity extends AppCompatActivity {
         FriendsRef = FirebaseDatabase.getInstance().getReference().child("Friends");
 
         passUserID = getIntent().getExtras().get("Member_ID").toString();//Gets the ID of the member the current user is looking that
-
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
@@ -55,7 +63,6 @@ public class ProfileActivity extends AppCompatActivity {
         Genre = (TextView) findViewById(R.id.txt_ViewDate);
         FullName = (TextView) findViewById(R.id.txt_ClubName);
         Book = (TextView) findViewById(R.id.txt_ViewTime);
-
         Send = (Button)  findViewById(R.id.btnSend_Request);
         Decline = (Button) findViewById(R.id.btnCancel_Request);
 
@@ -71,9 +78,9 @@ public class ProfileActivity extends AppCompatActivity {
                     String Bookname = dataSnapshot.child("book").getValue().toString();
                     String Genrename = dataSnapshot.child("genre").getValue().toString();
 
-                    FullName.setText(Username);
-                    Book.setText(Bookname);
-                    Genre.setText(Genrename);
+                    FullName.setText("Members Name: " + Username);
+                    Book.setText("Favourite Book: " + Bookname);
+                    Genre.setText("Favourite Genre: " + Genrename);
 
                     ButtonText();
                 }
@@ -121,6 +128,24 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home)
+        {
+            SendUserToHome();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void SendUserToHome()
+    {
+        Intent mainintent = new Intent(ProfileActivity.this, MessageActivity.class);
+        startActivity(mainintent);
     }
 
     private void UnfriendRequest()

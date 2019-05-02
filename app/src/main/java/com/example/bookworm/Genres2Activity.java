@@ -58,7 +58,7 @@ public class Genres2Activity extends AppCompatActivity {
 
     private void SendUserToHome()
     {
-        Intent mainintent = new Intent(Genres2Activity.this, BlankActivity.class);
+        Intent mainintent = new Intent(Genres2Activity.this, AdminSettingsActivity.class);
         startActivity(mainintent);
     }
 

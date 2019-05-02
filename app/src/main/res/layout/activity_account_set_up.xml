@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".AccountSetUpActivity">
 
+    <include
+        android:id="@+id/account_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="397dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/Card"
+        android:fontFamily="Verdana"
+        android:paddingTop="7dp"
+        android:text="SET UP ACCOUNT"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ProgressBar
         android:id="@+id/progressbar"
         android:layout_width="83dp"
@@ -24,20 +49,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="56dp">
 
         <ImageView
             android:id="@+id/ProfilePic"
             android:layout_width="131dp"
             android:layout_height="130dp"
             android:layout_gravity="center"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="130dp"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/profile" />
-
 
 
         <EditText
@@ -47,10 +74,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:ems="10"
-            android:textColor="@color/Black"
             android:fontFamily="Verdana"
             android:hint="Enter Fullname"
             android:inputType="textPersonName"
+            android:textColor="@color/Black"
             app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
             tools:layout_editor_absoluteX="54dp" />
 
@@ -61,10 +88,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:textColor="@color/Black"
             android:fontFamily="Verdana"
             android:hint="Enter Favourite Book Name"
             android:inputType="textPersonName"
+            android:textColor="@color/Black"
             app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
             tools:layout_editor_absoluteX="54dp" />
 
@@ -75,10 +102,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:fontFamily="Verdana"
             android:hint="Enter Favourite Genre"
             android:inputType="textPersonName"
             android:textColor="@color/Black"
-            android:fontFamily="Verdana"
             app:layout_constraintTop_toBottomOf="@+id/txt_ClubName"
             tools:layout_editor_absoluteX="54dp" />
 
@@ -88,12 +115,12 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
+            android:background="@color/Button"
+            android:fontFamily="Verdana"
             android:text="Save Details"
+            android:textColor="@color/White"
             android:textSize="22dp"
             android:textStyle="bold"
-            android:fontFamily="Verdana"
-            android:background="@color/Button"
-            android:textColor="@color/White"
             app:layout_constraintTop_toBottomOf="@+id/txt_ViewDate"
             tools:layout_editor_absoluteX="123dp" />
     </LinearLayout>

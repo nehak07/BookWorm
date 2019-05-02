@@ -56,7 +56,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="44dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/settinglogo"
+        android:src="@drawable/leavelogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_MeetUp_Members" />
 

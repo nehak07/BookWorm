@@ -57,15 +57,10 @@ public class MessageActivity extends AppCompatActivity {
     private String NAME;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-
-        Intent intent = getIntent();
-        final String CLUBNAME = intent.getStringExtra(AllClubs2Fragment.EXTRA_CLUBNAME);
-        NAME = intent.getStringExtra(EXTRA_NAME);
 
         mToolbar = findViewById(R.id.Message_Toolbar);
         setSupportActionBar(mToolbar);
@@ -75,6 +70,10 @@ public class MessageActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         MessageSenderID = mAuth.getCurrentUser().getUid();
+
+        Intent intent = getIntent();
+        final String CLUBNAME = intent.getStringExtra(AllClubs2Fragment.EXTRA_CLUBNAME);
+        NAME = intent.getStringExtra(EXTRA_NAME);
 
         passUserID = getIntent().getExtras().get("Member_ID").toString();//Gets the ID of the member the current user is looking that
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -95,8 +94,6 @@ public class MessageActivity extends AppCompatActivity {
         MessageRecycler.setAdapter(messagesAdapter);
 
 
-
-
         UserRef.child(passUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -112,8 +109,6 @@ public class MessageActivity extends AppCompatActivity {
 
             }
         });
-
-
 
         Send.setOnClickListener(new View.OnClickListener() {
             @Override

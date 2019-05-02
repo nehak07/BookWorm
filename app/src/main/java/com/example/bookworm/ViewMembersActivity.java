@@ -40,6 +40,12 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_members);
 
+        mToolbar = findViewById(R.id.DisplayMembers_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Book Club Members");
+
         Intent intent = getIntent();
         CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
@@ -86,9 +92,7 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
 
     @Override
     public void onNoteClick(int position) {
-
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
