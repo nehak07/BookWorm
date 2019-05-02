@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.app.Fragment;
 
@@ -19,7 +20,7 @@ import static com.example.bookworm.BooksFragment.EXTRA_URL;
 
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView ProfileSetting, PasswordSetting;
+    private Button ProfileSetting, PasswordSetting;
 
 
     private FirebaseAuth firebaseAuth;

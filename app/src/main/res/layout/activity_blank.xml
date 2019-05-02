@@ -51,44 +51,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="336dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_ClubName"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="41dp"
-            android:layout_marginTop="33dp"
-            android:text="------------------------------------------------------------------------" />
-
-        <Button
-            android:id="@+id/btn_create_club"
-            android:layout_width="319dp"
-            android:layout_height="56dp"
-            android:layout_below="@+id/textView9"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="41dp"
-            android:background="@color/Button"
-            android:fontFamily="Verdana"
-            android:text="CREATE BOOK CLUB"
-            android:textColor="@color/White"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_ClubName" />
 
         <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="335dp"
+            android:layout_height="359dp"
             android:layout_below="@+id/btn_create_club"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="23dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="21dp"
             android:layout_marginEnd="22dp"
             android:layout_marginBottom="9dp">
 
@@ -131,6 +103,7 @@
                     android:paddingTop="5dp"
                     android:paddingRight="2dp"
                     android:text="Find your own self- help books through the book recommendation feature!"
+                    android:textAlignment="center"
                     android:textColor="@color/Black"
                     android:textSize="16dp" />
 
@@ -156,6 +129,7 @@
                     android:paddingTop="5dp"
                     android:paddingRight="2dp"
                     android:text="Each book club has its own reading schedule and where possible create local meetup events to discuss the books. Make it a fun night with friends whilst reading!"
+                    android:textAlignment="center"
                     android:textColor="@color/Black"
                     android:textSize="16dp" />
 
@@ -182,6 +156,7 @@
                     android:paddingTop="5dp"
                     android:paddingRight="2dp"
                     android:text="All members can view books in the club-reading list!"
+                    android:textAlignment="center"
                     android:textColor="@color/Black"
                     android:textSize="16dp" />
 
@@ -207,6 +182,7 @@
                     android:paddingTop="5dp"
                     android:paddingRight="2dp"
                     android:text="Find other book club members!"
+                    android:textAlignment="center"
                     android:textColor="@color/Black"
                     android:textSize="16dp" />
 
@@ -232,11 +208,40 @@
                     android:paddingTop="5dp"
                     android:paddingRight="2dp"
                     android:text="Send individuals secure messages!"
+                    android:textAlignment="center"
                     android:textColor="@color/Black"
                     android:textSize="16dp" />
 
             </LinearLayout>
         </ScrollView>
+
+        <Button
+            android:id="@+id/btn_health"
+            android:layout_width="138dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/txt_ClubName"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/Button"
+            android:fontFamily="Verdana"
+            android:text="MENTAL WELLFARE GUIDANCE"
+            android:textColor="@color/White"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_create_club"
+            android:layout_width="138dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/txt_ClubName"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/btn_health"
+            android:background="@color/Button"
+            android:fontFamily="Verdana"
+            android:text="CURRENT BOOK CLUBS"
+            android:textColor="@color/White"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -247,6 +252,5 @@
         android:layout_gravity="start"
         android:layout_marginBottom="3dp"
         app:menu="@menu/navigation_menu"/>
-
 
 </android.support.v4.widget.DrawerLayout>

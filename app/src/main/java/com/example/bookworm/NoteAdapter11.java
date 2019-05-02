@@ -91,11 +91,16 @@ public class NoteAdapter11 extends RecyclerView.Adapter<NoteAdapter11.NoteHolder
 
     @NonNull
     @Override
-    public NoteAdapter11.NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.note11_item,
                 parent, false);
-        return new NoteAdapter11.NoteHolder(v);
+        return new NoteHolder(v);
     }
+//    public NoteAdapter11.NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+//        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.note11_item,
+//                parent, false);
+//        return new NoteAdapter11.NoteHolder(v);
+//    }
 
     class NoteHolder extends RecyclerView.ViewHolder{
         //TextView txt_view_Theme;

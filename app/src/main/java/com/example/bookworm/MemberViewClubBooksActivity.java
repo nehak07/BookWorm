@@ -29,8 +29,8 @@ public class MemberViewClubBooksActivity extends AppCompatActivity implements No
     private CollectionReference notebookRef = db.collection("Club");
 
     private Toolbar mToolbar;
-    public String CLUBNAME;
     private String NAME;
+    public String CLUBNAME;
 
     private ArrayList<Note11> ListOfNotes = new ArrayList<>();
     ArrayList<Query> ListOfOptions = new ArrayList<>();
@@ -43,16 +43,15 @@ public class MemberViewClubBooksActivity extends AppCompatActivity implements No
         setContentView(R.layout.activity_member_view_club_books);
 
         Intent intent = getIntent();
-        final String CLUBNAME = intent.getStringExtra(AllClubs2Fragment.EXTRA_CLUBNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
+        CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
-
-
+//
 //        mToolbar = findViewById(R.id.clubBooks_Toolbar);
 //        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setTitle(" Club Reading List");
+//       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//      getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setTitle(" Currently Reading");
 
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);

@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -58,7 +59,8 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private Toolbar mToolbar;
     private Button Link;
-    private String NAME;
+
+    private CollectionReference notebookRef = db.collection("Club");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,12 +105,11 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         Intent intent = getIntent();
         imageURL = intent.getStringExtra(EXTRA_URL);
         String GENRE = intent.getStringExtra(EXTRA_GENRE);
-        String NAME = intent.getStringExtra(EXTRA_NAME);
+        final String NAME = intent.getStringExtra(EXTRA_NAME);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
         final String BOOKURL = intent.getStringExtra(EXTRA_BOOKURL);
         int PRICE = intent.getIntExtra(EXTRA_PRICE, 0);
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
-        NAME = intent.getStringExtra(BlankActivity.EXTRA_NAME);
 
         //Toast.makeText(BookDetails2Activity.this,CLUBNAME,Toast.LENGTH_SHORT).show();
 
@@ -143,7 +144,6 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         Intent mainintent = new Intent(BookDetails2Activity.this, BookClubAdminActivity.class);
         mainintent.putExtra(AllClubsActivity.EXTRA_CLUBNAME,CLUBNAME);
-        mainintent.putExtra(EXTRA_NAME,NAME);
         startActivity(mainintent);
 
     }
@@ -179,14 +179,14 @@ public class BookDetails2Activity extends AppCompatActivity implements View.OnCl
       final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
 
 
-        mFirestore.collection("Club").document(CLUBNAME).collection("ClubReading").document(NAME)
+        db.collection("Club").document(CLUBNAME).collection("ClubReading").document(NAME)
                 .set(note2).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(BookDetails2Activity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
-            }
-        });
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(BookDetails2Activity.this, "Added to club reading list", Toast.LENGTH_SHORT).show();
 
+                    }
+                });
 
     }
 

@@ -12,6 +12,25 @@
 
         ></include>
 
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="397dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/Card"
+        android:paddingTop="7dp"
+        android:text="EDIT CLUB INFORMATION"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="25dp"
+        android:fontFamily="Verdana"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etClubName"
         android:layout_width="297dp"
@@ -30,13 +49,13 @@
         android:id="@+id/etUserName"
         android:layout_width="297dp"
         android:layout_height="65dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="29dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="28dp"
         android:ems="10"
-        android:textColor="@color/Black"
         android:fontFamily="Verdana"
         android:hint="Edit Your Username"
         android:inputType="textPersonName|textPostalAddress"
+        android:textColor="@color/Black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

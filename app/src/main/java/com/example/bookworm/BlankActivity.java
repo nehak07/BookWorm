@@ -30,7 +30,7 @@ public class BlankActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private FirebaseAuth mAuth;
 
-    private Button CreateClub;
+    private Button CreateClub, MentalHealth;
     private View view;
     private DatabaseReference UserRef ;
     private TextView FullName, UserName;
@@ -70,16 +70,23 @@ public class BlankActivity extends AppCompatActivity {
 
         UserName = (TextView) navView.findViewById(R.id.UserNameNav) ;
 
-
         CreateClub = findViewById(R.id.btn_create_club);
-
         CreateClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BlankActivity.this, CreateBookClubActivity.class));
+                Intent detailsIntent3 = new Intent(BlankActivity.this, AllClubsActivity.class);
+                detailsIntent3.putExtra(EXTRA_NAME, Name);
+                startActivity(detailsIntent3);
             }
         });
 
+        MentalHealth = findViewById(R.id.btn_health);
+        MentalHealth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BlankActivity.this, MentalHealthActivity.class));
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

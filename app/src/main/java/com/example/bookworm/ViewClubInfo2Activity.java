@@ -66,13 +66,13 @@ public class ViewClubInfo2Activity extends AppCompatActivity implements View.OnC
         NAME = intent.getStringExtra(EXTRA_NAME);
 
         TextView textViewClubDesc = findViewById(R.id.etClubDesc);
-        textViewClubDesc.setText(CLUBDESC);
+        textViewClubDesc.setText("Club Description: \n" + CLUBDESC);
 
         TextView textViewClubName = findViewById(R.id.etClubName);
-        textViewClubName.setText(CLUBNAME);
+        textViewClubName.setText("Club Name: \n" + CLUBNAME);
 
         TextView textViewUserName = findViewById(R.id.etUserName);
-        textViewUserName.setText(USERNAME);
+        textViewUserName.setText("Club Admin: \n" + USERNAME);
 
     }
 

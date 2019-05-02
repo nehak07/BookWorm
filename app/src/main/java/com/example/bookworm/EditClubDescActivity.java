@@ -52,7 +52,7 @@ public class EditClubDescActivity extends AppCompatActivity implements View.OnCl
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Create Book Club");
+        getSupportActionBar().setTitle("Update Book Club Info");
 
 
 

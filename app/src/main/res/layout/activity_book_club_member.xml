@@ -15,7 +15,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="410dp"
-        android:layout_height="94dp"
+        android:layout_height="61dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,10 +25,10 @@
 
     <TextView
         android:id="@+id/txt_ClubName_detail"
-        android:layout_width="277dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="72dp"
+        android:layout_width="358dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
         android:text="Club Name:"
         android:textAlignment="center"
         android:textColor="@color/White"
@@ -40,59 +40,58 @@
 
     <ImageButton
         android:id="@+id/btn_Member_Members"
-        android:layout_width="112dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="172dp"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="180dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/members"
+        android:src="@drawable/memberlogo"
         app:layout_constraintStart_toEndOf="@+id/btn_Book_Member"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_Setting_Member"
-        android:layout_width="128dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/setting2"
-        app:layout_constraintStart_toEndOf="@+id/btn_MeetUp_Members"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Member_Members" />
+        android:src="@drawable/settinglogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_MeetUp_Members" />
 
     <ImageButton
         android:id="@+id/btn_Book_Member"
-        android:layout_width="116dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="176dp"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="180dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/books"
+        android:src="@drawable/bookslogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_MeetUp_Members"
-        android:layout_width="110dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/coffeenew"
-
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Book_Member" />
+        android:src="@drawable/meetuplogo"
+        app:layout_constraintStart_toEndOf="@+id/btn_Info_Member"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Member_Members" />
 
     <ImageButton
         android:id="@+id/btn_Info_Member"
-        android:layout_width="116dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/info"
+        android:src="@drawable/infologo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_MeetUp_Members" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Book_Member" />
 
 
 </android.support.constraint.ConstraintLayout>

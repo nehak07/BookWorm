@@ -81,7 +81,7 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
 
         TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
 
-        textViewClubName.setText(CLUBNAME);
+        textViewClubName.setText("Club Name: "+ CLUBNAME);
 
         mToolbar = (Toolbar) findViewById(R.id.AdminCreateMeeting_Toolbar);
         setSupportActionBar(mToolbar);

@@ -25,10 +25,10 @@
 
     <TextView
         android:id="@+id/txt_ClubName_detail"
-        android:layout_width="279dp"
+        android:layout_width="358dp"
         android:layout_height="55dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="Verdana"
         android:text="BOOK CLUB MEMBERS"
         android:textAlignment="center"

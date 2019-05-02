@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,6 +50,7 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
     private NoteAdapter7 adapter;
     private Toolbar mToolbar;
     private String NAME;
+    private Button CreateClub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,15 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Book Clubs");
+
+        CreateClub = findViewById(R.id.btn_create_club);
+
+        CreateClub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AllClubsActivity.this, CreateBookClubActivity.class));
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         setupRecyclerView();

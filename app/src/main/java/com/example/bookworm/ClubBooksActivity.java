@@ -33,7 +33,6 @@ public class ClubBooksActivity extends AppCompatActivity implements NoteAdapter5
     private CollectionReference notebookRef = db.collection("Club");
 
     private Toolbar mToolbar;
-    private NoteAdapter2 adapter2;
     public String CLUBNAME;
 
     public static final String EXTRA_URL = "imageURL";

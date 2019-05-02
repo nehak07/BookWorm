@@ -72,8 +72,8 @@ public class ViewMeetingActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     if(task.getResult().isEmpty()){
-                        textViewClubName.setText("NO MEET UP SCHEDULED FOR " + CLUBNAME);
 
+                        textViewClubName.setText("NO MEET UP SCHEDULED");
                         ViewDate.setVisibility(View.INVISIBLE);
                         ViewTime.setVisibility(View.INVISIBLE);
                         ViewDesc.setVisibility(View.INVISIBLE);

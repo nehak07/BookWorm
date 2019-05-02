@@ -15,7 +15,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="410dp"
-        android:layout_height="94dp"
+        android:layout_height="61dp"
         android:layout_marginTop="48dp"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/Button"
@@ -39,9 +39,10 @@
         android:id="@+id/txt_ClubAdmin"
         android:layout_width="358dp"
         android:layout_height="55dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
         android:text="CLUB ADMINISTRATION"
+        android:paddingLeft="10dp"
         android:textAlignment="center"
         android:textColor="@color/White"
         android:textSize="25dp"
@@ -50,59 +51,50 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/btn_Member_Members"
-        android:layout_width="112dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="36dp"
+        android:id="@+id/btn_Setting_Member"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/members"
+        android:src="@drawable/deletelogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Info_Member" />
 
 
     <ImageButton
         android:id="@+id/btn_MeetUp_Members"
-        android:layout_width="107dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/coffee"
-        app:layout_constraintStart_toEndOf="@+id/btn_Member_Members"
+        android:src="@drawable/meetuplogo"
+        app:layout_constraintStart_toEndOf="@+id/btn_Setting_Member"
         app:layout_constraintTop_toBottomOf="@+id/btn_Book_Member" />
 
     <ImageButton
         android:id="@+id/btn_Info_Member"
-        android:layout_width="110dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="220dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/info"
+        android:src="@drawable/infologo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_Book_Member"
-        android:layout_width="116dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="118dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="220dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/findbook"
+        android:src="@drawable/findbookslogo"
         app:layout_constraintStart_toEndOf="@+id/btn_Info_Member"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btn_Setting_Member"
-        android:layout_width="110dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="12dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/setting2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Member_Members" />
+
 
 </android.support.constraint.ConstraintLayout>
