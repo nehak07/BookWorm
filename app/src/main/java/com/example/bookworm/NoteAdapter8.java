@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,9 +32,11 @@ public class NoteAdapter8 extends RecyclerView.Adapter<NoteAdapter8.NoteHolder> 
 
     private ArrayList<Note8> ListOfNotes = new ArrayList<>();
     private NoteAdapter8.OnNoteListener mOnNoteListener;
+    private ImageButton mDeleteImage;
 
     public interface OnNoteListener{
         void onNoteClick(int position);
+        void onDeleteClick(int position);
 
     }
     //Coding in Flow, 2018 [ONLINE] Available at: https://www.youtube.com/watch?v=RFFu3dP5JDk&list=PLrnPJCHvNZuAXdWxOzsN5rgG2M4uJ8bH1&index=2 [Accessed on the 15th March 2019]
@@ -118,11 +121,9 @@ public class NoteAdapter8 extends RecyclerView.Adapter<NoteAdapter8.NoteHolder> 
         public NoteHolder(@NonNull View itemView ) {
             super(itemView);
             txt_view_Name = itemView.findViewById(R.id.txt_view_Name);
-
+            mDeleteImage = itemView.findViewById(R.id.image_delete);
             txt_View_Rating = itemView.findViewById(R.id.txt_View_Rating);
-
             txt_View_Desc = itemView.findViewById(R.id.txt_View_Desc);
-
             img_Outfit = itemView.findViewById(R.id.img_Outfit);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +134,17 @@ public class NoteAdapter8 extends RecyclerView.Adapter<NoteAdapter8.NoteHolder> 
                         if (position != RecyclerView.NO_POSITION);
                         mOnNoteListener.onNoteClick(position);
                         //System.out.println("PLEASE WORKKKKKKKKKKK" + position);
+                    }
+                }
+            });
+
+            mDeleteImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mOnNoteListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) ;
+                        mOnNoteListener.onDeleteClick(position);
                     }
                 }
             });

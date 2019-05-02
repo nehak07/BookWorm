@@ -44,7 +44,6 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
     private FirebaseAuth mAuth;
 
     private Toolbar mToolbar;
-    private String NAME;
 
 
     @Override
@@ -80,10 +79,7 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
         Save = findViewById(R.id.btn_save);
         WrittenReview = findViewById(R.id.edWriteReview);
 
-
-
         findViewById(R.id.btn_save).setOnClickListener(this);
-
 
         SaveRating.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +92,7 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
         Intent intent = getIntent();
         imageURL = intent.getStringExtra(EXTRA_URL);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
-        NAME = intent.getStringExtra(BlankActivity.EXTRA_NAME);
+        String NAME = intent.getStringExtra(EXTRA_NAME);
 
         ImageView imageView = findViewById(R.id.image_outfit_detail);
         TextView textViewName = findViewById(R.id.txt_BookName_detail);
@@ -153,14 +149,13 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
                         UserID
                 );
 
-                mFirestore.collection("Rating").add(note6)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(RateBookActivity.this, "Book Review Saved!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RateBookActivity.this, MyBooksActivity.class));
-                            }
-                        });
+                mFirestore.collection("Rating").document(NAME).set(note6).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(RateBookActivity.this, "Book Review Saved!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RateBookActivity.this, DisplayReviewActivity.class));
+                    }
+                });
 
         }
     }

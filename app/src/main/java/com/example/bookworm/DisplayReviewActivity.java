@@ -14,6 +14,8 @@ package com.example.bookworm;
         import android.widget.Toast;
 
         import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+        import com.google.android.gms.tasks.OnFailureListener;
+        import com.google.android.gms.tasks.OnSuccessListener;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.firestore.CollectionReference;
         import com.google.firebase.firestore.FirebaseFirestore;
@@ -96,27 +98,34 @@ public class DisplayReviewActivity extends AppCompatActivity implements NoteAdap
 
     @Override
     public void onNoteClick(int position) {
+    }
 
-//        System.out.println("onClickNote: Clicked  !!" + position);
-    // Intent detailsIntent = new Intent(DisplayReviewActivity.this, BlankActivity.class);
-//        Log.d("TESTING", String.valueOf(ListOfNotes.size()));
-//        Note8 clickedItem = ListOfNotes.get(position);
-//
-//
-//        //Carry out the outfit details onto the next fragment
-//
-//
-//        detailsIntent.putExtra(EXTRA_URL, clickedItem.getURL());
-//        //detailsIntent.putExtra(EXTRA_GENRE, clickedItem.getGenres());
-//        detailsIntent.putExtra(EXTRA_NAME, clickedItem.getName());
-//        // detailsIntent.putExtra(EXTRA_PRICE, clickedItem.getPrice());
-//        // detailsIntent.putExtra(EXTRA_CAT,clickedItem.getCategory());
-//        detailsIntent.putExtra(EXTRA_AUTHOR, clickedItem.getAuthor());
-//        //detailsIntent.putExtra(EXTRA_BOOKURL, clickedItem.getWebsiteURL());
+    public void removeItem(final int position){
+        //ListOfNotes.remove(position);
+        //adapter.notifyItemRemoved(position);
 
-       // startActivity(detailsIntent);
+        db.collection("Rating").document(ListOfNotes.remove(position).getName())
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
+                        adapter.notifyItemRemoved(position);
 
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        removeItem(position);
     }
 
 
