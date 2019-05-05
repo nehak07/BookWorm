@@ -23,12 +23,12 @@
     <item
         android:id="@+id/nav_books"
         android:icon="@drawable/book"
-        android:title="My Books" />
+        android:title="My Reading List" />
 
     <item
         android:id="@+id/nav_FindFriends"
         android:icon="@drawable/findfriend"
-        android:title="Find Friends" />
+        android:title="Find Members" />
 
     <item
         android:id="@+id/nav_messages"

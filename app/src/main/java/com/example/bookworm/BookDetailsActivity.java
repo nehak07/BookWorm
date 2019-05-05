@@ -114,7 +114,6 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
         if(id == android.R.id.home)
         {
             SendUserToHome();
@@ -137,9 +136,7 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         String NAME = BookName.getText().toString();
         String GENRE = Genre.getText().toString();
         String AUTHOR = Author.getText().toString();
-
         String PRICE = BookPrice.getText().toString();
-        //String CAT = Category.getText().toString();
         String Image = com.example.bookworm.BooksFragment.EXTRA_URL;
 
 //Coding With Mitch, 2018. Inserting Data Android Firestore [ONLINE] Available at: https://www.youtube.com/watch?v=xnFnwbiDFuE&t=14s [Accessed on the 28th Feb 2019]
@@ -151,15 +148,14 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
                 UserID,
                 imageURL,
                 Integer.parseInt(PRICE)
-
-                //The order must match how you want it to be saved into the database and to Note"
+                //The order must match how you want it to be saved into the database and to the note 2 adapter
 
         );
 
         mFirestore.collection("Reading").document(NAME).set(note2).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(BookDetailsActivity.this, "Added to wishlist database", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookDetailsActivity.this, "Book added to your reading list", Toast.LENGTH_SHORT).show();
             }
         });
 

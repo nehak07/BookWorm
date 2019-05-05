@@ -14,6 +14,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+//Arora Bhavya, 2018, https://github.com/bhavya-arora/BookListingApp Accessed on 18th March 2019
+
 public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder> {
 
     private Context mContext;
@@ -29,28 +31,21 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder
             author = (TextView) view.findViewById(R.id.count);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
         }
-
     }
-
-
     public BooksAdapter(Context mContext, List<book> bookList) {
         this.mContext = mContext;
         this.bookList = bookList;
     }
-
     @Override
     public MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.book_card, parent, false);
-
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int itemPosition = parent.indexOfChild(view);
                 book returnedBook = bookList.get(itemPosition);
                 String infoUrl = returnedBook.getInfoUrl();
-                //Intent intent = new Intent(Intent.ACTION_VIEW);
-                //intent.setData(Uri.parse(infoUrl));
 
                 Intent intent = new Intent(mContext, bookListViewActivity.class);
                 intent.putExtra("infoUrl", infoUrl);
@@ -71,7 +66,6 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder
         // loading Book cover using Glide library
         Glide.with(mContext).load(returnedBook.getImageUrl()).into(holder.thumbnail);
     }
-
 
     @Override
     public int getItemCount() {

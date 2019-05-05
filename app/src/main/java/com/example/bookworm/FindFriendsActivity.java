@@ -35,11 +35,6 @@ public class FindFriendsActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private String NAME;
 
-
-    // private FirebaseRecyclerAdapter<FindFriends, FindFriendsViewHolder> firebaseRecyclerAdapter;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,32 +89,26 @@ public class FindFriendsActivity extends AppCompatActivity {
         startActivity(mainintent);
     }
 
-
     private void SearchFriends(String searchBoxInput)
     {
         FirebaseRecyclerOptions<FindFriends> options=new
                 FirebaseRecyclerOptions.Builder<FindFriends>().
-                setQuery(allUserDB, FindFriends.class).build(); //query build past the query to FirebaseRecyclerAdapter
+                setQuery(allUserDB, FindFriends.class).build();
         FirebaseRecyclerAdapter<FindFriends, FindFriendViewHolder>
                 adapter=new FirebaseRecyclerAdapter<FindFriends, FindFriendViewHolder>(options)
-
         {
             @Override
             protected void onBindViewHolder(@NonNull FindFriendsActivity.FindFriendViewHolder holder, int position,
                                                     FindFriends model)
             {
                 final String Member_ID = getRef(position).getKey();
-
                 holder.username.setText(model.getFullname());
                 holder.book.setText(model.getBook());
-
-
                 holder.itemView.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v)
                     {
-
                         Intent findOthersIntent = new Intent(FindFriendsActivity.this, ProfileActivity.class);
                         findOthersIntent.putExtra("Member_ID", Member_ID);
                         startActivity(findOthersIntent);
@@ -132,7 +121,6 @@ public class FindFriendsActivity extends AppCompatActivity {
             onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
             {
                 View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.all_user_layout,viewGroup,false);
-
                 FindFriendsActivity.FindFriendViewHolder viewHolder=new FindFriendsActivity.FindFriendViewHolder(view);
                 return viewHolder;
             }

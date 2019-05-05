@@ -79,7 +79,7 @@ public class FriendsActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<MemberFriends> options=new
                 FirebaseRecyclerOptions.Builder<MemberFriends>().
-                setQuery(FriendsRef, MemberFriends.class).build(); //query build past the query to FirebaseRecyclerAdapter
+                setQuery(FriendsRef, MemberFriends.class).build();
         FirebaseRecyclerAdapter<MemberFriends,FriendsViewHolder>
                 adapter=new FirebaseRecyclerAdapter<MemberFriends, FriendsActivity.FriendsViewHolder>(options)
         {
@@ -102,7 +102,6 @@ public class FriendsActivity extends AppCompatActivity {
                             //retrieving the users fullname from (child node) the Users Database
                             holder.username.setText(Username);
                         }else {
-                            //Toast.makeText(FriendsActivity.this, "NO FRIENDS!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

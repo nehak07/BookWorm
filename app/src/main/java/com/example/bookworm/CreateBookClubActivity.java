@@ -110,7 +110,7 @@ public class CreateBookClubActivity extends AppCompatActivity implements View.On
         mFirestore.collection("Club").document(CLUBNAME).set(docData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(CreateBookClubActivity.this, "ClUB CREATED", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateBookClubActivity.this, "BOOK CLUB CREATED", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(CreateBookClubActivity.this, AllClubsActivity.class));
             }
         });

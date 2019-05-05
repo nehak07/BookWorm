@@ -209,7 +209,7 @@ public class ProfileActivity extends AppCompatActivity {
                                                           {
                                                               if(task.isSuccessful())
 
-                                                              //Removes both users IDs
+                                                              //Removes both the users IDs from the database and deletes the data
                                                               {
                                                                   FriendRequestRef.child(passUserID).child(SendUserID)
                                                                           .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {

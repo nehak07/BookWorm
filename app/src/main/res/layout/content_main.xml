@@ -29,12 +29,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/searchBar"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:visibility="gone"
-        android:textSize="20sp"
-        tools:text="NO INTERNET"
         android:layout_marginTop="70dp"
-        />
+        android:gravity="center"
+        android:textSize="20sp"
+        android:visibility="gone"
+        tools:text="NO INTERNET" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,7 +53,7 @@
             android:layout_marginTop="52dp"
             android:background="@drawable/common_google_signin_btn_text_light_normal_background"
             android:ems="10"
-            android:hint="Search For Any Book"
+            android:hint="Search for any books"
             android:inputType="textMultiLine"
             android:padding="10dp"
             android:textAlignment="center"

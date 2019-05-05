@@ -9,6 +9,8 @@ public class book implements Parcelable{
     private String imageUrl;
     private String publisher;
 
+    //Arora Bhavya, 2018, https://github.com/bhavya-arora/BookListingApp Accessed on 18th March 2019
+
     public book(String title, String author, String infoUrl, String imageUrl, String publisher){
         this.title = title;
         this.author = author;

@@ -123,13 +123,10 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
 
     @Override
     public void onNoteClick(int position) {
-        System.out.println("onClickNote: Clicked  !!" + position);
         Intent detailsIntent = new Intent (getActivity(), BookDetailsActivity.class);
-        Log.d("TESTING",String.valueOf(ListOfNotes.size()));
         Note clickedItem = ListOfNotes.get(position);
 
-
-        //Carry out the outfit details onto the next fragment
+        //Carry the book details onto the next Activity
 
         detailsIntent.putExtra(EXTRA_URL,clickedItem.getURL());
         detailsIntent.putExtra(EXTRA_GENRE,clickedItem.getGenres());

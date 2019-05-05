@@ -49,32 +49,25 @@ public class NoteAdapter7 extends RecyclerView.Adapter<NoteAdapter7.NoteHolder> 
             option.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    System.out.println("WOKRING hhhhhhhhhhhhh:D!!");
                     if (task.isSuccessful()) {
                         ListOfNotes.addAll(task.getResult().toObjects(Note7.class));
-                        System.out.println(ListOfNotes);
                         notifyDataSetChanged();
                     } else {
-                        System.out.println("NOT WORKING 3333333333 :(");
                     }
                 }
             });
         }
     }
 
-
-    public  ArrayList<Note7> NoteView(@NonNull ArrayList<Query> options) { //Stores the data into a list so the outfit fragment can pic up the postsion of the outfit when clicked
+    //Stores the data into a array list, so when a user clicks a book the position is picked ups
+    public  ArrayList<Note7> NoteView(@NonNull ArrayList<Query> options) {
         for (Query option : options) {
             option.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    System.out.println("WOKRING :D!!");
                     if (task.isSuccessful()) {
-                        // ListOfNotes.addAll(task.getResult().toObjects(Note.class)); //Removes the double outfit displayed!
-                        // System.out.println(ListOfNotes);
                         notifyDataSetChanged();
                     } else {
-                        System.out.println("NOT WORKING :(");
                     }
                 }
             });
@@ -86,8 +79,6 @@ public class NoteAdapter7 extends RecyclerView.Adapter<NoteAdapter7.NoteHolder> 
     @Override
     public void onBindViewHolder(@NonNull NoteHolder holder, int position) {
         holder.txt_view_ClubName.setText(ListOfNotes.get(position).getClubname());
-        //holder.txt_view_UserName.setText(ListOfNotes.get(position).getUsername());
-        //holder.txt_view_ClubDesc.setText(ListOfNotes.get(position).getClubdesc());
     }
 
     @Override
@@ -104,7 +95,6 @@ public class NoteAdapter7 extends RecyclerView.Adapter<NoteAdapter7.NoteHolder> 
     }
 
     class NoteHolder extends RecyclerView.ViewHolder{
-        //TextView txt_view_Theme;
         TextView txt_view_ClubName;
         TextView txt_view_UserName;
         TextView txt_view_ClubDesc;
@@ -124,7 +114,6 @@ public class NoteAdapter7 extends RecyclerView.Adapter<NoteAdapter7.NoteHolder> 
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION);
                         mOnNoteListener.onNoteClick(position);
-                        //System.out.println("PLEASE WORKKKKKKKKKKK" + position);
                     }
                 }
             });

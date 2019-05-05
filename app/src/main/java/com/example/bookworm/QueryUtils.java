@@ -17,23 +17,18 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Bhavya Arora on 1/10/2018.
- */
+//Arora Bhavya, 2018, https://github.com/bhavya-arora/BookListingApp Accessed on 18th March 2019
 
 public class QueryUtils {
     private static String json;
-    public static final String TAG = "bhavya";
 
     public static List<book> fetchBooksData(String url){
-        Log.i(TAG, "fetchBooksData: "+ url);
         ArrayList<book> arrayList = null;
 
         try{
             Thread.sleep(1000);
             URL Url = createUrl(url);
             json = makeHttpRequest(Url);
-
             arrayList = extractJson(json);
 
         }
@@ -110,10 +105,7 @@ public class QueryUtils {
             if(volumeInfo.has("publisher")){
                 publisher = volumeInfo.getString("publisher");
             }
-            Log.i(TAG, "extractJson: ");
-            Log.i(TAG, "extractJson: "+volumeInfo.has("authors"));
             if(volumeInfo.has("authors")){
-                Log.i(TAG, "extractJson: ");
                 JSONArray authors = volumeInfo.getJSONArray("authors");
                 author = authors.getString(0);
             }

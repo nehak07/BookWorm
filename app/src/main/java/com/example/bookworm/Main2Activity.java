@@ -48,34 +48,30 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
 
     private FirebaseAuth firebaseAuth;
 
-
-    /* Arraylist is static so that it binds with instance of class
-     * and we dont have to initialize again in else under onCreate*/
     public static ArrayList<book> bookList = null;
     private static final int BOOKS_LOADER_ID = 1;
     private EditText searchBox;
     private ProgressBar books_progressBar;
     private TextView empty_state;
 
-    public static final String TAG = "MyActivity";
 
     @Override
+    //Check to see if the user has entered text in the search box
     public Loader<List<book>> onCreateLoader(int id, Bundle args) {
         searchBox = (EditText) findViewById(R.id.searchBox);
-        ///BUT How to convert spaces
         String query = searchBox.getText().toString();
         if(query.isEmpty() || query.length() == 0){
-            searchBox.setError("Please Enter Any Book");
+            searchBox.setError("Please enter a books name");
             return new booksLoader(this, null);
         }
 
-        //WITH URI
+        //find the books matching the users requirements
         Uri baseUri = Uri.parse(bookFetchUrl);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         uriBuilder.appendQueryParameter("q", query);
 
-        //when we click om searchButton keyboard will hide
+        //once a users clicks on the search button the below code hides the keyboard
         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         searchBox.setText("");
@@ -89,7 +85,7 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
         books_progressBar.setVisibility(View.GONE);
         if(list !=null && !list.isEmpty()){
             prepareBooks(list);
-            Log.i(TAG, "onLoadFinished: ");
+
         }
         else{
             empty_state.setText("NO DATA");
@@ -99,13 +95,12 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
 
     @Override
     public void onLoaderReset(Loader<List<book>> loader) {
-        Log.i(QueryUtils.TAG, "onLoaderReset: ");
         if(adapter == null){
             return;
         }
         bookList.clear();
         adapter.notifyDataSetChanged();
-        Log.i(TAG, "onLoaderReset: " + bookList);
+
     }
 
     @Override
@@ -119,7 +114,7 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Book Details");
+        getSupportActionBar().setTitle("Book Search");
 
 
         books_progressBar = (ProgressBar) findViewById(R.id.books_progressBar);
@@ -128,7 +123,7 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
 
         empty_state = (TextView) findViewById(R.id.empty_state);
 
-        //Checking the Network State
+        //The Google API requires internet connection else a error message will appear
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         if(networkInfo == null){
@@ -144,28 +139,22 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
             bookList = new ArrayList<>();
             adapter = new BooksAdapter(this, bookList);
 
-            //log Statement
-            Log.i(TAG, "onCreate: " + bookList);
+
+
         }else {
             bookList.addAll(savedInstanceState.<book>getParcelableArrayList("booksList"));
 
-            //log statement
-            Log.i(TAG, "onCreate: under else" + bookList );
             adapter = new BooksAdapter(this, bookList);
             //this will reLoad the adapter
             adapter.notifyDataSetChanged();
 
         }
 
-
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
-        //getLoaderManager().initLoader(BOOKS_LOADER_ID, null, this);
-
 
         try {
             Glide.with(this).load(R.drawable.search).into((ImageView) findViewById(R.id.backdrop));
@@ -192,8 +181,6 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
         startActivity(mainintent);
     }
 
-
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList("booksList", bookList);
@@ -206,58 +193,17 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
         adapter.notifyDataSetChanged();
         getLoaderManager().restartLoader(BOOKS_LOADER_ID, null, this);
         getLoaderManager().initLoader(BOOKS_LOADER_ID, null, this);
-        Log.i(TAG, "searchButton: "  + bookList);
+
     }
-
-    /**
-     * Initializing collapsing toolbar
-     * Will show and hide the toolbar title on scroll
-     */
-//    private void initCollapsingToolbar() {
-//        final CollapsingToolbarLayout collapsingToolbar =
-//                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbar.setTitle(" ");
-//        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-//        appBarLayout.setExpanded(true);
-//
-//        //ERROR:  This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and
-//        // set windowActionBar to false in your theme to use a Toolbar instead.
-//
-//
-//        // hiding & showing the title when toolbar expanded & collapsed
-//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-//            boolean isShow = false;
-//            int scrollRange = -1;
-//
-//            @Override
-//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-//                if (scrollRange == -1) {
-//                    scrollRange = appBarLayout.getTotalScrollRange();
-//                }
-//                if (scrollRange + verticalOffset == 0) {
-//                    //collapsingToolbar.setTitle(getString(R.string.app_name));
-//                    isShow = true;
-//                } else if (isShow) {
-//                    collapsingToolbar.setTitle(" ");
-//                    isShow = false;
-//                }
-//            }
-//        });
-//    }
-
 
     private void prepareBooks(List<book> booksList) {
 
         bookList.addAll(booksList);
-        Log.i(TAG, "prepareBooks: " + bookList);
 
-        //notifiying the recycleradapter that data has been changed
+        //The recycler adapter needs to be notified that the data has been changed
         adapter.notifyDataSetChanged();
     }
 
-    /**
-     * RecyclerView item decoration - give equal margin around grid item
-     */
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
         private int spanCount;
@@ -294,7 +240,7 @@ public class Main2Activity extends AppCompatActivity  implements LoaderManager.L
     }
 
     /**
-     * Converting dp to pixel
+     * Converting the picture into to pixel
      */
     private int dpToPx(int dp) {
         Resources r = getResources();

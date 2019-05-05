@@ -57,11 +57,8 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Book Rating");
 
-
         final RatingBar ratingBar = (RatingBar) findViewById(R.id.rating_Bar);
-        //Button SaveRating = (Button) findViewById(R.id.btn_add);
         final TextView txt_Rate = (TextView) findViewById(R.id.txt_Rate);
-
 
         mFirestore = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -88,7 +85,6 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
             }
         });
 
-
         Intent intent = getIntent();
         imageURL = intent.getStringExtra(EXTRA_URL);
         String AUTHOR = intent.getStringExtra(EXTRA_AUTHOR);
@@ -101,14 +97,12 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
         Picasso.get().load(imageURL).fit().centerInside().into(imageView);
         textViewAuthor.setText(AUTHOR);
         textViewName.setText(NAME);
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
         if(id == android.R.id.home)
         {
             SendUserToHome();
@@ -121,7 +115,6 @@ public class RateBookActivity extends AppCompatActivity  implements View.OnClick
         Intent mainintent = new Intent(RateBookActivity.this, MyBooksActivity.class);
         startActivity(mainintent);
     }
-
 
     @Override
     public void onClick(View v) {

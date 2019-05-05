@@ -6,6 +6,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+//Arora Bhavya, 2018, https://github.com/bhavya-arora/BookListingApp Accessed on 18th March 2019
+
 public class bookListViewActivity extends AppCompatActivity {
 
     private WebView webVw =null;
@@ -15,7 +17,7 @@ public class bookListViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list_view);
 
-        String infoUrl = getIntent().getStringExtra("infoUrl");
+        String infoUrl = getIntent().getStringExtra("infoUrl"); //Gets the Google API intent from the Books Adapter java file
 
         this.webVw = (WebView) findViewById(R.id.webvw);
 
