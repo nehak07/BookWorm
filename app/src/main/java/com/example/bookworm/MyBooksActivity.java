@@ -43,7 +43,6 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     public static final String EXTRA_GENRE = "GENRE";
     public static final String EXTRA_NAME = "NAME";
     public static final String EXTRA_PRICE = "PRICE";
-    // public static final String EXTRA_CAT = "CAT";
     public static final String EXTRA_AUTHOR = "AUTHOR";
     public static final String EXTRA_BOOKURL = "BOOKURL";
 
@@ -63,7 +62,6 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
 
-
         mToolbar = findViewById(R.id.MyBooks1_Toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -73,7 +71,6 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
         getResources().getColor(R.color.color_button_clicked);
         getResources().getColor(R.color.color_button_unclicked);
 
-
         mAuth = FirebaseAuth.getInstance();
         setupRecyclerView();
 
@@ -82,15 +79,8 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
     private void setupRecyclerView() {
 
         UserId = mAuth.getCurrentUser().getUid();
-
-        // if (UserId == null) {
-
-
         Query query = notebookRef.whereEqualTo("user", UserId);
-
         ListOfOptions.add(query);
-        // }
-
 
         adapter = new NoteAdapter5(ListOfOptions);
         adapter.setOnNoteListener(this);
@@ -100,42 +90,27 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        //adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //adapter.startListening();
     }
-
 
     @Override
     public void onNoteClick(int position) {
 
-        System.out.println("onClickNote: Clicked  !!" + position);
         Intent detailsIntent = new Intent(MyBooksActivity.this, RateBookActivity.class);
-        Log.d("TESTING", String.valueOf(ListOfNotes.size()));
         Note5 clickedItem = ListOfNotes.get(position);
 
-
-        //Carry out the outfit details onto the next fragment
-
-
         detailsIntent.putExtra(EXTRA_URL, clickedItem.getURL());
-        //detailsIntent.putExtra(EXTRA_GENRE, clickedItem.getGenres());
         detailsIntent.putExtra(EXTRA_NAME, clickedItem.getName());
-        // detailsIntent.putExtra(EXTRA_PRICE, clickedItem.getPrice());
-        // detailsIntent.putExtra(EXTRA_CAT,clickedItem.getCategory());
         detailsIntent.putExtra(EXTRA_AUTHOR, clickedItem.getAuthor());
-        //detailsIntent.putExtra(EXTRA_BOOKURL, clickedItem.getWebsiteURL());
 
         startActivity(detailsIntent);
 
@@ -151,7 +126,6 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //Toast.makeText(MyBooksActivity.this, "BYEEEE", Toast.LENGTH_SHORT).show();
                         adapter.notifyItemRemoved(position);
 
                     }
@@ -159,17 +133,16 @@ public class MyBooksActivity extends AppCompatActivity implements NoteAdapter5.O
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //Toast.makeText(MyBooksActivity.this, "not working", Toast.LENGTH_SHORT).show();
                     }
                 });
 
     }
 
     @Override
-    public void onDeleteClick(int position) {
+    public void onDeleteClick(int position)
+    {
         removeItem(position);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)

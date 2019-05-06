@@ -51,9 +51,6 @@ public class EditClubDescActivity extends AppCompatActivity implements View.OnCl
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Update Book Club Info");
 
-
-
-
         mFirestore = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -131,7 +128,7 @@ public class EditClubDescActivity extends AppCompatActivity implements View.OnCl
         mFirestore.collection("Club").document(CLUBNAME).update(docData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(EditClubDescActivity.this, "Info Updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditClubDescActivity.this, "Club information updated", Toast.LENGTH_SHORT).show();
 
                 Intent intent = getIntent();
                 final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);

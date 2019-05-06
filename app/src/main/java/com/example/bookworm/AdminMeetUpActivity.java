@@ -134,7 +134,7 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
             }
         });
 
-//https://www.youtube.com/watch?v=hwe1abDO2Ag Accessed on: 18th April 2019
+//Coding With Mitch [online] https://www.youtube.com/watch?v=hwe1abDO2Ag Accessed on: 18th April 2019
 
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -142,8 +142,7 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
                 month = month +1;
                 String date = dayOfMonth + "/" + month + "/" + year;
                 mDisplayDate.setText(date);
-
-                System.out.println("onDate: date:" + year +"/" + month + "/" + dayOfMonth);
+                //System.out.println("onDate: date:" + year +"/" + month + "/" + dayOfMonth);
             }
         };
 
@@ -153,18 +152,16 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
         final String MEETINGTIME = DisplayTime.getText().toString();
         final String MEETINGDATE = mDisplayDate.getText().toString();
        final String MEETINGDESC = ClubDesc.getText().toString();
-        //String desc = Book.getText().toString();
 
         if(TextUtils.isEmpty(MEETINGTIME)){
-            Toast.makeText(this, "Please enter your favourite book name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a time for the meeting", Toast.LENGTH_SHORT).show();
         }
 
         if(TextUtils.isEmpty(MEETINGDATE)){
-            Toast.makeText(this, "Please enter your full name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a date for the meeting", Toast.LENGTH_SHORT).show();
         }
 
         else{
-
 
             FirebaseUser user = mAuth.getCurrentUser();
             String UserID = user.getUid();
@@ -185,14 +182,10 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
                     Intent detailsIntent = new Intent(AdminMeetUpActivity.this, ViewMeetingActivity.class);
 
                   detailsIntent.putExtra(EXTRA_MEETINGDESC, MEETINGDESC);
-
-                   detailsIntent.putExtra(EXTRA_MEETINGDATE, MEETINGDATE);
-
-                    detailsIntent.putExtra(EXTRA_MEETINGTIME, MEETINGTIME);
-
-                    detailsIntent.putExtra(EXTRA_CLUBNAME, CLUBNAME);
-
-                    startActivity(detailsIntent);
+                  detailsIntent.putExtra(EXTRA_MEETINGDATE, MEETINGDATE);
+                  detailsIntent.putExtra(EXTRA_MEETINGTIME, MEETINGTIME);
+                  detailsIntent.putExtra(EXTRA_CLUBNAME, CLUBNAME);
+                  startActivity(detailsIntent);
                 }
             });
 
