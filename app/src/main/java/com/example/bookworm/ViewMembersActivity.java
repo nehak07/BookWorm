@@ -15,7 +15,12 @@ import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 
+import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
+import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
+import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBDESC;
 import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
 public class ViewMembersActivity extends AppCompatActivity implements NoteAdapter10.OnNoteListener {
@@ -108,7 +113,25 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
 
     private void SendUserToHome()
     {
-        Intent intent = new Intent(ViewMembersActivity.this, BlankActivity.class);
-        startActivity(intent);
+
+        Intent intent = getIntent();
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+        final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+        final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
+        final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
+        final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+
+
+        Intent i = new Intent(ViewMembersActivity.this, BookClubMemberActivity.class);
+        i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
+        i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+        i.putExtra(EXTRA_USERNAME,USERNAME);
+        i.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
+        i.putExtra(EXTRA_MEETINGDATE,MEETINGDATE);
+        i.putExtra(EXTRA_MEETINGTIME,MEETINGTIME);
+
+        startActivity(i);
+
     }
 }

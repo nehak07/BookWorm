@@ -158,27 +158,21 @@ public class AllClubsActivity extends AppCompatActivity implements NoteAdapter7.
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
                         Intent detailsIntent = new Intent(AllClubsActivity.this, BookClubMemberActivity.class);
-
-                        detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
-                        detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
-                        detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
-                        detailsIntent.putExtra(EXTRA_NAME, NAME);
-
+                            detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
+                            detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
+                            detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
+                            detailsIntent.putExtra(EXTRA_NAME, NAME);
                         startActivity(detailsIntent);
                     }
-
                 }
             }
         });
 
-
         Intent detailsIntent = new Intent(AllClubsActivity.this, JoinClubActivity.class);
-
         detailsIntent.putExtra(EXTRA_CLUBNAME, clickedItem.getClubname());
         detailsIntent.putExtra(EXTRA_USERNAME, clickedItem.getUsername());
         detailsIntent.putExtra(EXTRA_CLUBDESC, clickedItem.getClubdesc());
         detailsIntent.putExtra(EXTRA_NAME, NAME);
-
         startActivity(detailsIntent);
 
 

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MemeberViewMeetingActivity">
+
+    <include
+        android:id="@+id/MemberMeeting_Toolbar"
+        layout="@layout/app_bar_layout"
+
+        ></include>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="397dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/Card"
+        android:paddingTop="7dp"
+        android:text="CLUB MEET UP"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="25dp"
+        android:fontFamily="Verdana"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_ClubName"
+        android:layout_width="310dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:fontFamily="Verdana"
+        android:hint="Club Name"
+        android:inputType="textPersonName"
+        android:lines="4"
+        android:maxLines="4"
+        android:textColor="@color/Black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_view_MeetingDesc"
+        android:layout_width="310dp"
+        android:layout_height="49dp"
+        android:layout_below="@+id/txt_ViewDate"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:fontFamily="Verdana"
+        android:hint="Meeting Desc"
+        android:inputType="textPersonName"
+        android:textColor="@color/Black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ViewTime" />
+
+    <TextView
+        android:id="@+id/txt_ViewDate"
+        android:layout_width="310dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txt_ClubName"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:fontFamily="Verdana"
+        android:hint="Meeting Date"
+        android:inputType="textPersonName"
+        android:textColor="@color/Black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ClubName" />
+
+    <TextView
+        android:id="@+id/txt_ViewTime"
+        android:layout_width="310dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txt_ViewDate"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:fontFamily="Verdana"
+        android:hint="Meeting Time"
+        android:inputType="textPersonName"
+        android:textColor="@color/Black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ViewDate" />
+
+
+</android.support.constraint.ConstraintLayout>

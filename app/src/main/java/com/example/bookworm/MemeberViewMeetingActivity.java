@@ -5,20 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -27,12 +21,10 @@ import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDATE;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGDESC;
 import static com.example.bookworm.AdminMeetUpActivity.EXTRA_MEETINGTIME;
 import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBDESC;
-import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
+import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 
-
-public class ViewMeetingActivity extends AppCompatActivity {
-
+public class MemeberViewMeetingActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private TextView Time, Date, Desc;
@@ -42,16 +34,17 @@ public class ViewMeetingActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("Club");
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_meeting);
+        setContentView(R.layout.activity_memeber_view_meeting);
 
-        mToolbar = (Toolbar) findViewById(R.id.ViewMeeting_Toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.MemberMeeting_Toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Admin Area");
+        getSupportActionBar().setTitle("Book Club Meeting");
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -62,8 +55,8 @@ public class ViewMeetingActivity extends AppCompatActivity {
 
         final TextView textViewClubName = findViewById(R.id.txt_ClubName);
         final TextView ViewDate = findViewById(R.id.txt_ViewDate);
-       final TextView ViewTime = findViewById(R.id.txt_ViewTime);
-       final TextView ViewDesc = findViewById(R.id.txt_view_MeetingDesc);
+        final TextView ViewTime = findViewById(R.id.txt_ViewTime);
+        final TextView ViewDesc = findViewById(R.id.txt_view_MeetingDesc);
 
 
         notebookRef.document(CLUBNAME).collection("Events")
@@ -126,7 +119,7 @@ public class ViewMeetingActivity extends AppCompatActivity {
         final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
 
-        Intent mainintent = new Intent(ViewMeetingActivity.this, BookClubAdminActivity.class);
+        Intent mainintent = new Intent(MemeberViewMeetingActivity.this, BookClubMemberActivity.class);
 
         mainintent.putExtra(EXTRA_CLUBNAME,CLUBNAME);
         mainintent.putExtra(EXTRA_MEETINGDESC,MEETINGDESC);
