@@ -48,7 +48,6 @@ public class BooksFragment extends Fragment implements NoteAdapter.OnNoteListene
     public static final String EXTRA_GENRE = "GENRE";
     public static final String EXTRA_NAME = "NAME";
     public static final String EXTRA_PRICE = "PRICE";
-   // public static final String EXTRA_CAT = "CAT";
     public static final String EXTRA_AUTHOR = "AUTHOR";
     public static final String EXTRA_BOOKURL = "BOOKURL";
     private View view;

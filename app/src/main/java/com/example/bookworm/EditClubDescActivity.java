@@ -64,9 +64,6 @@ public class EditClubDescActivity extends AppCompatActivity implements View.OnCl
         ClubState = findViewById(R.id.checkBox);
         ClubDesc = findViewById(R.id.etClubDesc);
 
-
-
-
         Intent intent = getIntent();
         final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
