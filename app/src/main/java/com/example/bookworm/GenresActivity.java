@@ -28,7 +28,7 @@ public class GenresActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Genres");
+        getSupportActionBar().setTitle("Find Self- Help Books");
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 

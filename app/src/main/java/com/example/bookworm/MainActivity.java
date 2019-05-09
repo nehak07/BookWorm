@@ -70,19 +70,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Email.requestFocus();
             return;
         }
-
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             Email.setError("Please enter a vaild email");
             Email.requestFocus();
             return;
 
         }
-
         if(password.isEmpty()){
             Password.setError("Password is required");
             Password.requestFocus();
             return;
-
         }
 
         if(Password.length()<6){
@@ -105,8 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
-
-
 
     }
 

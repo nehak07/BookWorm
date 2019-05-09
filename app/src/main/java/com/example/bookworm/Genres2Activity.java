@@ -37,7 +37,7 @@ public class Genres2Activity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Genres");
+        getSupportActionBar().setTitle("Find Self- Help Books");
 
 
         Intent intent = getIntent();
