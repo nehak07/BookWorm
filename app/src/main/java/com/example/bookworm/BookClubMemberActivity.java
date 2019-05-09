@@ -206,7 +206,7 @@ public class BookClubMemberActivity extends AppCompatActivity implements View.On
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(BookClubMemberActivity.this, ViewMembersActivity.class);
+                Intent i = new Intent(BookClubMemberActivity.this, MembersViewMembersActivity.class);
                 i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
                 i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
                 i.putExtra(EXTRA_USERNAME,USERNAME);

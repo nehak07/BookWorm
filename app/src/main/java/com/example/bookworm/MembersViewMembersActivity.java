@@ -23,8 +23,7 @@ import static com.example.bookworm.AllClubsActivity.EXTRA_CLUBNAME;
 import static com.example.bookworm.AllClubsActivity.EXTRA_USERNAME;
 import static com.example.bookworm.BlankActivity.EXTRA_NAME;
 
-public class ViewMembersActivity extends AppCompatActivity implements NoteAdapter10.OnNoteListener {
-
+public class MembersViewMembersActivity extends AppCompatActivity implements NoteAdapter10.OnNoteListener{
     private FirebaseAuth mAuth;
     private String UserId;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -43,9 +42,9 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_members);
+        setContentView(R.layout.activity_members_view_members);
 
-        mToolbar = findViewById(R.id.DisplayMembers_Toolbar);
+        mToolbar = findViewById(R.id.MemberDisplayMembers_Toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -57,9 +56,7 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
 
         mAuth = FirebaseAuth.getInstance();
         setupRecyclerView();
-
     }
-
     private void setupRecyclerView() {
 
         UserId = mAuth.getCurrentUser().getUid();
@@ -123,7 +120,7 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
         final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
 
 
-        Intent i = new Intent(ViewMembersActivity.this, BookClubAdminActivity.class);
+        Intent i = new Intent(MembersViewMembersActivity.this, BookClubMemberActivity.class);
         i.putExtra(EXTRA_CLUBNAME,CLUBNAME);
         i.putExtra(EXTRA_CLUBDESC,CLUBDESC);
         i.putExtra(EXTRA_USERNAME,USERNAME);
@@ -134,4 +131,5 @@ public class ViewMembersActivity extends AppCompatActivity implements NoteAdapte
         startActivity(i);
 
     }
+
 }
