@@ -77,7 +77,12 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
         Intent intent = getIntent();
         final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
         NAME = intent.getStringExtra(EXTRA_NAME);
-        //Toast.makeText(getApplicationContext(), NAME, Toast.LENGTH_SHORT).show();
+        final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+        final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
+        final String MEETINGDESC = intent.getStringExtra(EXTRA_MEETINGDESC);
+        final String MEETINGDATE = intent.getStringExtra(EXTRA_MEETINGDATE);
+        final String MEETINGTIME = intent.getStringExtra(EXTRA_MEETINGTIME);
+
 
         TextView textViewClubName = findViewById(R.id.txt_ClubName_detail);
 
@@ -174,6 +179,8 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
             Intent intent = getIntent();
 
             final String CLUBNAME = intent.getStringExtra(EXTRA_CLUBNAME);
+            final String CLUBDESC = intent.getStringExtra(EXTRA_CLUBDESC);
+            final String USERNAME = intent.getStringExtra(EXTRA_USERNAME);
 
             db.collection("Club").document(CLUBNAME).collection("Events").document(UserID)
                     .set(NewMember).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -185,6 +192,11 @@ public class AdminMeetUpActivity extends AppCompatActivity implements TimePicker
                   detailsIntent.putExtra(EXTRA_MEETINGDATE, MEETINGDATE);
                   detailsIntent.putExtra(EXTRA_MEETINGTIME, MEETINGTIME);
                   detailsIntent.putExtra(EXTRA_CLUBNAME, CLUBNAME);
+                    detailsIntent.putExtra(EXTRA_CLUBDESC,CLUBDESC);
+                    detailsIntent.putExtra(EXTRA_USERNAME,USERNAME);
+
+
+
                   startActivity(detailsIntent);
                 }
             });
